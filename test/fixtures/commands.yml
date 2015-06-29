@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: commands
+#
+#  id          :integer          not null, primary key
+#  name        :text
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+
+two:
+  name: MyText

@@ -1,0 +1,174 @@
+<div class="page-header">
+  <%= link_to trips_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_trip_path(@trip), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  
+</div>
+  <div class="row">
+    <div class="col-md-8">
+    <h1><%= @trip.name %></h1>
+    </div>
+    <div class="col-md-4">
+      Captain:
+      <%= small_user_badge(@trip.captain) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= @trip.description.html_safe %>
+    </div>
+    <div class="col-md-4">
+      Users:
+      <% @trip.users.each do |user| %>
+          <%= small_user_badge(user.id) %>
+      <%end%>
+    </div>
+  </div>
+
+ <h3>Pictures</h3>
+  
+  <% @trip.pictures.each_with_index do |picture,index| %>
+      <%= image_tag picture.photo.url(:med), id: index, onclick: 'initGalleryWithImage('+index.to_s+')' %>
+  <% end %>          
+ 
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  
+
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    // build items array
+    var items = [
+        <% @trip.pictures.each do |picture| %>
+        
+        {
+            src: '<%= picture.photo.url %>',
+            w: <%= picture.photo.width %>,
+            h: <%= picture.photo.height %>,
+            title: '<%= picture.photo.name %>',
+            author: '<%= picture.user.nickname %>'
+        },
+        <% end %>
+        
+    ];
+
+      
+
+// Initializes and opens PhotoSwipe
+function initGalleryWithImage(id) {
+      // define options (if needed)
+      var options = {
+          // optionName: 'option value'
+          // for example:
+          index: id // start at first slide
+      };
+  var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+  gallery.init();
+}
+
+
+//$(document).ready(function() {
+//    openPhotoSwipe();
+//});
+
+</script>

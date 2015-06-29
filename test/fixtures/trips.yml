@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: trips
+#
+#  id                 :integer          not null, primary key
+#  name               :string
+#  description        :text
+#  captain            :integer
+#  route_id           :integer
+#  place_id           :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  cover_file_name    :string
+#  cover_content_type :string
+#  cover_file_size    :integer
+#  cover_updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  captain: 1
+
+two:
+  name: MyString
+  description: MyText
+  captain: 1

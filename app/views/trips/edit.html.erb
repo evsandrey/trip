@@ -1,0 +1,208 @@
+
+
+<div class="page-header">
+  <%= link_to trips_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @trip, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing trip</h1>
+</div>
+
+<div class="edit-tabs">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#main">Main</a></li>
+        <li><a data-toggle="tab" href="#pictures">Pictures</a></li>
+        <li><a data-toggle="tab" href="#picturesadd">Add Pictures</a></li>
+        <li><a data-toggle="tab" href="#usersadd">Add explorers</a></li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown for someshit <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
+                <li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="main" class="tab-pane fade in active">
+            <div class="container top-buffer">
+            <%= form_for(@trip, html: { class: "form-horizontal", role: "form" }) do |f| %>
+              <% if @trip.errors.any? %>
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h4>
+
+                  <ul>
+                  <% @trip.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+                 
+              <div class="form-group">
+                <%= f.label :name, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :captain, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                <%= autocomplete_field_tag 'captain', User.find(@trip.captain).nickname, autocomplete_user_nickname_users_path,:id_element => '#trip_captain' %>
+                  <%= f.number_field :captain, class: "hidden" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :cover, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                <%= image_tag @trip.cover.url, :class => 'img-rounded avatar-profile' %>
+                <%= f.file_field :cover %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :description, class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                  
+                  <%= f.text_area :description, :class => "tinymce", :rows => 30, :cols => 120 %>
+                  <%= tinymce %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
+            </div> 
+        </div>
+        <div id="pictures" class="tab-pane fade">
+        <div class="container top-buffer">
+            <h3>Pictures</h3>
+            <% @trip.pictures.each do |picture| %>
+              <div id="img<%= picture.id %>">  
+                <%= image_tag picture.photo.url(:med) %> 
+                <p  onclick="delete_picture(<%= picture.id %>)" >Delete</p>
+              </div>
+            <% end %>
+        </div>
+        </div>
+        <div id="usersadd" class="tab-pane fade">
+        <div class="container top-buffer">
+            <%= form_for(@trip, html: { class: "form-horizontal", role: "form" }) do |f| %>
+                <%= autocomplete_field_tag 'user', "Start typing user nickname", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
+                <%= number_field_tag "trip_user", class: "hidden" %>
+                <a onclick="add_user(<%= @trip.id %>,$('#trip_user').val())">Add</a>
+            <% end%>
+        <div id="new_users">
+          
+        </div>
+        <% @trip.users.each do |user| %>
+          <%= small_user_badge(user.id) %>
+        <%end%>
+
+        </div>
+        </div>
+        
+        <div id="picturesadd" class="tab-pane fade"> 
+        <div class="container top-buffer">
+          <script language="javascript" type="text/javascript" src="//cdn.jsdelivr.net/jquery.fileupload/9.5.7/js/jquery.fileupload.js"></script>
+          <script language="javascript" type="text/javascript" src="//cdn.jsdelivr.net/jquery.fileupload/9.5.7/js/jquery.fileupload-process.js"></script> 
+          <form id ="fileupload" multipart="true" >
+          <span class="btn btn-success fileinput-button">
+                  <%= token_tag %>
+                  <i class="glyphicon glyphicon-plus"></i>
+                  <span>Add files...</span>
+                  <input  type="text" value="<%=@trip.id%>" name="trip_id" class="hidden" />
+                  <input  type="text" value="<%=current_user.id%>" name="user_id" class="hidden" />
+                  <!-- The file input field used as target for the file upload widget -->
+                  <input  type="file" name="files[]" multiple="multiple" />
+              </span>
+              <br>
+              <br>
+              <!-- The global progress bar -->
+              <div id="progress" class="progress">
+                  <div class="progress-bar progress-bar-success"></div>
+              </div>
+              <!-- The container for the uploaded files -->
+              <div id="files" class="files"></div>
+              <table id="uploadedTable" role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+  $(function() {
+    var url = '/pictures';
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                tbody = $("#uploadedTable tbody")[0];
+                tr = tbody.insertRow(-1);
+                var td = document.createElement('td');
+                td.innerHTML = file.name;
+                var tdimg = document.createElement('td');
+                tdimg.innerHTML = '<img id="'+ file.id +'" src="'+file.url+'" />'
+                tr.appendChild(tdimg);
+                tr.appendChild(td);
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('enabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'enabled');
+   
+  });
+  function delete_picture(id) 
+    {
+      $.ajax({
+          type:'delete',
+          dataType: 'script',
+          url: "/pictures/"+id,
+          data: "id="+id
+       })
+      .always(function(xhr,textStatus) {
+              id="#img"+id;
+              $(id).hide();
+        });
+       
+    }
+    function add_user(tripid,userid) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/add_user_path.js",
+          data: { trip_id: tripid, trip_user_id: userid }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#new_users").append(r.responseText);  
+        } else {
+          alert("User allready in group");
+        }
+        
+      });
+
+       
+    }
+</script>
+
+
+
+
+

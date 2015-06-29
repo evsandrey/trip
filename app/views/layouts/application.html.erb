@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Starter Template for Bootstrap</title>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js" %>
+  <![endif]-->
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
+  <%= tinymce_assets %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Название</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="/trips">Поездки</a></li>
+        <li><a href="/routes">Маршруты</a></li>
+        <li><a href="/places">places</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Вложено <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search" accept-charset="UTF-8" action="/rigs/search" id="rig_search" method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <div class="form-group">
+          <input type="text" id="q_name_cont" name="q[name_cont]" data-autocomplete="/rigs/autocomplete_rig_name" class="form-control search" placeholder="Ищем тут">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+             <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag(current_user.avatar.url(:menu),:class => "header-thumb img-circle")%> <%= current_user.nickname %>  <span class="caret"></span></a>         
+          <ul class="dropdown-menu" role="menu" >
+            <li><%= link_to "Show profile", current_user %></li>
+            <li><%= link_to "Edit profile", edit_user_registration_path %></li> 
+            <li><%= link_to raw('Log out <i class="fa fa-sign-out"></i>'), destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </li>
+        <% else %>
+          <li><%= link_to "Registration", new_user_registration_path %></li>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        
+      <% end %>
+        
+        
+        
+        
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>  
+</header>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+  </div>
+</body>
+</html>
