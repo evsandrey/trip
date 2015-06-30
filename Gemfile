@@ -71,6 +71,6 @@ gem 'rails4-autocomplete'
 
 # Heroku gems
 group :production do
-  gem 'thin'
+  gem 'unicorn'
   gem 'rails_12factor'
 end
