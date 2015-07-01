@@ -14,22 +14,22 @@ default: &default
 development:
   <<: *default
   database: trip_development
-  username: postgres
-  password: 1q2w3e$R%T^Y
+  username: trip
+  password: 1q2w3e
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: trip_test
+  database: trip_development
   pool: 5
-  username: postgres
-  password: 1q2w3e$R%T^Y
+  username: trip
+  password: 1q2w3e
 
 production:
   adapter: postgresql
-  database: trip_production
+  database: trip_development
   encoding: UTF8
   host: localhost
   username: postgres

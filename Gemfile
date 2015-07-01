@@ -67,6 +67,13 @@ gem 'tinymce-rails'
 
 #Autocomplete gem
 
+#datetime gems
+
+gem 'momentjs-rails', '~> 2.9'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
+
+#Autocomplete gem
 gem 'rails4-autocomplete'
 
 gem 'capistrano', '~> 3.1.0'

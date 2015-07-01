@@ -14,6 +14,9 @@
 #  cover_content_type :string
 #  cover_file_size    :integer
 #  cover_updated_at   :datetime
+#  sdesc              :text
+#  sdate              :datetime
+#  edate              :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

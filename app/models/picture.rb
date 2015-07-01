@@ -12,6 +12,7 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  photo_meta         :text
 #
 
 class Picture < ActiveRecord::Base
@@ -19,7 +20,7 @@ class Picture < ActiveRecord::Base
 	belongs_to :trip
 	
     has_attached_file :photo,
-	  	styles: {thumb: "50x50#", med: "300x300#"},
+	  	styles: { med: "150x150#"},
 	  	:path => "trip-site/:attachment/:id/:style.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")

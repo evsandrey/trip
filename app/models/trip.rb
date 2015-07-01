@@ -14,6 +14,9 @@
 #  cover_content_type :string
 #  cover_file_size    :integer
 #  cover_updated_at   :datetime
+#  sdesc              :text
+#  sdate              :datetime
+#  edate              :datetime
 #
 
 class Trip < ActiveRecord::Base
