@@ -29,3 +29,8 @@ test:
 
 production:
   adapter: postgresql
+  database: trip_production
+  encoding: UTF8
+  host: localhost
+  username: postgres
+  password: 1q2w3e$R%T^Y
