@@ -7,24 +7,35 @@
 </div>
 
 
-<% @trips.each do |trip| %>
-    <div class="row carousel-row">
-        <div class="col-xs-8 col-xs-offset-2 slide-row">
-            <img src="<%= trip.cover.url(:med) %>" height="150" width="150" alt="Image">
-            <div class="slide-content">
-                <h4><%= link_to trip.name, trip %></h4>
-                <p>
-                    <%= trip.sdesc %>
-                </p>
-            </div>
-            <div class="slide-footer">
-                <span class="pull-right buttons">
-                     <%= link_to 'Show', trip %>
-                    
-                </span>
-            </div>
+<% @trips.each_slice(4) do |trips| %>
+        <div class="row">
+        <ul class="thumbnails list-unstyled">       
+            <% trips.each do |trip| %>
+              <li class="col-md-3">
+                <div class="thumbnail" style="padding: 0">
+                  <div style="padding:4px">
+                      <%= link_to image_tag(trip.cover.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trip %>
+                  </div>
+                  <div class="caption">
+                      <h2><%= link_to trip.name, trip %></h2>
+                      <p><%= truncate(trip.sdesc,length: 100) %></p>
+                      <p><i class="icon icon-map-marker"></i> Place, Country</p>
+                  </div>
+                  <div class="modal-footer" style="text-align: left">
+                  <div class="row">
+                    <div class="col-md-4"><b><%= trip.users.count+1 %></b><br/><small>Users</small></div>
+                    <div class="col-md-4"><b>400</b><br/><small>&&&&&</small></div>
+                    <div class="col-md-4"><b>18</b><br/><small>DAYS</small></div>
+                  </div>
+                  <%= link_to 'Show', trip %>
+                  </div>
+                </div>  
+              </li>
+            <% end %>
+        </ul>  
         </div>
-    </div>
+                    
+    
 <% end %>
 
 

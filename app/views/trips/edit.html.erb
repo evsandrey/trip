@@ -116,7 +116,7 @@
             <h3>Pictures</h3>
             <% @trip.pictures.each do |picture| %>
               <div id="img<%= picture.id %>">  
-                <%= image_tag picture.photo.url(:med) %> 
+                <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %> 
                 <p  onclick="delete_picture(<%= picture.id %>)" >Delete</p>
               </div>
             <% end %>
