@@ -80,7 +80,7 @@ class PicturesController < ApplicationController
         name: picture.photo_file_name.to_s,
         type: picture.photo_content_type.to_s,
         size: picture.photo_file_size.to_s,
-        url:  @picture.photo.url(:thumb).to_s
+        url:  @picture.photo.url(:med).to_s
       }
     ]
   }
