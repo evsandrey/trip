@@ -83,8 +83,8 @@
                 <%= f.label 'Short', class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                   
-                  <%= f.text_area :sdesc  %>
-                  <%= tinymce %>
+                  <%= f.text_field :sdesc  %>
+                  
                 </div>
               </div>
               <div class="form-group">
@@ -96,7 +96,7 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <%= f.submit class: "btn btn-primary" %>
+                  <button class="btn btn-primary" onclick="SubmitForm();">Save</button> 
                 </div>
               </div>
             <% end %>
@@ -106,7 +106,7 @@
         <div class="container top-buffer">
             <h3>Pictures</h3>
             <% @trip.pictures.each do |picture| %>
-              <div id="img<%= picture.id %>">  
+              <div class="thumbnail"> id="img<%= picture.id %>" >  
                 <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %> 
                 <p  onclick="delete_picture(<%= picture.id %>)" >Delete</p>
               </div>
@@ -230,9 +230,17 @@
         }
         
       });
-
+    
        
-    }
+    };
+
+    function SubmitForm() {
+        tinyMCE.triggerSave();
+        var text = tinyMCE.get('trip_description').getContent({format : 'raw'});
+        $("textarea[name='trip[description]']").val(text);
+        tinyMCE.triggerSave();
+        $('#edit_trip_<%= @trip.id %>').submit();
+    };
 </script>
 
 
