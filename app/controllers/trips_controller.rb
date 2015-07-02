@@ -73,7 +73,7 @@ class TripsController < ApplicationController
       @trip.users << @user 
          if @trip.save
             respond_to do |format|
-              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+              format.js { render partial: "shared/smallbadge", locals: { user: @user.id } }
             end
           end
       else
