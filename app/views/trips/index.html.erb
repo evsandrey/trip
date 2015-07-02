@@ -25,7 +25,9 @@
                   <div class="row">
                     <div class="col-md-4"><b><%= trip.users.count+1 %></b><br/><small>Users</small></div>
                     <div class="col-md-4"><b>400</b><br/><small>&&&&&</small></div>
-                    <div class="col-md-4"><b>18</b><br/><small>DAYS</small></div>
+                    <% beginDate = Date.strptime(trip.sdate,"%m/%d/%Y") %>
+                    <% endDate = Date.strptime(trip.edate,"%m/%d/%Y") %>
+                    <div class="col-md-4"><b><%= (endDate-beginDate).to_i %></b><br/><small>DAYS</small></div>
                   </div>
                   <%= link_to 'Show', trip %>
                   </div>

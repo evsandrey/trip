@@ -11,7 +11,7 @@
 </div>
   <div class="row">
     <div class="col-md-8">
-    <h1><%= @trip.name %> <%=link_to "Pictures" , trip_pictures_path(@trip) %></h1>
+    <h1><%= @trip.name %> </h1>
     </div>
     <div class="col-md-4">
       <h5>Captain:</h5>
@@ -32,7 +32,19 @@
     </div>
   </div>
   <div class="row">
+  
     <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-3 thumbnail">
+          <%=link_to "Pictures" , trip_pictures_path(@trip) %>
+        </div>
+        <div class="col-md-3 thumbnail">
+          Place or route
+        </div>
+        <div class="col-md-3 thumbnail">
+          <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_formatted_s %> - <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_formatted_s %> 
+        </div>
+      </div>
       <%= @trip.description.html_safe %>
     </div>
     <div class="col-md-4">
