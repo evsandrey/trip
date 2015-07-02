@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701161846) do
+ActiveRecord::Schema.define(version: 20150702102133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150701161846) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.text     "sdesc"
-    t.datetime "sdate"
-    t.datetime "edate"
+    t.string   "sdate"
+    t.string   "edate"
   end
 
   create_table "users", force: :cascade do |t|
