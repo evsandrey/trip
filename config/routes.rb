@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
 
+  resources :trips do
+    resources :pictures
+  end
 
   # You can have the root of your site routed with "root"
    root 'index#index'

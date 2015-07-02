@@ -65,7 +65,9 @@ gem 'photoswipe-rails'
 #wysiwyg gem
 gem 'tinymce-rails'
 
-#Autocomplete gem
+#paginate gem
+
+gem 'will_paginate-bootstrap'
 
 #datetime gems
 
@@ -75,6 +77,7 @@ gem 'simple_form'
 
 #Autocomplete gem
 gem 'rails4-autocomplete'
+# deploy gems
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
