@@ -13,6 +13,8 @@
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
 #  photo_meta         :text
+#  lat                :decimal(10, 6)
+#  lng                :decimal(10, 6)
 #
 
 require 'test_helper'

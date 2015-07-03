@@ -61,6 +61,7 @@ gem 'paperclip', '4.2'
 gem 'paperclip-meta'
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'photoswipe-rails'
+gem 'exifr'
 
 #wysiwyg gem
 gem 'tinymce-rails'

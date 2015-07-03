@@ -13,9 +13,14 @@
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
 #  photo_meta         :text
+#  lat                :decimal(10, 6)
+#  lng                :decimal(10, 6)
 #
 
 class Picture < ActiveRecord::Base
+	
+	@exif_date_format = '%Y:%m:%d %H:%M:%S'
+	
 	belongs_to :user
 	belongs_to :trip
 	
@@ -25,5 +30,20 @@ class Picture < ActiveRecord::Base
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
-  	
+
+	after_photo_post_process  :post_process_photo 
+
+	def post_process_photo
+	  imgfile = EXIFR::JPEG.new(photo.queued_for_write[:original].path)
+	  return unless imgfile
+	  if !imgfile.gps.nil? 
+	  	self.lat = imgfile.gps.latitude
+	  	self.lng = imgfile.gps.longitude	
+	  end
+	  if !imgfile.date_time.nil? 
+	  	self.created_at = imgfile.date_time
+	  end
+
+
+  	end
 end
