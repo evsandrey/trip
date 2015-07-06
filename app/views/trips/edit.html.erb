@@ -117,7 +117,7 @@
         <div class="container top-buffer">
             
                 <%= autocomplete_field_tag 'user', "Start typing user nickname", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
-                <%= number_field_tag "trip_user", class: "hidden" %>
+                <%= number_field_tag "trip_user", nil, class: "hidden" %>
                 <a onclick="add_user(<%= @trip.id %>,$('#trip_user').val())">Add</a>
             
         <div id="new_users" class="container" >
