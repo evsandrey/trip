@@ -42,7 +42,9 @@
           Place or route
         </div>
         <div class="col-md-3 thumbnail">
-           
+          <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
+           <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_formatted_s %> - <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_formatted_s %>
+          <% end %> 
         </div>
       </div>
       <%= @trip.description.html_safe %>

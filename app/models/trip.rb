@@ -28,6 +28,8 @@ class Trip < ActiveRecord::Base
 	validates :captain, :presence => true
 	validates :description, :presence => true
 	validates :name, :presence => true
+	validates :sdate, :presence => true
+	validates :edate, :presence => true
 
 
 	has_attached_file :cover,
