@@ -25,6 +25,11 @@ class Trip < ActiveRecord::Base
 	has_one :place
 	has_many :pictures
 
+	validates :captain, :presence => true
+	validates :description, :presence => true
+	validates :name, :presence => true
+
+
 	has_attached_file :cover,
 	  	styles: {thumb: "50x50#", med: "300x300#"},
 	  	:path => "trip-site/trip:attachment/:id/:style.:extension",
