@@ -120,7 +120,7 @@
                 <%= number_field_tag "trip_user", nil, class: "hidden" %>
                 <a onclick="add_user(<%= @trip.id %>,$('#trip_user').val())">Add</a>
             
-        <div id="new_users" class="container" >
+        <div id="new_users" class="container top-buffer" >
           
         </div>
         <% @trip.users.each do |user| %>
