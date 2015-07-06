@@ -115,12 +115,12 @@
         </div>
         <div id="usersadd" class="tab-pane fade">
         <div class="container top-buffer">
-            <%= form_for(@trip, html: { class: "form-horizontal", role: "form" }) do |f| %>
+            
                 <%= autocomplete_field_tag 'user', "Start typing user nickname", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
                 <%= number_field_tag "trip_user", class: "hidden" %>
                 <a onclick="add_user(<%= @trip.id %>,$('#trip_user').val())">Add</a>
-            <% end%>
-        <div id="new_users">
+            
+        <div id="new_users" class="container" >
           
         </div>
         <% @trip.users.each do |user| %>
