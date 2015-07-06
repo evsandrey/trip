@@ -22,17 +22,7 @@
                       <p><i class="icon icon-map-marker"></i> Place, Country</p>
                   </div>
                   <div class="modal-footer" style="text-align: left">
-                  <div class="row">
-                    <div class="col-md-4"><b><%= trip.users.count+1 %></b><br/><small>Users</small></div>
-                    <div class="col-md-4"><b>400</b><br/><small>&&&&&</small></div>
-                    <% if !trip.sdate.nil? & !trip.edate.nil? %>
-                    <% beginDate = Date.strptime(trip.sdate,"%m/%d/%Y") %>
-                    <% endDate = Date.strptime(trip.edate,"%m/%d/%Y") %>
-                    <div class="col-md-4"><b><%= (endDate-beginDate).to_i %></b><br/><small>DAYS</small></div>
-                    <% else %>
-                    <div class="col-md-4"><b>?</b><br/><small>DAYS</small></div>
-                    <% end %>
-                  </div>
+                  
                   <%= link_to 'Show', trip %>
                   </div>
                 </div>  
