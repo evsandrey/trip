@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fish
   resources :places
   resources :routes
   resources :trips
