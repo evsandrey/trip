@@ -1,0 +1,31 @@
+<div class="page-header">
+  <%= link_to new_bait_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Bait
+  <% end %>
+  <h1>Listing baits</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @baits) do |bait| %>
+            <td><%= bait.name %></td>
+            <td><%= bait.description %></td>
+            <td><%= link_to 'Show', bait %></td>
+        <td><%= link_to 'Edit', edit_bait_path(bait) %></td>
+        <td><%= link_to 'Destroy', bait, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

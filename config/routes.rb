@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :baits
   resources :trophies
   resources :fish
   resources :places
