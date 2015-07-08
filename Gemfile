@@ -51,7 +51,7 @@ gem 'pg', '~> 0.18.2'
 
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'jquery-ui-rails'
-
+gem 'bootstrap-material-design'
 #User and auth gems
 
 gem 'devise', '~> 3.4.0'
