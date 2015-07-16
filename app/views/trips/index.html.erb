@@ -19,9 +19,9 @@
                   <div class="caption">
                       <h2><%= link_to trip.name, trip %></h2>
                       <% if !trip.place.nil? %>
-                        <p><i class="icon icon-map-marker"></i> <%= link_to trip.place.name, trip.place %></p>
+                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= link_to trip.place.name, trip.place %></p>
                       <%else%>
-                        <p><i class="icon icon-map-marker"></i> Место не выбрано %></p>
+                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                       <% end %>
                   </div>
                   <div class="modal-footer" style="text-align: left">
