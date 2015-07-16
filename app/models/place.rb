@@ -14,6 +14,7 @@
 #
 
 class Place < ActiveRecord::Base
+	has_many :trips
 	has_attached_file :pcover,
 	  	styles: { med: "150x150#"},
 	  	:path => "trip-site/places/:attachment/:style/:id.:extension",

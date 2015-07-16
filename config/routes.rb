@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :baits
   resources :trophies
   resources :fish
-  resources :places
+  resources :places do  
+    get :autocomplete_place_name, on: :collection
+  end
   resources :routes
   resources :trips
   resources :commands
@@ -16,7 +18,8 @@ Rails.application.routes.draw do
   end
 
   post "add_user_path", to: "trips#add_user"
-
+  post "select_place_path", to: "trips#select_place"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   

@@ -83,6 +83,23 @@ class TripsController < ApplicationController
       end
   end
 
+  def select_place
+     @trip = Trip.find(params[:trip_id])
+     @place = Place.find(params[:trip_place_id])
+     if @trip.place!=@place
+      @trip.place = @place 
+         if @trip.save
+            respond_to do |format|
+              format.js { render partial: "shared/smallplace", locals: { place: @place.id } }
+            end
+          end
+      else
+        respond_to do |format|
+          format.js { render "error", :text => "exist" }
+        end
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip

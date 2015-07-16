@@ -35,13 +35,13 @@
   
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-3 thumbnail">
+        <div class="col-md-3 ">
           <%=link_to image_tag("/icon-album.jpeg", :border=>0), trip_pictures_path(@trip) %>
         </div>
-        <div class="col-md-3 thumbnail">
+        <div class="col-md-3 ">
           Place or route
         </div>
-        <div class="col-md-3 thumbnail">
+        <div class="col-md-3 ">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_formatted_s %> - <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_formatted_s %>
           <% end %> 

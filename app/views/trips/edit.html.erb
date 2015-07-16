@@ -18,6 +18,7 @@
         <li><a data-toggle="tab" href="#pictures">Pictures</a></li>
         <li><a data-toggle="tab" href="#picturesadd">Add Pictures</a></li>
         <li><a data-toggle="tab" href="#usersadd">Add explorers</a></li>
+        <li><a data-toggle="tab" href="#place">Select place</a></li>
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown for someshit <b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -116,13 +117,14 @@
         <div id="usersadd" class="tab-pane fade">
         <div class="container top-buffer">
             
-                <%= autocomplete_field_tag 'user', "Start typing user nickname", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
+                <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
                 <%= number_field_tag "trip_user", nil, class: "hidden" %>
-                <a onclick="add_user(<%= @trip.id %>,$('#trip_user').val())">Add</a>
+                <button onclick="add_user(<%= @trip.id %>,$('#trip_user').val())" class="btn-primary">Add</button>
             
         <div id="new_users" class="container top-buffer" >
           
         </div>
+        
         <% @trip.users.each do |user| %>
           <table>
             <tr>
@@ -138,8 +140,33 @@
             
           </table>
         <%end%>
-
+        
         </div>
+        
+        
+        </div>
+        <div id="place" class="tab-pane fade">
+          <div class="container top-buffer">
+                
+                    <%= autocomplete_field_tag 'place', "", autocomplete_place_name_places_path,:id_element => '#trip_place' %>
+                    <%= number_field_tag "trip_place", nil, class: "hidden" %>
+                    <button onclick="select_place(<%= @trip.id %>,$('#trip_place').val())" class="btn-primary" >Add</button>
+                
+            <div id="place_selected" class="container top-buffer" >
+              <table>
+              <tr>
+                <td >
+                  <a class="pull-left" href="<%= place_path(@trip.place.id) %>">
+                            <img class="media-object dp img-circle" src="<%= @trip.place.pcover.url(:thumb) %>" style="width: 50px;height:50px;">
+                        </a>
+                    </td>
+                <td>
+                  <h4>&nbsp;&nbsp;<%=link_to @trip.place.name, @trip.place %></h4>
+                </td>
+              </tr>
+            </table>
+            </div>
+          </div>
         </div>
         
         <div id="picturesadd" class="tab-pane fade"> 
@@ -227,6 +254,26 @@
           $("#new_users").append(r.responseText);  
         } else {
           alert("User allready in group");
+        }
+        
+      });
+    
+       
+    };
+    function select_place(tripid,userid) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/select_place_path.js",
+          data: { trip_id: tripid, trip_place_id: userid }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#place_selected").contents().remove();
+          $("#place_selected").append(r.responseText);  
+        } else {
+          alert("This place allready selected");
         }
         
       });

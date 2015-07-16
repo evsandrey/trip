@@ -22,7 +22,7 @@
 class Trip < ActiveRecord::Base
 	has_and_belongs_to_many :users, :uniq => true, :join_table => :users_trips
 	has_one :route
-	has_one :place
+	belongs_to :place
 	has_many :pictures
 
 	validates :captain, :presence => true
