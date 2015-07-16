@@ -119,7 +119,7 @@
             
                 <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#trip_user' %>
                 <%= number_field_tag "trip_user", nil, class: "hidden" %>
-                <button onclick="add_user(<%= @trip.id %>,$('#trip_user').val())" class="btn-primary">Add</button>
+                <button onclick="add_user(<%= @trip.id %>,$('#trip_user').val())" class="btn btn-primary">Add</button>
             
         <div id="new_users" class="container top-buffer" >
           
@@ -150,7 +150,7 @@
                 
                     <%= autocomplete_field_tag 'place', "", autocomplete_place_name_places_path,:id_element => '#trip_place' %>
                     <%= number_field_tag "trip_place", nil, class: "hidden" %>
-                    <button onclick="select_place(<%= @trip.id %>,$('#trip_place').val())" class="btn-primary" >Add</button>
+                    <button onclick="select_place(<%= @trip.id %>,$('#trip_place').val())" class="btn btn-primary" >Add</button>
                 
             <div id="place_selected" class="container top-buffer" >
               <% if !@trip.place.nil? %>  
