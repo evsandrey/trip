@@ -153,6 +153,7 @@
                     <button onclick="select_place(<%= @trip.id %>,$('#trip_place').val())" class="btn-primary" >Add</button>
                 
             <div id="place_selected" class="container top-buffer" >
+              <% if !@trip.place.nil? %>  
               <table>
               <tr>
                 <td >
@@ -165,6 +166,7 @@
                 </td>
               </tr>
             </table>
+            <%end%>
             </div>
           </div>
         </div>
