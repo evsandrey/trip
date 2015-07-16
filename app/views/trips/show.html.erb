@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-3 ">
           <% if !@trip.place.nil? %>
-          <%= link_to image_tag(@trip.place.pcover.url(:thumb), size: "100x100", alt: @trip.place.name ), @trip.place %>
+          <%= link_to image_tag(@trip.place.pcover.url(:med), size: "100x100", alt: @trip.place.name ), @trip.place %>
           <% else %>
            Place not selected
           <% end %>
