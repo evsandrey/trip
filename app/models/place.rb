@@ -16,7 +16,7 @@
 class Place < ActiveRecord::Base
 	has_many :trips
 	has_attached_file :pcover,
-	  	styles: { med: "150x150#"},
+	  	styles: { thumb: "50x50#", med: "150x150#"},
 	  	:path => "trip-site/places/:attachment/:style/:id.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
