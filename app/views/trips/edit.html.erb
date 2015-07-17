@@ -15,17 +15,12 @@
 <div class="edit-tabs">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#main">Main</a></li>
-        <li><a data-toggle="tab" href="#pictures">Pictures</a></li>
-        <li><a data-toggle="tab" href="#picturesadd">Add Pictures</a></li>
-        <li><a data-toggle="tab" href="#usersadd">Add explorers</a></li>
-        <li><a data-toggle="tab" href="#place">Select place</a></li>
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown for someshit <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a data-toggle="tab" href="#dropdown1">Dropdown1</a></li>
-                <li><a data-toggle="tab" href="#dropdown2">Dropdown2</a></li>
-            </ul>
-        </li>
+        <li><a data-toggle="tab" href="#pictures">Фото</a></li>
+        <li><a data-toggle="tab" href="#picturesadd">Добавить фото</a></li>
+        <li><a data-toggle="tab" href="#usersadd">Добавить участников</a></li>
+        <li><a data-toggle="tab" href="#place">Выбрать место</a></li>
+        <li><a data-toggle="tab" href="#trophy">Добавить рыбу</a></li>
+        
     </ul>
     <div class="tab-content">
         <div id="main" class="tab-pane fade in active">
@@ -170,6 +165,30 @@
             </div>
           </div>
         </div>
+
+        <div id="trophy" class="tab-pane fade">
+          <div class="container top-buffer">
+                
+                    Кто:
+                    <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#trophy_user' %>
+                    <%= number_field_tag "trophy_user", nil, class: "hidden" %>
+                    Рыба:
+                    <%= autocomplete_field_tag 'fish', "", autocomplete_fish_name_fish_index_path,:id_element => '#trophy_fish' %>
+                    <%= number_field_tag "trophy_fish", nil, class: "hidden" %>
+                    Вес:
+                    <%= number_field_tag "trophy_weight", nil %>
+                    Приманка:
+                    <%= autocomplete_field_tag 'bait', "", autocomplete_bait_name_baits_path,:id_element => '#trophy_bait' %>
+                    <%= number_field_tag "trophy_bait", nil, class: "hidden" %>
+                    
+                    <button onclick="create_trophy(<%= @trip.id %>,$('#trophy_user').val(),$('#trophy_fish').val(),$('#trophy_weight').val(),$('#trophy_bait').val())" class="btn btn-primary" >Add</button>
+                
+                   <div id="trophy_list" class="container top-buffer" >
+                      <% if !@trip.place.nil? %>  
+                      <%end%>
+                   </div>
+          </div>
+        </div>
         
         <div id="picturesadd" class="tab-pane fade"> 
         <div class="container top-buffer">
@@ -282,7 +301,26 @@
     
        
     };
-
+    function create_trophy(tripid,userid,trophy_fish,trophy_weight,trophy_bait) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/create_trophy_path.js",
+          data: { trip_id: tripid, user_id: userid, fish_id: trophy_fish, fish_weight: trophy_weight, bait_id: trophy_bait  }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#trophy_list").contents().remove();
+          $("#trophy_list").append(r.responseText);  
+        } else {
+          alert("This place allready selected");
+        }
+        
+      });
+    
+       
+    };
     function SubmitForm() {
         tinyMCE.triggerSave();
         var text = tinyMCE.get('trip_description').getContent({format : 'raw'});

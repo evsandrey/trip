@@ -1,6 +1,8 @@
 class BaitsController < ApplicationController
-  before_action :set_bait, only: [:show, :edit, :update, :destroy]
+  
+  autocomplete :bait, :name, :full => true, :extra_data => [:id]
 
+  before_action :set_bait, only: [:show, :edit, :update, :destroy]
   # GET /baits
   # GET /baits.json
   def index

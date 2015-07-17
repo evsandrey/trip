@@ -1,4 +1,6 @@
 class FishController < ApplicationController
+  autocomplete :fish, :name, :full => true, :extra_data => [:id]
+
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
 
   # GET /fish

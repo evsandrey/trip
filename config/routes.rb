@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :baits
+  resources :baits do  
+    get :autocomplete_bait_name, on: :collection
+  end
   resources :trophies
-  resources :fish
+  resources :fish do  
+    get :autocomplete_fish_name, on: :collection
+  end
   resources :places do  
     get :autocomplete_place_name, on: :collection
   end
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
 
   post "add_user_path", to: "trips#add_user"
   post "select_place_path", to: "trips#select_place"
-  
+  post "create_trophy_path", to: "trips#create_trophy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   

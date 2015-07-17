@@ -100,6 +100,27 @@ class TripsController < ApplicationController
       end
   end
 
+  def create_trophy
+     #trip_id: tripid, user_id: userid, fish_id: trophy_fish, fish_weight: trophy_weight, bait_id: trophy_bait
+     @trophy = Trophy.new()
+     @trophy.trip_id = params[:trip_id]
+     @trophy.user_id = params[:user_id]
+     @trophy.fish_id = params[:fish_id]
+     @trophy.weight = params[:fish_weight]
+     @trophy.bait_id = params[:bait_id]
+
+     if @trophy.save
+            respond_to do |format|
+              format.js { render partial: "shared/smalltrophy", locals: { trophy: @trophy.id } }
+            end
+     else
+        respond_to do |format|
+          format.js { render "error", :text => "exist" }
+        end
+     end
+     
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trip

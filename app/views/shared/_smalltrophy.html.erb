@@ -1,0 +1,18 @@
+		<% trophy = Trophy.find(trophy) %>
+
+		<table class="thumbnail">
+			<tr>
+				<td ><%= trophy.fish.name %></td>
+				<td><%= trophy.weight %></td>
+			</tr>
+			<tr>
+				<td ><%= trophy.user.nickname %></td>
+				<td>
+					<%= trophy.bait.name %>
+				</td>
+			</tr>
+		</table>   
+		            
+		                
+		                
+		

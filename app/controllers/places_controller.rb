@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   
-  autocomplete :place, :name
+  autocomplete :place, :name, :full => true, :extra_data => [:id]
   
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   # GET /places

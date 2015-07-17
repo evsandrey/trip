@@ -24,7 +24,8 @@ class Trip < ActiveRecord::Base
 	has_one :route
 	belongs_to :place
 	has_many :pictures
-
+	has_many :trophy
+	
 	validates :captain, :presence => true
 	validates :description, :presence => true
 	validates :name, :presence => true
