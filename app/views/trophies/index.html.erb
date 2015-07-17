@@ -21,7 +21,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @trophies) do |trophy| %>
-            <td><%= image_tag trophy.fish.photo.url(:thumb) %></td>
+            <td><%= image_tag trophy.fish.photo.url(:med) %></td>
             <td><%= trophy.fish.name %></td>
             <td><%= trophy.trip.name %></td>
             <td><%= trophy.weight %></td>
