@@ -17,7 +17,7 @@
                       <%= link_to image_tag(trip.cover.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trip %>
                   </div>
                   <div class="caption">
-                      <h2><%= link_to trip.name, trip %></h2>
+                      <h3><%= link_to trip.name, trip %></h3>
                       <% if !trip.place.nil? %>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= link_to trip.place.name, trip.place %></p>
                       <%else%>
