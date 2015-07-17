@@ -11,10 +11,13 @@
 #  pcover_content_type :string
 #  pcover_file_size    :integer
 #  pcover_updated_at   :datetime
+#  lat                 :decimal(10, 6)
+#  lng                 :decimal(10, 6)
 #
 
 class Place < ActiveRecord::Base
 	has_many :trips
+	
 	has_attached_file :pcover,
 	  	styles: { thumb: "50x50#", med: "100x100#"},
 	  	:path => "trip-site/places/:attachment/:style/:id.:extension",

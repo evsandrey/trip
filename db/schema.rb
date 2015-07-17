@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717094112) do
+ActiveRecord::Schema.define(version: 20150717125710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,12 +63,14 @@ ActiveRecord::Schema.define(version: 20150717094112) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "pcover_file_name"
     t.string   "pcover_content_type"
     t.integer  "pcover_file_size"
     t.datetime "pcover_updated_at"
+    t.decimal  "lat",                 precision: 10, scale: 6
+    t.decimal  "lng",                 precision: 10, scale: 6
   end
 
   create_table "routes", force: :cascade do |t|

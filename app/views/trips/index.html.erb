@@ -1,9 +1,9 @@
 <div class="page-header">
   <%= link_to new_trip_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Trip
+    Добавить
   <% end %>
-  <h1>Listing trips</h1>
+  <h1>Наши рыбалки</h1>
 </div>
 
 
@@ -26,14 +26,14 @@
                   </div>
                   <div class="modal-footer" style="text-align: left">
                   <div class="row">
-                    <div class="col-md-4"><b><%= trip.users.count+1 %></b><br/><small>Участников</small></div>
-                    <div class="col-md-4"><b>400</b><br/><small>Чего-то?</small></div>
+                    <div class="col-md-4 text-center"><b><%= trip.users.count+1 %></b><br/><small>Участников</small></div>
+                    <div class="col-md-4 text-center"><b><%= trip.trophy.count %></b><br/><small>Трофеев</small></div>
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = Date.strptime(trip.sdate,"%m/%d/%Y") %>
                     <% endDate = Date.strptime(trip.edate,"%m/%d/%Y") %>
-                    <div class="col-md-4"><b><%= (endDate-beginDate).to_i %></b><br/><small>Дней</small></div>
+                    <div class="col-md-4 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><small>Дней</small></div>
                     <% else %>
-                    <div class="col-md-4"><b>?</b><br/><small>Дней</small></div>
+                    <div class="col-md-4 text-center"><b>?</b><br/><small>Дней</small></div>
                     <% end %>
                   
                 </div>  

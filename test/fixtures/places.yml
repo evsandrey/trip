@@ -11,6 +11,8 @@
 #  pcover_content_type :string
 #  pcover_file_size    :integer
 #  pcover_updated_at   :datetime
+#  lat                 :decimal(10, 6)
+#  lng                 :decimal(10, 6)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
