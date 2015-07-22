@@ -1,6 +1,5 @@
 module ApplicationHelper
-	def small_user_badge(user_id)
-		user = User.find(user_id)
+	def small_user_badge(user)
 		render partial: "shared/smallbadge", locals: { user: user }
 	end
 end
