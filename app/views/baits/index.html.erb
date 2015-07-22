@@ -19,7 +19,7 @@
     <tbody>
       <%= content_tag_for(:tr, @baits) do |bait| %>
             <td><%= image_tag bait.photo.url(:med) %></td>
-            <td><%= bait.name %></td>
+            <td><%= link_to bait.name, bait %></td>
             <td><%= bait.description %></td>
             
       <% end %>
