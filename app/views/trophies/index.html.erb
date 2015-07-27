@@ -25,7 +25,11 @@
             <td><%= trophy.fish.name %></td>
             <td><%= trophy.trip.name %></td>
             <td><%= trophy.weight %></td>
-            <td><%= trophy.user.nickname %></td>
+            <% if !trophy.user.nil? %>
+              <td><%= trophy.user.nickname %></td>
+            <% else %>
+              <td>No user</td>
+            <% end %>
             <td><%= trophy.bait.name %></td>
 
 

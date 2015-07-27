@@ -11,7 +11,12 @@
 			</tr>
 			<tr>
 				<td>
-					<small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>&nbsp;на&nbsp;<%= link_to trophy.bait.name, trophy.bait %></small>
+				<% if !trophy.user.nil? %>
+		              <small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>&nbsp;на&nbsp;<%= link_to trophy.bait.name, trophy.bait %></small>
+		            <% else %>
+		              <td>No user</td>
+		            <% end %>
+					
 				</td>
 			</tr>
 			
