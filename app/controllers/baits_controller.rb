@@ -71,6 +71,6 @@ class BaitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bait_params
-      params.require(:bait).permit(:name, :description)
+      params.require(:bait).permit(:name, :description, :photo)
     end
 end
