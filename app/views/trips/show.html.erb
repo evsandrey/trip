@@ -35,7 +35,9 @@
         </div>
         <div class="col-md-4 text-center thumbnail" style="height:100px;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
-           <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_date.Russian::strftime('%a %d %b %Y') %> <br>-<br> <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_date.Russian::strftime('%a %d %b %Y') %>
+           <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
+           <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
+           <%= Russian::strftime(startdate,'%d %b %Y') %>
           <% end %> 
         </div>
       </div>
@@ -52,7 +54,7 @@
           <%= small_user_badge(user) %>
       <%end%>
       <h4>Трофеи:</h4>
-      
+
     </div>
   </div>
 
