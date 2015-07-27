@@ -32,17 +32,17 @@
           <% if !@trip.place.nil? %>
           <%= link_to image_tag(@trip.place.pcover.url(:med), size: "100x100", alt: @trip.place.name ), @trip.place %>
           <br>
-          <%= @trip.place.name %>
+          <%= link_to @trip.place.name, @trip.place %>
           <% else %>
            Place not selected
           <% end %>
         </div>
-        <div class="col-md-4 vcenter " style="height:110px;margin:0 auto;">
+        <div class="col-md-4 text-center " style="height:110px;margin:0 auto;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
            <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
            
-           <table>
+           <table >
              <tr>
                <td width="110"><strong>Старт</strong></td>
                <td><%= Russian::strftime(startdate,'%d %b %Y') %></td>
@@ -70,8 +70,7 @@
         </div>
       </div>
       <div class="row fblock">
-        <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
-        <div class="col-md-12 container thumbnail ">
+        <div class="col-md-12 container">
             <%= @trip.description.html_safe %>
         </div>
       </div>
