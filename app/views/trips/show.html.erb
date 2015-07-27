@@ -33,23 +33,23 @@
            Place not selected
           <% end %>
         </div>
-        <div class="col-md-4 vcenter thumbnail" style="height:110px;">
+        <div class="col-md-4 vcenter thumbnail" style="height:110px;margin:0 auto;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
            <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
-           <strong>
+           
            <table>
              <tr>
-               <td width="110">Старт</td>
+               <td class="text-center" width="110"><strong>Старт</strong></td>
                <td><%= Russian::strftime(startdate,'%d %b %Y') %></td>
              </tr>
              <tr>
-               <td>Финиш</td>
+               <td class="text-center" ><strong>Финиш</strong></td>
                <td><%= Russian::strftime(enddate,'%d %b %Y') %></td>
              </tr>
            </table>
            
-           </strong>
+           
           <% end %> 
         </div>
       </div>
