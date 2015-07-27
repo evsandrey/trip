@@ -23,26 +23,26 @@
   
     <div class="col-md-8">
       <div class="row">
-        <div class="col-md-3 text-center thumbnail" >
+        <div class="col-md-4 text-center thumbnail" >
           <%=link_to image_tag("/icon-album.jpeg", :border=>0), trip_pictures_path(@trip) %>
         </div>
-        <div class="col-md-3 text-center thumbnail">
+        <div class="col-md-4 text-center thumbnail">
           <% if !@trip.place.nil? %>
           <%= link_to image_tag(@trip.place.pcover.url(:med), size: "100x100", alt: @trip.place.name ), @trip.place %>
           <% else %>
            Place not selected
           <% end %>
         </div>
-        <div class="col-md-3 text-center thumbnail">
+        <div class="col-md-4 text-center thumbnail" style="height:100%;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %> <br>-<br> <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %>
           <% end %> 
         </div>
-      <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
-      <div class="container thumbnail ">
+      </div>
+    <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
+    <div class="container thumbnail ">
         <%= @trip.description.html_safe %>
-      </div>
-      </div>
+    </div>
     </div>
     <div class="col-md-4">
       <h5>Участники:</h5>
