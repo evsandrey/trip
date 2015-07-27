@@ -19,7 +19,7 @@
     <tbody>
       <%= content_tag_for(:tr, @fish) do |fish| %>
             <td><%= image_tag fish.photo.url(:med) %></td>
-            <td><%= fish.name %></td>
+            <td><%= link_to fish.name, fish %></td>
             <td><%= fish.description %></td>
       <% end %>
     </tbody>

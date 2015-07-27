@@ -1,18 +1,21 @@
-		<% trophy = Trophy.find(trophy) %>
-
-		<table class="thumbnail">
-			<tr>
-				<td ><%= trophy.fish.name %></td>
-				<td><%= trophy.weight %></td>
-			</tr>
-			<tr>
-				<td ><%= trophy.user.nickname %></td>
+		<table class="userbadge thumbnail">
+			<tr style="height:50%;">
+				<td rowspan="2" style="width:50px;">
+					<a class="pull-left" href="<%= trophy_path(trophy.id) %>">
+		                <img class="media-object" src="<%= trophy.fish.foto.url(:thumb) %>" style="width: 50px;height:50px;">
+		            </a>
+		        </td>
 				<td>
-					<%= trophy.bait.name %>
+					<p>&nbsp;&nbsp; <%= link_to trophy.fish.name , trophy.fish %> / <%= trophy.weight %> </p>
 				</td>
 			</tr>
-		</table>   
-		            
+			<tr>
+				<td>
+					<small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>&nbsp;на&nbsp;<%= link_to trophy.bait.name, trophy.bait %></small>
+				</td>
+			</tr>
+			
+		</table>            
 		                
 		                
 		

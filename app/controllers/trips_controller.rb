@@ -111,7 +111,7 @@ class TripsController < ApplicationController
 
      if @trophy.save
             respond_to do |format|
-              format.js { render partial: "shared/smalltrophy", locals: { trophy: @trophy.id } }
+              format.js { render partial: "shared/smalltrophy", locals: { trophy: @trophy } }
             end
      else
         respond_to do |format|
