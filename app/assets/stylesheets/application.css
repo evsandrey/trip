@@ -43,3 +43,11 @@
     vertical-align: middle;
     float: none;
 }
+
+.userbadge {
+    width: 300px;
+    -webkit-box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    -moz-box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    
+}
