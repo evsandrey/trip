@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
   	styles: {menu: "20x20#", thumb: "50x50#", med: "300x300#"},
-  	:path => "trip-site/:attachment/:id/:style.:extension",
+  	:path => "trip-site/avatar/:id/:style.:extension",
     :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 

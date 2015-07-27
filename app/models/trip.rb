@@ -35,7 +35,7 @@ class Trip < ActiveRecord::Base
 
 	has_attached_file :cover,
 	  	styles: {thumb: "50x50#", med: "300x300#"},
-	  	:path => "trip-site/trip:attachment/:id/:style.:extension",
+	  	:path => "trip-site/trip/:id/:style.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/

@@ -20,7 +20,7 @@ class Place < ActiveRecord::Base
 	
 	has_attached_file :pcover,
 	  	styles: { thumb: "50x50#", med: "100x100#"},
-	  	:path => "trip-site/places/:attachment/:style/:id.:extension",
+	  	:path => "trip-site/place/:style/:id.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :pcover, :content_type => /\Aimage\/.*\Z/
