@@ -33,7 +33,7 @@
            Place not selected
           <% end %>
         </div>
-        <div class="col-md-4 text-center thumbnail" style="height:100%;">
+        <div class="col-md-4 text-center thumbnail" style="height:100px;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %> <br>-<br> <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %>
           <% end %> 
