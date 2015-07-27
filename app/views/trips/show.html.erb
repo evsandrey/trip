@@ -49,15 +49,15 @@
              </tr>
              <tr>
                <td class="text-center" ><strong>Дней</strong></td>
-               <td><%= (enddate-startdate).to_i %></td>
+               <td class="text-center"><%= (enddate-startdate).to_i %></td>
              </tr>
              <tr>
                <td class="text-center" ><strong>Участников</strong></td>
-               <td><%= @trip.users.count+1 %></td>
+               <td class="text-center"><%= @trip.users.count+1 %></td>
              </tr>
              <tr>
                <td class="text-center" ><strong>Трофеев</strong></td>
-               <td><%= @trip.trophy.count %></td>
+               <td class="text-center"><%= @trip.trophy.count %></td>
              </tr>
            </table>
            
