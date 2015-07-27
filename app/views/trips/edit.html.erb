@@ -184,8 +184,9 @@
                     <button onclick="create_trophy(<%= @trip.id %>,$('#trophy_user').val(),$('#trophy_fish').val(),$('#trophy_weight').val(),$('#trophy_bait').val())" class="btn btn-primary" >Add</button>
                 
                    <div id="trophy_list" class="container top-buffer" >
-                      <% if !@trip.place.nil? %>  
-                      <%end%>
+                      <% @trip.trophy.each do |trophy| %>
+                        <%= small_trophy_badge(trophy) %>
+                      <% end %>
                    </div>
           </div>
         </div>
@@ -311,7 +312,6 @@
       })
       .always(function(r) {
         if (r.responseText != "exist") {
-          $("#trophy_list").contents().remove();
           $("#trophy_list").append(r.responseText);  
         } else {
           alert("This place allready selected");
