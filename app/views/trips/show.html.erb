@@ -38,12 +38,11 @@
            <%= Date.strptime(@trip.sdate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %> <br>-<br> <%= Date.strptime(@trip.edate,"%m/%d/%Y").to_date.strftime('%a %d %b %Y') %>
           <% end %> 
         </div>
-      </div>
       <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
       <div class="container thumbnail ">
         <%= @trip.description.html_safe %>
       </div>
-      
+      </div>
     </div>
     <div class="col-md-4">
       <h5>Участники:</h5>
