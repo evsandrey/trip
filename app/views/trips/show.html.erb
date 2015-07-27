@@ -82,9 +82,11 @@
       <h4>Участники:</h4>
       <% @trip.users.each do |user| %>
           <%= small_user_badge(user) %>
-      <%end%>
+      <% end %>
       <h4>Трофеи:</h4>
-
+       <% @trip.trophy.each do |trophy| %>
+          <%= small_trophy_badge(trophy) %>
+        <% end %>
     </div>
   </div>
 
