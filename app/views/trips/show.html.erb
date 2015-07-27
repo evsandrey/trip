@@ -96,9 +96,9 @@
     var json_data = [
       {
         id:  1,
-        <% if !trip.place.lat.nil? %>
-          lat: <%= trip.place.lat %>,
-          lng: <%= trip.place.lng %>,
+        <% if !@trip.place.lat.nil? %>
+          lat: <%= @trip.place.lat %>,
+          lng: <%= @trip.place.lng %>,
         <% else %>
           lat: 55.7500,
           lng: 37.6167,
@@ -128,8 +128,8 @@
     });
   });
   handler.getMap().setZoom(8);
-  <% if !trip.place.lat.nil? %>
-          var centerpoint = new google.maps.LatLng(<%= trip.place.lat %>,<%= trip.place.lng %>);
+  <% if !@trip.place.lat.nil? %>
+          var centerpoint = new google.maps.LatLng(<%= @trip.place.lat %>,<%= @trip.place.lng %>);
         <% else %>
           var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
         <% end %>
