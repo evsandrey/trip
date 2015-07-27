@@ -39,10 +39,12 @@
           <% end %> 
         </div>
       </div>
-    <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
-    <div class="container thumbnail ">
-        <%= @trip.description.html_safe %>
-    </div>
+      <div class="row">
+        <div class="container">&nbsp;&nbsp; &nbsp;&nbsp; </div>
+        <div class="col-md-12 container thumbnail ">
+            <%= @trip.description.html_safe %>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
       <h5>Участники:</h5>
