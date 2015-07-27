@@ -33,14 +33,14 @@
            Place not selected
           <% end %>
         </div>
-        <div class="col-md-4 vcenter thumbnail" style="height:100px;">
+        <div class="col-md-4 vcenter thumbnail" style="height:110px;">
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
            <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
            <strong>
            <table>
              <tr>
-               <td>Старт</td>
+               <td width="110">Старт</td>
                <td><%= Russian::strftime(startdate,'%d %b %Y') %></td>
              </tr>
              <tr>
