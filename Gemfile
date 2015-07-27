@@ -93,6 +93,10 @@ gem 'capistrano-rbenv', github: "capistrano/rbenv"
 gem 'gmaps4rails'
 gem 'underscore-rails'
 
+#localization gem:
+
+gem 'russian', '~> 0.6.0'
+
 # Add this if you're using rvm
 # gem 'capistrano-rvm', github: "capistrano/rvm"
 

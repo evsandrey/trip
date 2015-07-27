@@ -14,7 +14,7 @@
     <h1><%= @trip.name %> </h1>
     </div>
     <div class="col-md-4">
-      <h5>Капитан:</h5>
+      <h4>Капитан:</h4>
       <% user = User.find(@trip.captain) %>
       <%= small_user_badge(user) %>
     </div>
@@ -47,10 +47,12 @@
       </div>
     </div>
     <div class="col-md-4">
-      <h5>Участники:</h5>
+      <h4>Участники:</h4>
       <% @trip.users.each do |user| %>
           <%= small_user_badge(user) %>
       <%end%>
+      <h4>Трофеи:</h4>
+      
     </div>
   </div>
 
