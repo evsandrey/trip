@@ -38,3 +38,8 @@
         -webkit-transform:rotate(360deg);  
         /*-webkit-font-smoothing:antialiased;*/
     }
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
