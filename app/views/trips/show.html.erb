@@ -37,9 +37,19 @@
           <% if !@trip.sdate.nil? & !@trip.edate.nil? %>
            <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
            <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
-           Старт:<%= Russian::strftime(startdate,'%d %b %Y') %>
-           <br>
-           Финиш:<%= Russian::strftime(enddate,'%d %b %Y') %>
+           <strong>
+           <table>
+             <tr>
+               <td>Старт</td>
+               <td><%= Russian::strftime(startdate,'%d %b %Y') %></td>
+             </tr>
+             <tr>
+               <td>Финиш</td>
+               <td><%= Russian::strftime(enddate,'%d %b %Y') %></td>
+             </tr>
+           </table>
+           
+           </strong>
           <% end %> 
         </div>
       </div>
