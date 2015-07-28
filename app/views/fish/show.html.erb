@@ -61,21 +61,22 @@
  var handler = Gmaps.build('Google');
   handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
     var json_data = [
-      {
+      
         <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
-
-        id:  <%= trophy.id %>,
-        <% if !trophy.lat.nil? %>
-          lat: <%= trophy.lat %>,
-          lng: <%= trophy.lng %>,
-        <% else %>
-          lat: 55.7500,
-          lng: 37.6167,
+        {
+            id:  <%= trophy.id %>,
+            <% if !trophy.lat.nil? %>
+              lat: <%= trophy.lat %>,
+              lng: <%= trophy.lng %>,
+            <% else %>
+              lat: 55.7500,
+              lng: 37.6167,
+            <% end %>
+            
+            infowindow: "www<% small_trophy_badge(trophy) %>" //this html is properly disaplayed
+        },
         <% end %>
-        
-        infowindow: "www<% small_trophy_badge(trophy) %>" //this html is properly disaplayed
-        <% end %>
-      }
+      
     ];
 
     //create draggable markers (pass google maps options aas a second arg)
