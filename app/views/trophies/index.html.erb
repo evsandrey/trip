@@ -1,41 +1,9 @@
 <div class="page-header">
   <%= link_to new_trophy_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Trophy
+    Добавить
   <% end %>
-  <h1>Listing trophies</h1>
-</div>
-
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-            <th></th>
-            <th>Рыба</th>
-            <th>Поездка</th>
-            <th>Вес</th>
-            <th>Автор</th>
-            <th>Приманка</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= content_tag_for(:tr, @trophies) do |trophy| %>
-            <td><%= image_tag trophy.fish.photo.url(:med) %></td>
-            <td><%= trophy.fish.name %></td>
-            <td><%= trophy.trip.name %></td>
-            <td><%= trophy.weight %></td>
-            <% if !trophy.user.nil? %>
-              <td><%= trophy.user.nickname %></td>
-            <% else %>
-              <td>No user</td>
-            <% end %>
-            <td><%= trophy.bait.name %></td>
-
-
-      <% end %>
-    </tbody>
-  </table>
+  <h1>Наши трофеи</h1>
 </div>
 <% @trophies.each_slice(4) do |trophies| %>
         <div class="row">
@@ -48,7 +16,7 @@
                   </div>
                   <div class="caption">
                       <h3><%= link_to trophy.fish.name, trophy %></h3>
-                      <p><%= trophy.trip.name %></p>
+                      <p><%= link_to trophy.trip.name, trophy.trip  %></p>
                       <p><%= trophy.weight %> кг.</p>
                       <% if !trophy.user.nil? %>
                         <td><%= link_to trophy.user.nickname, trophy.user %></td>

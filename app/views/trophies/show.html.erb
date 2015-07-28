@@ -7,17 +7,61 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show trophy</h1>
+  <div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2><%= @trophy.fish.name %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbframe">
+          <%= image_tag @trophy.fish.photo.url(:med) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  Название:
+                </td>
+                <td>
+                  <%= @trophy.fish.name %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Вес:
+                </td>
+                <td>
+                  <%= @trophy.weight %> кг.
+                </td>
+              </tr>  
+              <tr>
+                <td>
+                  Поездка:
+                </td>
+                <td>
+                  <%= link_to @trophy.trip.name, @trophy.trip  %>
+                </td>
+              </tr>
+            </tbody>
+           </table>
+           small_bait_badge(@trophy.bait)
+      </div>
+    </div>
+      <div class="col-md-4">
+    <div class="row"><h2>smth:</h2></div>
+      <div class="row">
+          <table class="table">
+            <tbody>
+              
+              
+              
+            </tbody>
+          </table>
+      </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Fish:</dt>
-  <dd><%= @trophy.fish_id %></dd>
-
-  <dt>Trip:</dt>
-  <dd><%= @trophy.trip_id %></dd>
-
-  <dt>Weight:</dt>
-  <dd><%= @trophy.weight %></dd>
-
-</dl>
+</div>

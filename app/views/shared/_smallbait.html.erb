@@ -1,0 +1,18 @@
+<table class="userbadge thumbnail">
+			<tr style="height:50%;">
+				<td rowspan="2" style="width:50px;">
+					<a class="pull-left" href="<%= bait_path(bait.id) %>">
+		                <img class="media-object" src="<%= bait.photo.url(:thumb) %>" style="width: 50px;height:50px;">
+		            </a>
+		        </td>
+				<td>
+					<p>&nbsp;&nbsp; <%= link_to bait.name , bait %>&nbsp;-&nbsp;<%= bait.weight %>&nbsp;г. </p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				      <small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to bait.manufacturer.name, bait.manufacturer %></small>
+				</td>
+			</tr>
+			
+		</table>  
