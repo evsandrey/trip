@@ -108,6 +108,14 @@ class TripsController < ApplicationController
      @trophy.fish_id = params[:fish_id]
      @trophy.weight = params[:fish_weight]
      @trophy.bait_id = params[:bait_id]
+     @trip = Trip.find(params[:trip_id])
+     if !@trip.place.nil? 
+      @trophy.lat = @trip.place.lat
+      @trophy.lng = @trip.place.lng
+     else
+      @trophy.lat = 55.7500
+      @trophy.lng = 37.6167
+    end
 
      if @trophy.save
             respond_to do |format|

@@ -115,10 +115,12 @@ ActiveRecord::Schema.define(version: 20150728111020) do
     t.integer  "fish_id"
     t.integer  "trip_id"
     t.float    "weight"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "user_id"
     t.integer  "bait_id"
+    t.decimal  "lat",        precision: 10, scale: 6
+    t.decimal  "lng",        precision: 10, scale: 6
   end
 
   create_table "users", force: :cascade do |t|

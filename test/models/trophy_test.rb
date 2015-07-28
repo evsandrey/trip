@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  bait_id    :integer
+#  lat        :decimal(10, 6)
+#  lng        :decimal(10, 6)
 #
 
 require 'test_helper'

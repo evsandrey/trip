@@ -39,7 +39,9 @@
       <h2>Описание</h2>
       <%= raw(@fish.description) %>
     </div>
+    <div class="row fblock" id="map" style='height: 600px;'>
   </div>
+
   <div class="col-md-4">
     <div class="row"><h2></h2></div>
       <div class="row">
@@ -54,3 +56,55 @@
   </div>
 </div>
 </div>
+
+<script type="text/javascript">
+ var handler = Gmaps.build('Google');
+  handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
+    var json_data = [
+      {
+        <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
+
+        id:  <% trophy.id %>,
+        <% if !trophy.lat.nil? %>
+          lat: <%= trophy.lat %>,
+          lng: <%= trophy.lng %>,
+        <% else %>
+          lat: 55.7500,
+          lng: 37.6167,
+        <% end %>
+        
+        infowindow: "<%= small_trophy_badge(trophy) %>" //this html is properly disaplayed
+        <% end %>
+      }
+    ];
+
+    //create draggable markers (pass google maps options aas a second arg)
+    var markers = handler.addMarkers(json_data);
+
+    //add markers to original json
+    _.each(json_data, function(json, index){
+      json.marker = markers[index];
+    });
+
+    //add dragend event to markers, triggered when you drop them
+    _.each(json_data, function(json){
+      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        console.log('Marker with id: ' + json.id + ' dropped hat lat: ' + lat + ' and lng: ' + lng)
+        document.getElementById("place_lat").value = lat;
+        document.getElementById("place_lng").value = lng;
+      });
+    });
+  });
+  handler.getMap().setZoom(8);
+  <% if !@place.nil? %>
+          var centerpoint = new google.maps.LatLng(<%= @place.lat %>,<%= @place.lng %>);
+        <% else %>
+          var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
+        <% end %>
+  handler.getMap().setCenter(centerpoint);
+
+  
+  
+</script>

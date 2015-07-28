@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #  bait_id    :integer
+#  lat        :decimal(10, 6)
+#  lng        :decimal(10, 6)
 #
 
 class Trophy < ActiveRecord::Base
@@ -23,7 +25,7 @@ class Trophy < ActiveRecord::Base
 	validates :fish_id, :presence => true
 	validates :trip_id, :presence => true
 	validates :bait_id, :presence => true
-     validates_numericality_of :weight
+    validates_numericality_of :weight
 
 	
 end
