@@ -1,11 +1,11 @@
 <div class="page-header">
   <%= link_to manufacturers_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Список
   <% end %>
   <%= link_to edit_manufacturer_path(@manufacturer), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+    Редактировать
   <% end %>
 <div class="container">
 <div class="row">
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="thumbframe">
-          <%= image_tag @manufacturer.photo.url %>
+          <%= image_tag @manufacturer.photo.url(:med) %>
         </div>
       </div>
       <div class="col-md-6">
