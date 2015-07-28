@@ -61,9 +61,9 @@
     var json_data = [
       {
         id:  1,
-        <% if !@place.lat.nil? %>
-          lat: <%= @place.lat %>,
-          lng: <%= @place.lng %>,
+        <% if !@trophy.lat.nil? %>
+          lat: <%= @trophy.lat %>,
+          lng: <%= @trophy.lng %>,
         <% else %>
           lat: 55.7500,
           lng: 37.6167,
@@ -87,14 +87,14 @@
         var lat = event.latLng.lat();
         var lng = event.latLng.lng();
         console.log('Marker with id: ' + json.id + ' dropped hat lat: ' + lat + ' and lng: ' + lng)
-        document.getElementById("place_lat").value = lat;
-        document.getElementById("place_lng").value = lng;
+        document.getElementById("trophy_lat").value = lat;
+        document.getElementById("trophy_lng").value = lng;
       });
     });
   });
   handler.getMap().setZoom(5);
   <% if !@place.lat.nil? %>
-          var centerpoint = new google.maps.LatLng(<%= @place.lat %>,<%= @place.lng %>);
+          var centerpoint = new google.maps.LatLng(<%= @trophy.lat %>,<%= @trophy.lng %>);
         <% else %>
           var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
         <% end %>
