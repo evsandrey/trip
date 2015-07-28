@@ -16,7 +16,7 @@
 class Fish < ActiveRecord::Base
 	has_many :trophy
 	has_attached_file :photo,
-	  	styles: { thumb: "50x50#",med: "150x150#"},
+	  	styles: { thumb: "50x50",med: "300x300"},
 	  	:path => "trip-site/fish/:style/:id.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")

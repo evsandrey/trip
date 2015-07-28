@@ -7,14 +7,50 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show fish</h1>
+  <div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2><%= @fish.name %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbframe">
+          <%= image_tag @fish.photo.url(:med) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  Название:
+                </td>
+                <td>
+                  <%= @fish.name %>
+                </td>
+              </tr>
+              
+            </tbody>
+           </table>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Описание</h2>
+      <%= raw(@fish.description) %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row"><h2></h2></div>
+      <div class="row">
+          <table class="table">
+            <tbody>
+              
+              
+              
+            </tbody>
+          </table>
+      </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @fish.name %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @fish.description %></dd>
-
-</dl>
+</div>
