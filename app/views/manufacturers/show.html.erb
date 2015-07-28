@@ -7,17 +7,57 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show manufacturer</h1>
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2><%= @manufacturer.name %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbframe">
+          <%= image_tag @manufacturer.photo.url %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+              <tbody><tr>
+                <td>
+                  Brand:
+                </td>
+                <td>
+                  <%= @manufacturer.name %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Website:
+                </td>
+                <td>
+                  <a href="<%= @manufacturer.url %>"><%= @manufacturer.url %></a>
+                </td>
+              </tr>
+              
+            </tbody>
+           </table>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Описание</h2>
+      <%= raw(@manufacturer.description) %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row"><h2></h2></div>
+      <div class="row">
+          <table class="table">
+            <tbody>
+              
+              
+              
+            </tbody>
+          </table>
+      </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @manufacturer.name %></dd>
-
-  <dt>Url:</dt>
-  <dd><%= @manufacturer.url %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @manufacturer.description %></dd>
-
-</dl>
+</div>
