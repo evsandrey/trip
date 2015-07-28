@@ -98,8 +98,12 @@
       });
     });
   });
-  handler.getMap().setZoom(8);
   
+  var bounds = new google.maps.LatLngBounds();
+ 
+        //Center map and adjust Zoom based on the position of all markers.
+        handler.setCenter(latlngbounds.getCenter());
+        handler.fitBounds(latlngbounds);
 
   
   
