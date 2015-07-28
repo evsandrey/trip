@@ -58,7 +58,7 @@
 </div>
 
 <script type="text/javascript">
- var handler = Gmaps.build('Google');
+ var handler = Gmaps.build('Google', builders: { Marker: CustomMarkerBuilder });
  var bounds = new google.maps.LatLngBounds();
  var markers; 
   handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
@@ -74,8 +74,8 @@
               lat: 55.7500,
               lng: 37.6167,
             <% end %>
-            
-            description: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
+            custom_marker:     "<img src='images/star.jpg' width='30' height='30'> Statue of Liberty"
+            custom_infowindow: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
         },
         <% end %>
       
@@ -99,14 +99,12 @@
         infowindow.open(handler);
       });
     });
+
+    handler.bounds.extendWith(markers);
   });
   
   
-    for(i=0;i<markers.length;i++) {
-     bounds.extend(markers[i].getPosition());
-    }
-
-    handler.fitBounds(bounds);
+    
 
   
   
