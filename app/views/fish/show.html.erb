@@ -74,7 +74,7 @@
               lng: 37.6167,
             <% end %>
             
-            infowindow: "<%= small_trophy_badge(trophy) %>" //this html is properly disaplayed
+            infowindow: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
         },
         <% end %>
       
