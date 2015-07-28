@@ -16,6 +16,10 @@
 #
 
 class Bait < ActiveRecord::Base
+	validates :description, :presence => true
+	validates :name, :presence => true
+	validates :manufacturer_id, :presence => true
+	
 	has_many :trophy
 	belongs_to :manufacturer
 	has_attached_file :photo,

@@ -7,22 +7,65 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show bait</h1>
+ <div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2><%= @bait.name %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbframe">
+          <%= image_tag @bait.photo.url(:med) %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  Название:
+                </td>
+                <td>
+                  <%= @bait.name %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Вес:
+                </td>
+                <td>
+                  <%= @bait.weight %> г.
+                </td>
+              </tr>  
+              <tr>
+                <td>
+                  Производитель:
+                </td>
+                <td>
+                  <%= @bait.manufacturer.name %>
+                </td>
+              </tr>
+            </tbody>
+           </table>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Описание</h2>
+      <%= raw(@bait.description) %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row"><h2>Рыбы:</h2></div>
+      <div class="row">
+          <table class="table">
+            <tbody>
+              
+              
+              
+            </tbody>
+          </table>
+      </div>
+  </div>
 </div>
-
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @bait.name %></dd>
-
-  <dt>Mfg:</dt>
-
-  <dd><%= @bait.name %></dd>
-
-  <dt>Weight:</dt>
-  
-  <dd><%= @bait.weight %></dd>
-
-  <dt>Description:</dt>
-  <dd><%= @bait.description %></dd>
-
-</dl>
+</div>
