@@ -11,6 +11,8 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  weight             :integer
+#  manufacturer_id    :integer
 #
 
 require 'test_helper'

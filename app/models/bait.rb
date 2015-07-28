@@ -11,10 +11,13 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  weight             :integer
+#  manufacturer_id    :integer
 #
 
 class Bait < ActiveRecord::Base
 	has_many :trophy
+	belongs_to :manufacturer
 	has_attached_file :photo,
 	  	styles: { thumb: "50x50#", med: "150x150#"},
 	  	:path => "trip-site/bait/:style/:id.:extension",

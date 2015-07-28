@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :manufacturers do  
+    get :autocomplete_manufacturer_name, on: :collection
+  end
   resources :baits do  
     get :autocomplete_bait_name, on: :collection
   end
