@@ -80,8 +80,8 @@
  
 function initialize()
 {
+    var bounds = new google.maps.LatLngBounds();
     var mapProp = {
-        center:myCenter,
         zoom:5,
         mapTypeId:google.maps.MapTypeId.ROADMAP
     };
@@ -98,11 +98,11 @@ function initialize()
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            
         });
-
+        bounds.extend(marker.getPosition());
         bindInfoWindow(marker, map, infowindow, data.description);
     } 
+    map.fitBounds(bounds);
 }
 
 function bindInfoWindow(marker, map, infowindow, description) {
