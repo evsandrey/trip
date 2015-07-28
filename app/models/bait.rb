@@ -25,7 +25,7 @@ class Bait < ActiveRecord::Base
 	has_many :trophy
 	belongs_to :manufacturer
 	has_attached_file :photo,
-	  	styles: { thumb: "50x50#", med: "150x150#"},
+	  	styles: { thumb: "50x50", med: "150x150"},
 	  	:path => "trip-site/bait/:style/:id.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
