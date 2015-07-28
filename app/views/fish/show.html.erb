@@ -58,10 +58,6 @@
 </div>
 
 <script type="text/javascript">
- var handler = Gmaps.build('Google', builders: { Marker: CustomMarkerBuilder });
- var bounds = new google.maps.LatLngBounds();
- var markers; 
-  handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
     var json_data = [
       
         <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
@@ -74,38 +70,47 @@
               lat: 55.7500,
               lng: 37.6167,
             <% end %>
-            custom_marker:     "<img src='images/star.jpg' width='30' height='30'> Statue of Liberty"
-            custom_infowindow: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
+            
+            description: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
         },
         <% end %>
       
     ];
 
-    //create draggable markers (pass google maps options aas a second arg)
-    markers = handler.addMarkers(json_data);
+ 
+function initialize()
+{
+    var mapProp = {
+        center:myCenter,
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-    //add markers to original json
-    _.each(json_data, function(json, index){
-      json.marker = markers[index];
+    var infowindow =  new google.maps.InfoWindow({
+        content: ""
     });
 
-    //add dragend event to markers, triggered when you drop them
-    _.each(json_data, function(json){
-      google.maps.event.addListener(json.marker.getServiceObject(), "click", function(event) {
-        var infowindow = new google.maps.InfoWindow();
-        infowindow.setPosition(event.latLng);
-        var lng = event.latLng.lng();
-        infowindow.setContent(json.description)
-        infowindow.open(handler);
-      });
+    for (var i = 0, length = json_data.length; i < length; i++) {
+        var data=json[i];
+        var latLng = new google.maps.LatLng(data.lat, data.lng); 
+        // Creating a marker and putting it on the map
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            
+        });
+
+        bindInfoWindow(marker, map, infowindow, data.description);
+    } 
+}
+
+function bindInfoWindow(marker, map, infowindow, description) {
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(description);
+        infowindow.open(map, marker);
     });
+}
 
-    handler.bounds.extendWith(markers);
-  });
-  
-  
-    
-
-  
-  
+google.maps.event.addDomListener(window, 'load', initialize); 
 </script>
