@@ -59,7 +59,8 @@
 
 <script type="text/javascript">
  var handler = Gmaps.build('Google');
- var bounds = new google.maps.LatLngBounds(); 
+ var bounds = new google.maps.LatLngBounds();
+ var markers; 
   handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
     var json_data = [
       
@@ -81,7 +82,7 @@
     ];
 
     //create draggable markers (pass google maps options aas a second arg)
-    var markers = handler.addMarkers(json_data);
+    markers = handler.addMarkers(json_data);
 
     //add markers to original json
     _.each(json_data, function(json, index){
@@ -91,6 +92,7 @@
     //add dragend event to markers, triggered when you drop them
     _.each(json_data, function(json){
       google.maps.event.addListener(json.marker.getServiceObject(), "click", function(event) {
+        var infowindow = new google.maps.InfoWindow();
         infowindow.setPosition(event.latLng);
         var lng = event.latLng.lng();
         infowindow.setContent(json.description)
@@ -99,7 +101,7 @@
     });
   });
   
-  var bounds = new google.maps.LatLngBounds();
+  
     for(i=0;i<markers.length;i++) {
      bounds.extend(markers[i].getPosition());
     }
