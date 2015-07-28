@@ -4,7 +4,9 @@ class TrophiesController < ApplicationController
   # GET /trophies
   # GET /trophies.json
   def index
-    @trophies = Trophy.all
+    @q = Trophy.ransack(params[:q])
+    @trophies = @q.result(distinct: true).includes(:fish, :bait, :trip).paginate(:page => params[:page], :per_page => 20)
+    @search.sorts = 'weight desc' if @search.sorts.empty?
   end
 
   # GET /trophies/1
