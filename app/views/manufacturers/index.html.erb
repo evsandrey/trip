@@ -6,10 +6,10 @@
   <h1>Listing manufacturers</h1>
 </div>
 
-<% @manufacturers.each_slice(4) do |manufacturer| %>
+<% @manufacturers.each_slice(4) do |manufacturers| %>
         <div class="row">
         <ul class="thumbnails list-unstyled">       
-            <% baits.each do |manufacturer| %>
+            <% manufacturers.each do |manufacturer| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding: 0">
                   <div style="padding:4px">
