@@ -71,7 +71,19 @@
               lng: 37.6167,
             <% end %>
             
-            description: "<b>dasdasdasdas</b>" //this html is properly disaplayed
+            description: '<table class="userbadge thumbnail">'+
+                          '<tr style="height:50%;"><td rowspan="2" style="width:50px;">'+
+                          '<a class="pull-left" href="<%= trophy_path(trophy.id) %>">'+
+                          '<img class="media-object" src="<%= trophy.fish.photo.url(:thumb) %>" style="width: 50px;height:50px;">'+
+                          '</a></td><td>'+
+                          '<p>&nbsp;&nbsp; <%= link_to trophy.fish.name , trophy.fish %>&nbsp;-&nbsp;<%= trophy.weight %>&nbsp;кг. </p>'+
+                          '</td></tr><tr><td>'+
+        <% if !trophy.user.nil? %>
+                  '<small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>&nbsp;на&nbsp;<%= link_to trophy.bait.name, trophy.bait %></small>'+
+                <% else %>
+                  '<td>No user</td>'+
+                <% end %>
+        '</td></tr></table> '
         },
         <% end %>
       
