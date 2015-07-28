@@ -92,7 +92,7 @@ function initialize()
     });
 
     for (var i = 0, length = json_data.length; i < length; i++) {
-        var data=json[i];
+        var data=json_data[i];
         var latLng = new google.maps.LatLng(data.lat, data.lng); 
         // Creating a marker and putting it on the map
         var marker = new google.maps.Marker({
