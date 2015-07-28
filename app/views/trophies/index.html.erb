@@ -37,3 +37,28 @@
     </tbody>
   </table>
 </div>
+<% @trophies.each_slice(4) do |trophies| %>
+        <div class="row">
+        <ul class="thumbnails list-unstyled">       
+            <% trophies.each do |trophy| %>
+              <li class="col-md-3">
+                <div class="thumbnail" style="padding: 0">
+                  <div style="padding:4px">
+                      <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trophy %>
+                  </div>
+                  <div class="caption">
+                      <h3><%= link_to trophy.fish.name, trophy %></h3>
+                      <p><%= trophy.trip.name %></p>
+                      <p><%= trophy.weight %> кг.</p>
+                      <% if !trophy.user.nil? %>
+                        <td><%= link_to trophy.user.nickname, trophy.user %></td>
+                      <% else %>
+                        <td>No user</td>
+                      <% end %>
+                  </div>
+                </div>  
+              </li>
+            <% end %>
+        </ul>  
+        </div>
+<% end %>
