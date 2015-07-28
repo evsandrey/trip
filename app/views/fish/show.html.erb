@@ -59,6 +59,7 @@
 
 <script type="text/javascript">
  var handler = Gmaps.build('Google');
+ var bounds = new google.maps.LatLngBounds(); 
   handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
     var json_data = [
       
@@ -73,7 +74,7 @@
               lng: 37.6167,
             <% end %>
             
-            infowindow: 'www<%= small_trophy_badge(trophy) %>' //this html is properly disaplayed
+            infowindow: "<%= small_trophy_badge(trophy) %>" //this html is properly disaplayed
         },
         <% end %>
       
@@ -89,21 +90,15 @@
 
     //add dragend event to markers, triggered when you drop them
     _.each(json_data, function(json){
-      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        console.log('Marker with id: ' + json.id + ' dropped hat lat: ' + lat + ' and lng: ' + lng)
-        document.getElementById("place_lat").value = lat;
         document.getElementById("place_lng").value = lng;
       });
     });
   });
-  
-  var bounds = new google.maps.LatLngBounds();
- 
-        //Center map and adjust Zoom based on the position of all markers.
-        handler.setCenter(latlngbounds.getCenter());
-        handler.fitBounds(latlngbounds);
+  for(i=0;i<markers.length;i++) {
+   bounds.extend(markers[i].getPosition());
+  }
+  handler.setCenter(latlngbounds.getCenter());
+  handler.fitBounds(latlngbounds);
 
   
   
