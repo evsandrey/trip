@@ -17,7 +17,7 @@
 class Manufacturer < ActiveRecord::Base
 	has_many :baits
 	has_attached_file :photo,
-	  	styles: { thumb: "50#x50",med: "150#x150"},
+	  	styles: { thumb: "50#x50#",med: "150#x150#"},
 	  	:path => "trip-site/mfc/:style/:id.:extension",
 	    :storage => :dropbox,
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
