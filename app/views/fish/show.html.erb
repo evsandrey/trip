@@ -74,7 +74,7 @@
               lng: 37.6167,
             <% end %>
             
-            description: "<%= small_trophy_badge(trophy) %>" //this html is properly disaplayed
+            description: "<%= small_trophy_badge(trophy).gsub(/\n/," ") %>" //this html is properly disaplayed
         },
         <% end %>
       
@@ -90,8 +90,11 @@
 
     //add dragend event to markers, triggered when you drop them
     _.each(json_data, function(json){
-      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
-        document.getElementById("place_lng").value = lng;
+      google.maps.event.addListener(json.marker.getServiceObject(), "click", function(event) {
+        infowindow.setPosition(event.latLng);
+        var lng = event.latLng.lng();
+        infowindow.setContent(json.description)
+        infowindow.open(handler);
       });
     });
   });
