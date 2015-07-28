@@ -272,7 +272,7 @@
         if (r.responseText != "exist") {
           $("#new_users").append(r.responseText);  
         } else {
-          alert("User allready in group");
+          alert("Участник уже добавлен, либо он капитан");
         }
         
       });
@@ -292,7 +292,7 @@
           $("#place_selected").contents().remove();
           $("#place_selected").append(r.responseText);  
         } else {
-          alert("This place allready selected");
+          alert("Это место уже выбрано!!");
         }
         
       });
@@ -311,7 +311,7 @@
         if (r.responseText != "exist") {
           $("#trophy_list").append(r.responseText);  
         } else {
-          alert("This place allready selected");
+          alert("Заполните все поля, надо выбирать из списка!!!!");
         }
         
       });
