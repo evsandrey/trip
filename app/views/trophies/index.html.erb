@@ -8,9 +8,9 @@
 
 <div class="sort-panel">
 Сортировать:
-  <%= sort_link(@q, :fish, 'Рыба') %>
+  <%= sort_link(@q, 'fish.name', 'Рыба') %>
   <%= sort_link(@q, :weight, 'Вес', default_order: :desc) %>
-  <%= sort_link(@q, :trip, 'Поездка') %>
+  <%= sort_link(@q, 'trip.name', 'Поездка') %>
 </div>
 <br>
 <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
