@@ -103,8 +103,17 @@
             <h3>Pictures</h3>
             <% @trip.pictures.each do |picture| %>
               <div class="thumbnail" id="img<%= picture.id %>" >  
-                <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %> 
-                <p  onclick="delete_picture(<%= picture.id %>)" >Delete</p>
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %>
+                  </div>
+                  <div class="col-md-6"></div>
+                  <div class="col-md-3">
+                    <button> onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
+                    <button> onclick="save_picture(<%= picture.id %>)" >Save</button>
+
+                  </div>
+                </div>  
               </div>
             <% end %>
         </div>
@@ -121,19 +130,7 @@
         </div>
         
         <% @trip.users.each do |user| %>
-          <table>
-            <tr>
-              <td >
-                <a class="pull-left" href="<%= user_path(user.id) %>">
-                          <img class="media-object dp img-circle" src="<%= user.avatar.url(:thumb) %>" style="width: 50px;height:50px;">
-                      </a>
-                  </td>
-              <td>
-                <h4>&nbsp;&nbsp;<%=link_to user.nickname, user %></h4>
-              </td>
-            </tr>
-            
-          </table>
+          <%= small_user_badge(user) %>
         <%end%>
         
         </div>
