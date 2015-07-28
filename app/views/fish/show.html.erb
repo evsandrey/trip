@@ -64,7 +64,7 @@
       {
         <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
 
-        id:  <% trophy.id %>,
+        id:  <%= trophy.id %>,
         <% if !trophy.lat.nil? %>
           lat: <%= trophy.lat %>,
           lng: <%= trophy.lng %>,
@@ -73,7 +73,7 @@
           lng: 37.6167,
         <% end %>
         
-        infowindow: "<%= small_trophy_badge(trophy) %>" //this html is properly disaplayed
+        infowindow: "www<% small_trophy_badge(trophy) %>" //this html is properly disaplayed
         <% end %>
       }
     ];
