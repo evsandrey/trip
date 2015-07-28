@@ -9,11 +9,11 @@
 <% @manufacturers.each_slice(4) do |manufacturer| %>
         <div class="row">
         <ul class="thumbnails list-unstyled">       
-            <% baits.each do |bait| %>
+            <% baits.each do |manufacturer| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding: 0">
                   <div style="padding:4px">
-                      <%= link_to image_tag(manufacturer.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trip %>
+                      <%= link_to image_tag(manufacturer.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),manufacturer %>
                   </div>
                   <div class="caption">
                       <h3><%= link_to manufacturer.name, manufacturer %></h3>
