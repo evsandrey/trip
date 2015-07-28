@@ -18,6 +18,12 @@ class Trophy < ActiveRecord::Base
 	belongs_to :fish
 	belongs_to :bait
 
+	validates :user_id, :presence => true
+	validates :weight, :presence => true
+	validates :fish_id, :presence => true
+	validates :trip_id, :presence => true
+	validates :bait_id, :presence => true
+
 
 	
 end
