@@ -68,12 +68,7 @@
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
 
     var json_data = [
-        
-          <% description = '' %>
-          <% ord.each do |key, val|%>
-                   
-                   <% description += val[3] %>
-                  
+        <% ord.each do |key, val|%>
                   {
                           id:  <%= val[0] %>,
                           <% if !val[1].nil? %>
@@ -84,7 +79,7 @@
                             lng: 37.6167,
                           <% end %>
                           
-                          description: '<%= raw(description) %>'
+                          description: '<%= raw(val[3]) %>'
                    },
           <% end %>
         
