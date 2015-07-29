@@ -70,9 +70,7 @@
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
           <% description = '' %>
           <% ord.each do |key, val|%>
-                                
-                  
-                  <% description = key.to_s %>
+                   <% description += val.length %>
                   
                   {
                           id:  <%= val[0] %>,
