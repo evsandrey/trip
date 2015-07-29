@@ -69,7 +69,7 @@
 
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
           <% ord.each do |key, val|%>
-                  <% var @description = '' %>              
+                  <% var description = '' %>              
                   <% val.each do |place| %> 
                     <% @description += place[3] %>
                   <% end %>
@@ -83,7 +83,7 @@
                             lng: 37.6167,
                           <% end %>
                           
-                          description: '<%= @description %>'
+                          description: '<%= description %>'
                    },
           <% end %>
         
