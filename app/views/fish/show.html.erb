@@ -72,18 +72,7 @@
                <%= raw key.to_s %>(<%= val.count %>) </td>
                   <% val.each do |place| %> 
                     <%= raw place %>
-                       {
-                          id:  <%= place[0] %>,
-                          <% if !place[1].nil? %>
-                            lat: <%= place[1] %>,
-                            lng: <%= place[2] %>,
-                          <% else %>
-                            lat: 55.7500,
-                            lng: 37.6167,
-                          <% end %>
-                          
-                          description: '<%= place[3] %>'
-                      },
+                       
                   <% end %>
           <% end %>
         
