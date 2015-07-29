@@ -70,10 +70,22 @@
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
           <% ord.each do |key, val|%>
                <%= raw key.to_s %>(<%= val.count %>) </td>
+                  description=''
                   <% val.each do |place| %> 
-                    <%= raw place %>
-                       
+                    description += place[3]
                   <% end %>
+                  {
+                          id:  <%= val[0] %>,
+                          <% if !val[1].nil? %>
+                            lat: <%= val[1] %>,
+                            lng: <%= val[2] %>,
+                          <% else %>
+                            lat: 55.7500,
+                            lng: 37.6167,
+                          <% end %>
+                          
+                          description: '<%= place[3] %>'
+                   },
           <% end %>
         
       
