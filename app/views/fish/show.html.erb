@@ -63,7 +63,7 @@
            <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
-           <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy) %> 
+           <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %> 
         <% end %>
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
 
