@@ -69,8 +69,7 @@
 
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
           <% ord.each do |key, val|%>
-               <%= raw key.to_s %>(<%= val.count %>) </td>
-                  description=''
+                  var description = ''               
                   <% val.each do |place| %> 
                     description += place[3]
                   <% end %>
