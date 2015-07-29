@@ -19,7 +19,7 @@ module ApplicationHelper
 			    gallery_code += '<div id="owl-demo" class="owl-carousel owl-theme">'
 			    
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
-			        gallery_code += '<div class="item">' + Picture.find(pict).photo(:med) + '</div>'
+			        gallery_code += '<div class="item"><img src="' + Picture.find(pict).photo(:med) + '"/></div>'
 			    end
 			    
 			    
