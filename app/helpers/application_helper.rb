@@ -21,6 +21,11 @@ module ApplicationHelper
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
 			        gallery_code += '<div class="swiper-slide">' + pict + '</div>'
 			    end
+			    
+			    gallery_code += '<div class="swiper-pagination"></div>'
+			    gallery_code += '<div class="swiper-button-prev"></div>'
+			    gallery_code += '<div class="swiper-button-next"></div>'
+			    gallery_code += '<div class="swiper-scrollbar"></div>'
 			    gallery_code += '</div>'
 			    gallery_code += '</div>'
 			rt = rt.gsub(subst,gallery_code)
