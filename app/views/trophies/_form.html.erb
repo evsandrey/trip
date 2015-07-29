@@ -56,8 +56,6 @@
 <% end %>
 
 <script type="text/javascript">
- var handler = Gmaps.build('Google');
-  handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
     var json_data = [
       {
         id:  1,
@@ -93,7 +91,7 @@
     });
   });
   handler.getMap().setZoom(5);
-  <% if !@place.lat.nil? %>
+  <% if !@trophy.lat.nil? %>
           var centerpoint = new google.maps.LatLng(<%= @trophy.lat %>,<%= @trophy.lng %>);
         <% else %>
           var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
