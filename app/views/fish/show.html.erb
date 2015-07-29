@@ -71,7 +71,7 @@
           <% ord.each do |key, val|%>
                   <% description = '' %>              
                   <%= key.to_s %>
-                  <%= val.to_s %>
+                  <%= val[2].to_s %>
                   <% val.each do |place| %> 
                     <%= place.class %>
                     <% description += raw(place) %>
