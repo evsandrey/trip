@@ -71,7 +71,7 @@
           <% ord.each do |key, val|%>
                   <% description = '' %>              
                   <% val.each do |place| %> 
-                    <% @description += place[3] %>
+                    <% description += place[3] %>
                   <% end %>
                   {
                           id:  <%= val[0] %>,
