@@ -74,7 +74,7 @@
                   <% puts val %>
                   <% val.each do |place| %> 
                     <% puts place %>
-                    <% description += place[key][3] %>
+                    <% description += raw(place) %>
                   <% end %>
                   {
                           id:  <%= val[0] %>,
