@@ -70,7 +70,10 @@
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
           <% ord.each do |key, val|%>
                   <% description = '' %>              
+                  <% puts key %>
+                  <% puts val %>
                   <% val.each do |place| %> 
+                    <% puts place %>
                     <% description += place[key][3] %>
                   <% end %>
                   {
