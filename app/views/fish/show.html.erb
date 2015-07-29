@@ -68,14 +68,12 @@
         <% end %>
 
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
+          <% description = '' %>
           <% ord.each do |key, val|%>
-                  <% description = '' %>              
+                                
                   
-                  <%= val[3].to_s %>
-                  <% val.each do |place| %> 
-                    
-                    <% description += raw(place) %>
-                  <% end %>
+                  <%= description = val[3].to_s %>
+                  
                   {
                           id:  <%= val[0] %>,
                           <% if !val[1].nil? %>
