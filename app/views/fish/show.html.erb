@@ -74,7 +74,7 @@
                     <%= raw place %>
                        {
                           id:  <%= place[0] %>,
-                          <% if !trophy.lat.nil? %>
+                          <% if !place[1].nil? %>
                             lat: <%= place[1] %>,
                             lng: <%= place[2] %>,
                           <% else %>
