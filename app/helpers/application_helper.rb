@@ -11,7 +11,7 @@ module ApplicationHelper
 
 	def gallery_parse(text)
 		galleries=text.scan(/image_block(\([^\)]*\))/)
-		rt = 'text'
+		rt = text
 		galleries.each do |gallery|
             subst= "image_block" + gallery.to_s.gsub(/[\"\]\[]/,"")
             gallery_code = ""
