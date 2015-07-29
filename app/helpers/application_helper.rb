@@ -16,11 +16,12 @@ module ApplicationHelper
             subst= "image_block" + gallery.to_s.gsub(/[\"\]\[]/,"")
             gallery_code = ""
 			gallery.each do |pic|
-			    gallery_code += '<gallery>'
+			    gallery_code += '<div class="swiper-container">'
+			    gallery_code += '<div class="swiper-wrapper">'
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
-			        gallery_code += "<img>" + pict
+			        gallery_code += '<div class="swiper-slide">' + pict + '</div>'
 			    end
-			    gallery_code += '</gallery>'
+			    gallery_code += '<div>'
 			rt = rt.gsub(subst,gallery_code)
 			end
 		end
