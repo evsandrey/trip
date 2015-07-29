@@ -58,19 +58,21 @@
 </div>
 
 <script type="text/javascript">
-    var json_data = [
         <% h = Hash.new { |h,k| h[k] = [] } %>
         <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
-           <% h[trophy.lat.to_s+trophy.lng.to_s][3]= small_trophy_badge(trophy) %> 
+           <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy) %> 
         <% end %>
-
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
+
+    var json_data = [
+        
           <% description = '' %>
           <% ord.each do |key, val|%>
-                   <% description = description + key.to_s + val.length.to_s %>
+                   
+                   <% description += val[3] %>
                   
                   {
                           id:  <%= val[0] %>,
