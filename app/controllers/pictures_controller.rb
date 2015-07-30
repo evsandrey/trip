@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    trip = Trip.find(params[:post_id])
+    trip = Trip.find(params[:trip_id])
     @pictures = trip.pictures.paginate(:page => params[:page], :per_page => 30)
   end
 
