@@ -158,12 +158,11 @@
  
 });
   function updateSize(){
-        var minHeight=parseInt($('.owl-item').eq(0).css('height'));
         $('.owl-item').each(function () {
-            var thisHeight = parseInt($(this).css('height'));
-            minHeight=(minHeight<=thisHeight?minHeight:thisHeight);
+            this.css('height',150+'px');
+            this.find("img").css('height',150+'px');
         });
-        $('.owl-wrapper-outer').css('height',minHeight+'px');
+        
     }
   </script>
   
