@@ -172,10 +172,10 @@
         var height = parseInt(newImg.height);
         var width = parseInt(newImg.width);
         proportion = width/height;
-        img.height(150);
-        block.height(150);
-        img.width(150*proportion);
-        block.width(150*proportion);
+        img.height(300);
+        block.height(300);
+        img.width(300*proportion);
+        block.width(300*proportion);
       }
       img=block.find("img");
       newImg.src = img.prop('src'); // this must be done AFTER setting onload
