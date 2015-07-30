@@ -162,7 +162,7 @@
   function updateSize(){
         $('.owl-item').each(function () {
             var src = $( this ).find("img").prop('src');
-            var prop = parseFloat(getImgProps(src));
+            var prop = getImgProps(src);
             $( this ).height(150);
             $( this ).find("img").height(150);
             $( this ).width(150*prop);
@@ -176,7 +176,7 @@
         var height = newImg.height;
         var width = newImg.width;
         console.log(height/width)
-        return height/width;
+        return parseFloat(height/width);
       }
 
       newImg.src = imgSrc; // this must be done AFTER setting onload
