@@ -77,16 +77,16 @@
       </div>
     </div>
     <div class="col-md-4">
-      <h4>Капитан:</h4>
+      <h4>&nbsp;Капитан:</h4>
       <% user = User.find(@trip.captain) %>
       <%= small_user_badge(user) %>
       <br>
-      <h4>Участники:</h4>
+      <h4>&nbsp;Участники:</h4>
       <% @trip.users.each do |user| %>
           <%= small_user_badge(user) %>
       <% end %>
       <br>
-      <h4>Трофеи:</h4>
+      <h4>&nbsp;Трофеи:</h4>
        <% @trip.trophy.each do |trophy| %>
           <%= small_trophy_badge(trophy) %>
         <% end %>
@@ -147,6 +147,10 @@
             margin:10,
             loop:true,
             autoWidth:true,
+            autoplay:true;
+            autoplayTimeout: 2000;
+            autoplayHoverPause: true;
+
       })
     });
     
