@@ -40,7 +40,7 @@
            <% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
            <% enddate = Date.strptime(@trip.edate,"%m/%d/%Y").to_date %>
            
-           <table >
+           <table width="250" >
              <tr>
                <td class="text-left" width="110"><strong>Старт</strong></td>
                <td width="130"><%= Russian::strftime(startdate,'%d %b %Y') %></td>
