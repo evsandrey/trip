@@ -172,10 +172,10 @@
   }
   function getImgProps(imgSrc) {
       var newImg = new Image();
-
       newImg.onload = function() {
         var height = newImg.height;
         var width = newImg.width;
+        console.log(height/width)
         return height/width;
       }
 
