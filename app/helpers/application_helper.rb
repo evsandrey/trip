@@ -19,8 +19,8 @@ module ApplicationHelper
 			    gallery_code += '<div id="owl-demo" class="owl-demo owl-carousel owl-theme">'
 			    
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
-			    	if !Picture.find(pict).nil?
-			    		gallery_code += '<div class="item"><img src="' + Picture.find(pict).photo(:med) + '"/></div>'
+			    	if photo = Picture.where(id: pict).first
+			    		gallery_code += '<div class="item"><img src="' + photo.photo(:med) + '"/></div>'
 			    	end
 			    end
 			    
