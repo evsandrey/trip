@@ -160,9 +160,7 @@
             }
       })
     });
- 
-  });
-  function SetImgProps(block) {
+    function SetImgProps(block) {
       var newImg = new Image();
       var proportion;
       newImg.onload = function() {
@@ -177,7 +175,10 @@
       }
       img=block.find("img");
       newImg.src = img.prop('src'); // this must be done AFTER setting onload
-  }
+    }
+ 
+  });
+  
   
   
 </script>
