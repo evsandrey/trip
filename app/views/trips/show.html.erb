@@ -140,35 +140,24 @@
 
   
   $(document).ready(function() {
-  $(".owl-item").each(function() {
-     SetImgProps($( this ));
-  });
-  $(".owl-demo").each(function( owl ) { 
-      
-      $( this ).owlCarousel({
-          autoPlay: 3000, //Set AutoPlay to 3 seconds
-          itemsDesktop : [1199,4],
-          itemsDesktopSmall : [980,3], 
-          itemsTablet: [768,2],
-          itemsMobile : [479,1],
-          singleItem : false,
-          itemsScaleUp : false,
-            beforeInit:function(){
-                updateSize();
-            },
-            afterInit:function(){
-                updateSize();
-      }
-    })
-  });
+    $(".owl-item").each(function() {
+       SetImgProps($( this ));
+    });
+    $(".owl-demo").each(function( owl ) { 
+        
+        $( this ).owlCarousel({
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+            itemsDesktop : [1199,4],
+            itemsDesktopSmall : [980,3], 
+            itemsTablet: [768,2],
+            itemsMobile : [479,1],
+            singleItem : false,
+            itemsScaleUp : false,
+        }
+      })
+    });
  
-});
-  function updateSize(){
-        $('.owl-item').each(function () {
-            SetImgProps($( this ));
-            
-        });
-  }
+  });
   function SetImgProps(block) {
       var newImg = new Image();
       var proportion;
