@@ -175,8 +175,8 @@
       newImg.onload = function() {
         var height = newImg.height;
         var width = newImg.width;
-        console.log(height/width)
-        return parseFloat(height/width);
+        a = parseFloat(height/width)
+        return a
       }
 
       newImg.src = imgSrc; // this must be done AFTER setting onload
