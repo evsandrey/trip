@@ -161,13 +161,26 @@
 });
   function updateSize(){
         $('.owl-item').each(function () {
+            var src = $( this ).find("img").prop('src');
+            var prop = getImgProps(src);
             $( this ).height(150);
             $( this ).find("img").height(150);
-            
+            $( this ).width(150*prop);
+            $( this ).find("img").width(150*prop);
         });
-        
-    }
-  </script>
+  }
+  function getImgProps(imgSrc) {
+      var newImg = new Image();
+
+      newImg.onload = function() {
+        var height = newImg.height;
+        var width = newImg.width;
+        return width/height;
+      }
+
+      newImg.src = imgSrc; // this must be done AFTER setting onload
+  }
+  
   
 </script>
  
