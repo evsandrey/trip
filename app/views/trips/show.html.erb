@@ -162,7 +162,6 @@
   function updateSize(){
         $('.owl-item').each(function () {
             SetImgProps($( this ).find("img").prop('src'));
-            
         });
   }
   function SetImgProps(img) {
@@ -177,7 +176,7 @@
         img.width(150*proportion);
         console.log(proportion)
       }
-      newImg.src = img.prop('src'); // this must be done AFTER setting onload
+      newImg.src = img; // this must be done AFTER setting onload
   }
   
   
