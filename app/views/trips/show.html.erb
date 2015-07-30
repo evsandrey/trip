@@ -140,10 +140,7 @@
 
   
   $(document).ready(function() {
-    var overallWidth=0;
-    $(".owl-item").each(function() {
-       SetImgProps($( this ));
-    });
+    
     $(".owl-demo").each(function( owl ) { 
         overallWidth=0;
         $( this ).owlCarousel({
@@ -151,31 +148,10 @@
             autoWidth:true,
             singleItem : false,
             itemsScaleUp : false,
-            afterInit: function(elem){
-              $(".owl-item").each(function() {
-                 SetImgProps($( this ));
-              });
-              $( this ).find(".owl-wrapper").width(overallWidth);
-
-            }
+            items:4
       })
     });
-    function SetImgProps(block) {
-      var newImg = new Image();
-      var proportion;
-      newImg.onload = function() {
-        var height = parseInt(newImg.height);
-        var width = parseInt(newImg.width);
-        proportion = width/height;
-        img.height(300);
-        block.height(300);
-        img.width(300*proportion);
-        block.width(300*proportion);
-        overallWidth += 300*proportion;
-      }
-      img=block.find("img");
-      newImg.src = img.prop('src'); // this must be done AFTER setting onload
-    }
+    
  
   });
   
