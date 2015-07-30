@@ -162,7 +162,7 @@
   function updateSize(){
         $('.owl-item').each(function () {
             var src = $( this ).find("img").prop('src');
-            var prop = getImgProps(src);
+            var prop = parseFloat(getImgProps(src));
             $( this ).height(150);
             $( this ).find("img").height(150);
             $( this ).width(150*prop);
