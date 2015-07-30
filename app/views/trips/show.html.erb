@@ -161,22 +161,23 @@
 });
   function updateSize(){
         $('.owl-item').each(function () {
-            SetImgProps($( this ).find("img"));
+            SetImgProps($( this ));
             
         });
   }
-  function SetImgProps(img) {
+  function SetImgProps(block) {
       var newImg = new Image();
       var proportion;
       newImg.onload = function() {
         var height = parseInt(newImg.height);
         var width = parseInt(newImg.width);
-        proportion = height/width;
+        proportion = width/height;
         img.height(150);
-        img.find("img").height(150);
+        block.height(150);
         img.width(150*proportion);
-        console.log(proportion)
+        block.width(150*proportion);
       }
+      img=block.find("img");
       newImg.src = img.prop('src'); // this must be done AFTER setting onload
   }
   
