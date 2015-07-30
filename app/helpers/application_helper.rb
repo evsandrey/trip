@@ -20,7 +20,7 @@ module ApplicationHelper
 			    
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
 			    	if photo = Picture.where(id: pict).first
-			    		gallery_code += '<div class="item"><img src="' + photo.photo(:grid) + '"/></div>'
+			    		gallery_code += '<div class="item"><img src="' + photo.photo(:slide) + '"/></div>'
 			    	end
 			    end
 			    
