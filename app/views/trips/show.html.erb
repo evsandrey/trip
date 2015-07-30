@@ -42,23 +42,23 @@
            
            <table >
              <tr>
-               <td width="110"><strong>Старт</strong></td>
+               <td class="text-left" width="110"><strong>Старт</strong></td>
                <td><%= Russian::strftime(startdate,'%d %b %Y') %></td>
              </tr>
              <tr>
-               <td ><strong>Финиш</strong></td>
+               <td class="text-left"><strong>Финиш</strong></td>
                <td><%= Russian::strftime(enddate,'%d %b %Y') %></td>
              </tr>
              <tr>
-               <td ><strong>Дней</strong></td>
+               <td class="text-left"><strong>Дней</strong></td>
                <td class="text-center"><%= (enddate-startdate).to_i %></td>
              </tr>
              <tr>
-               <td  ><strong>Участников</strong></td>
+               <td  class="text-left"><strong>Участников</strong></td>
                <td class="text-center"><%= @trip.users.count+1 %></td>
              </tr>
              <tr>
-               <td  ><strong>Трофеев</strong></td>
+               <td  class="text-left"><strong>Трофеев</strong></td>
                <td class="text-center"><%= @trip.trophy.count %></td>
              </tr>
            </table>
