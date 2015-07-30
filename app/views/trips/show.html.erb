@@ -145,10 +145,8 @@
       $( this ).owlCarousel({
  
       autoPlay: 3000, //Set AutoPlay to 3 seconds
-        afterUpdate: function () {
-            updateSize();
-        },
-        afterInit:function(){
+        
+        beforeInit:function(){
             updateSize();
         }
     })
