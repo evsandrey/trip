@@ -175,10 +175,11 @@
       newImg.onload = function() {
         var height = newImg.height;
         var width = newImg.width;
-        proportion = parseFloat(height/width)
+        proportion = height/width;
+        return proportion;
       }
       newImg.src = imgSrc; // this must be done AFTER setting onload
-      return proportion
+      return proportion;
   }
   
   
