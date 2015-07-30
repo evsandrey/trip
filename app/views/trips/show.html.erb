@@ -144,21 +144,20 @@
   $(".owl-demo").each(function( owl ) { 
       numb = $( this ).find(".owl-item").length;
       $( this ).owlCarousel({
- 
-      autoPlay: 3000, //Set AutoPlay to 3 seconds
-      items: numb,
-      itemsDesktop : [1199,4],
-      itemsDesktopSmall : [980,3], 
-      itemsTablet: [768,2],
-      itemsMobile : [479,1],
-      singleItem : false,
-      itemsScaleUp : false,
-        beforeInit:function(){
-            updateSize();
-        },
-        afterInit:function(){
-            updateSize();
-        }
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+          itemsCustom: true,
+          itemsDesktop : [1199,4],
+          itemsDesktopSmall : [980,3], 
+          itemsTablet: [768,2],
+          itemsMobile : [479,1],
+          singleItem : false,
+          itemsScaleUp : false,
+            beforeInit:function(){
+                updateSize();
+            },
+            afterInit:function(){
+                updateSize();
+      }
     })
   });
  
