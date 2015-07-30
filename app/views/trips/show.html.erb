@@ -13,12 +13,10 @@
     <div class="col-md-8">
     <h1><%= @trip.name %> </h1>
     </div>
-    <div class="col-md-4">
-      <h4>Капитан:</h4>
-      <% user = User.find(@trip.captain) %>
-      <%= small_user_badge(user) %>
-    </div>
   </div>
+      
+    
+  
   <div class="row">
   
     <div class="col-md-8">
@@ -79,6 +77,10 @@
       </div>
     </div>
     <div class="col-md-4">
+      <h4>Капитан:</h4>
+      <% user = User.find(@trip.captain) %>
+      <%= small_user_badge(user) %>
+      <br>
       <h4>Участники:</h4>
       <% @trip.users.each do |user| %>
           <%= small_user_badge(user) %>
