@@ -140,9 +140,11 @@
 
   
   $(document).ready(function() {
- 
+  $(".owl-item").each(function() {
+     SetImgProps($( this ));
+  });
   $(".owl-demo").each(function( owl ) { 
-      numb = $( this ).find(".owl-item").length;
+      
       $( this ).owlCarousel({
           autoPlay: 3000, //Set AutoPlay to 3 seconds
           itemsDesktop : [1199,4],
