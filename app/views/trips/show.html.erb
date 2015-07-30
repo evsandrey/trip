@@ -159,8 +159,9 @@
 });
   function updateSize(){
         $('.owl-item').each(function () {
-            this.css('height',150+'px');
-            this.find("img").css('height',150+'px');
+            $( this ).height(150);
+            $( this ).find("img").height(150);
+            
         });
         
     }
