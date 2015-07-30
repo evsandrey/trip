@@ -146,11 +146,25 @@
  
       items : 4,
       itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3]
+      itemsDesktopSmall : [979,3],
+        afterUpdate: function () {
+            updateSize();
+        },
+        afterInit:function(){
+            updateSize();
+        }
     })
   });
  
 });
+  function updateSize(){
+        var minHeight=parseInt($('.owl-item').eq(0).css('height'));
+        $('.owl-item').each(function () {
+            var thisHeight = parseInt($(this).css('height'));
+            minHeight=(minHeight<=thisHeight?minHeight:thisHeight);
+        });
+        $('.owl-wrapper-outer').css('height',minHeight+'px');
+    }
   </script>
   
 </script>
