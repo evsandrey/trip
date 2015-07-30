@@ -146,7 +146,13 @@
       $( this ).owlCarousel({
  
       autoPlay: 3000, //Set AutoPlay to 3 seconds
-      items: numb,  
+      items: numb,
+      itemsDesktop : [1199,4],
+      itemsDesktopSmall : [980,3], 
+      itemsTablet: [768,2],
+      itemsMobile : [479,1],
+      singleItem : false,
+      itemsScaleUp : false,
         beforeInit:function(){
             updateSize();
         },
