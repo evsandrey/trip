@@ -175,7 +175,7 @@
       newImg.onload = function() {
         var height = newImg.height;
         var width = newImg.width;
-        return width/height;
+        return height/width;
       }
 
       newImg.src = imgSrc; // this must be done AFTER setting onload
