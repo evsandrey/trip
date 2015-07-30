@@ -171,14 +171,14 @@
   }
   function getImgProps(imgSrc) {
       var newImg = new Image();
+      var proportion;
       newImg.onload = function() {
         var height = newImg.height;
         var width = newImg.width;
         proportion = parseFloat(height/width)
-        return proportion
       }
-
       newImg.src = imgSrc; // this must be done AFTER setting onload
+      return proportion
   }
   
   
