@@ -173,8 +173,8 @@
       var newImg = new Image();
       var proportion;
       newImg.onload = function() {
-        var height = newImg.height;
-        var width = newImg.width;
+        var height = parseInt(newImg.height);
+        var width = parseInt(newImg.width);
         proportion = height/width;
         return proportion;
       }
