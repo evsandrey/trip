@@ -16,7 +16,7 @@ module ApplicationHelper
             subst= "image_block" + gallery.to_s.gsub(/[\"\]\[]/,"")
             gallery_code = ""
 			gallery.each do |pic|
-			    gallery_code += '<div id="owl-demo" class="owl-carousel owl-theme">'
+			    gallery_code += '<div id="owl-demo" class="owl-demo owl-carousel owl-theme">'
 			    
 			    pic.gsub(/[\(\)]/,"").split(",").each do |pict|
 			        gallery_code += '<div class="item"><img src="' + Picture.find(pict).photo(:med) + '"/></div>'
