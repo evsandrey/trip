@@ -13,9 +13,17 @@
   <% end %>
 
   <div class="form-group">
+    <%= f.label "Автор", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+                <%= autocomplete_field_tag 'user', User.find(@trophy.user_id).nickname, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id' %>
+                <%= f.number_field :user_id, class: "hidden" %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :fish_id, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :fish_id, class: "form-control" %>
+      <%= autocomplete_field_tag 'fish', Fish.find(@trophy.fish_id).name, autocomplete_fish_name_fish_index_path,:id_element => '#trophy_fish_id' %>
+      <%= f.number_field_tag :fish_id, class: "hidden" %>
     </div>
   </div>
   <div class="form-group">
