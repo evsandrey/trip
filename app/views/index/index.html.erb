@@ -17,7 +17,7 @@
 			<%= trip.name.truncate(27) %>
 					
 						<% if !trip.place.nil? %>
-	                 <%= link_to trip.place.name, trip.place %>
+	                 <%= trip.place.name %>
 	                    <%else%>
 	                        Место не выбрано 
 	                    <% end %>
