@@ -6,14 +6,8 @@
 <script src="/cjs/main.js"></script>
 <link rel="stylesheet" href="/ccss/reset.css">
 <link rel="stylesheet" href="/ccss/style.css">
-
-
-
-
-
-
-<% Trip.order(:sdate => "ASC").all.each do |trip| %>
 <section id="cd-timeline">
+<% Trip.order(:sdate => "ASC").all.each do |trip| %>
 	<div class="cd-timeline-block">
 		<div class="cd-timeline-img">
 			<img src="img/cd-icon-picture.svg" alt="Picture">
@@ -30,19 +24,11 @@
 	<div class="cd-timeline-block">
 		<!-- ... -->
 	</div>
-</section>
+
 <%end%>
+</section>
 
 <% User.all.each do |user| %>
 	<%= small_user_badge(user) %>
 <%end%>
 
-<script type="text/javascript">
-	$(window).on('scroll', function(){
-	$timeline_block.each(function(){
-		if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
-			$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
-		}
-	});
-});
-</script>
