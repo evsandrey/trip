@@ -308,6 +308,10 @@ Main components
   .cd-timeline-block:nth-child(even) .cd-timeline-content {
     float: right;
   }
+
+  .cd-timeline-block:nth-child(even) .fblock {
+    float: right;
+  }
   .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
     top: 24px;
     left: auto;
