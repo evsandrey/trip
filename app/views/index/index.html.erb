@@ -22,7 +22,7 @@
                     <% end %>
                     <%= link_to "Подробнее", trip, class: "cd-read-more" %>
 			
-			<% startdate = Date.strptime(trip.sdate,"%m/%d/%Y").to_date %>
+			<% startdate = trip.sdate %>
 			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y') %> </span>
 		</div> <!-- cd-timeline-content -->
 	</div> <!-- cd-timeline-block -->
