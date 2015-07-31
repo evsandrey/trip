@@ -49,7 +49,7 @@
 
 
 
-<% Trip.order(:order => "sdate").all.each do |trip| %>
+<% Trip.order(:sdate => "ASC").all.each do |trip| %>
 <section id="cd-timeline">
 	<div class="cd-timeline-block">
 		<div class="cd-timeline-img">
