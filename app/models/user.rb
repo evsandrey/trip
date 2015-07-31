@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :pictures
+  has_many :trophy
+
   has_and_belongs_to_many :trips, :uniq => true, :join_table => :users_trips
   has_and_belongs_to_many :commands
 

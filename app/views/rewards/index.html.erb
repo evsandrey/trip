@@ -1,0 +1,35 @@
+<div class="page-header">
+  <%= link_to new_reward_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Reward
+  <% end %>
+  <h1>Listing rewards</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>User</th>
+            <th>Trip</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @rewards) do |reward| %>
+            <td><%= reward.user_id %></td>
+            <td><%= reward.trip_id %></td>
+            <td><%= reward.name %></td>
+            <td><%= reward.description %></td>
+            <td><%= link_to 'Show', reward %></td>
+        <td><%= link_to 'Edit', edit_reward_path(reward) %></td>
+        <td><%= link_to 'Destroy', reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

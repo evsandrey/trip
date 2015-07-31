@@ -1,5 +1,5 @@
 <div class="container" style="padding-top: 60px;">
-  <h1 class="page-header"><%= @user.nickname %> profile</h1>
+  <h1 class="page-header"><%= @user.nickname %></h1>
   <div class="row">
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -9,40 +9,26 @@
     </div>
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <h3>Personal info</h3>
+      <h3></h3>
       
       	<div class="row">
-          <label class="col-lg-3 control-label">Nick name:</label>
+          <label class="col-lg-3 control-label">Ник:</label>
           <div class="col-lg-8">
           	<%= @user.nickname  %>
           </div>
         </div>
         <div class="row">
-          <label class="col-lg-3 control-label">First name:</label>
+          <label class="col-lg-3 control-label">Имя:</label>
           <div class="col-lg-8">
           	<%= @user.name  %>
           </div>
         </div>
         <div class="row">
-          <label class="col-lg-3 control-label">Last name:</label>
+          <label class="col-lg-3 control-label">Фамилия:</label>
           <div class="col-lg-8">
             <%= @user.surname  %>
           </div>
         </div>
-        <div class="row">
-          <label class="col-lg-3 control-label">Address:</label>
-          <div class="col-lg-8">
-           
-          </div>
-        </div>
-        <div class="row">
-          <label class="col-lg-3 control-label">Country:</label>
-          <div class="col-lg-8">
-            
-          </div>
-        </div>
-        
-        
         <div class="row">
           <label class="col-lg-3 control-label">Role:</label>
           <div class="col-lg-8">
@@ -55,4 +41,18 @@
       
     </div>
   </div>
+  <div class="row">
+         <div class="col-md-4">
+            <% @user.trophy.each do |trophy| %>
+              <%= small_trophy_badge(trophy) %>
+            <% end %>
+         </div>
+         <div class="col-md-4">
+            <% @user.trophy.each do |trophy| %>
+              <%= small_trophy_badge(trophy) %>
+            <% end %>
+         </div>
+         <div class="col-md-4">
+         </div>
+        </div>
 </div>

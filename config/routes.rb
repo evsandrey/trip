@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :rewards
   resources :manufacturers do  
     get :autocomplete_manufacturer_name, on: :collection
   end
