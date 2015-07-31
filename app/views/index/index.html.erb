@@ -4,7 +4,6 @@
 <p></p>
 <script src="/cjs/modernizr.js"></script>
 <script src="/cjs/main.js"></script>
-<link rel="stylesheet" href="/ccss/reset.css">
 <link rel="stylesheet" href="/ccss/style.css">
 <section id="cd-timeline">
 <% Trip.order(:sdate => "ASC").all.each do |trip| %>
@@ -21,7 +20,7 @@
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                     <% end %>
 			<a href="#0" class="cd-read-more">Read more</a>
-			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y')</span>
+			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y') %> </span>
 		</div> <!-- cd-timeline-content -->
 	</div> <!-- cd-timeline-block -->
  
