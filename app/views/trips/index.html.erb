@@ -29,8 +29,8 @@
                     <div class="col-md-4 text-center"><b><%= trip.users.count+1 %></b><br/><small>Участников</small></div>
                     <div class="col-md-4 text-center"><b><%= trip.trophy.count %></b><br/><small>Трофеев</small></div>
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
-                    <% beginDate = Date.strptime(trip.sdate,"%m/%d/%Y") %>
-                    <% endDate = Date.strptime(trip.edate,"%m/%d/%Y") %>
+                    <% beginDate = trip.sdate %>
+                    <% endDate = trip.edate %>
                     <div class="col-md-4 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><small>Дней</small></div>
                     <% else %>
                     <div class="col-md-4 text-center"><b>?</b><br/><small>Дней</small></div>
