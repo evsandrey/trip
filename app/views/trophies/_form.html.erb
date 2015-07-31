@@ -14,8 +14,14 @@
 
   <div class="form-group">
     <%= f.label "Автор", class: "col-sm-2 control-label" %>
+    <% if !@trophy.user.nil? %>
+           <% user = User.find(@trophy.user_id).nickname %>
+        <% else %>
+           <% user = "" %>
+        <% end %>
+
     <div class="col-sm-10">
-                <%= autocomplete_field_tag 'user', User.find(@trophy.user_id).nickname, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id' %>
+                <%= autocomplete_field_tag 'user', user, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id' %>
                 <%= f.number_field :user_id, class: "hidden" %>
     </div>
   </div>
