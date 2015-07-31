@@ -12,7 +12,7 @@
 			<img src="img/cd-icon-location.svg" alt="Picture">
 		</div> <!-- cd-timeline-img -->
  
-		<div class="cd-timeline-content">
+		<div class="cd-timeline-content fblock">
 			<h2><%= link_to trip.name.truncate(27), trip %></h2>
 					<% if !trip.place.nil? %>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= link_to trip.place.name, trip.place %></p>
