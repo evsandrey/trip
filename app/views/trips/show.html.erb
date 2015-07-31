@@ -179,7 +179,7 @@ function initialize()
 
     map.fitBounds(bounds);
     var listenerB = google.maps.event.addListener(map, "idle", function() { 
-      if (map.getZoom() < 8) map.setZoom(8); 
+      if (map.getZoom() > 8) map.setZoom(8); 
         google.maps.event.removeListener(listener); 
       });
     }
