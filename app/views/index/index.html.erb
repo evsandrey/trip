@@ -20,7 +20,7 @@
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                     <% end %>
 			<a href="#0" class="cd-read-more">Read more</a>
-			<% startdate = Date.strptime(@trip.sdate,"%m/%d/%Y").to_date %>
+			<% startdate = Date.strptime(trip.sdate,"%m/%d/%Y").to_date %>
 			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y') %> </span>
 		</div> <!-- cd-timeline-content -->
 	</div> <!-- cd-timeline-block -->
