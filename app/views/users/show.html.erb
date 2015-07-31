@@ -44,7 +44,7 @@
   <div class="row">
          <div class="col-md-4">
          <h4> Поездки:</h4>
-            <% @user.trip.each do |trip| %>
+            <% @user.trips.each do |trip| %>
               <%= link_to trip.name, trip %>
             <% end %>
          </div>
