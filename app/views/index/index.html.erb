@@ -6,7 +6,7 @@
 <script src="/cjs/main.js"></script>
 <link rel="stylesheet" href="/ccss/style.css">
 <div class="container" id="timeline"></div>
-<section id="cd-timeline">
+<section id="cd-timeline" class="cd-container">
 <% Trip.order(:sdate => "ASC").all.each do |trip| %>
 	<div class="cd-timeline-block">
 		<div class="cd-timeline-img">
@@ -20,7 +20,8 @@
                     <%else%>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                     <% end %>
-			<a href="#0" class="cd-read-more">Read more</a>
+                    <%= link_to "Подробнее", trip, class: "cd-read-more" %>
+			
 			<% startdate = Date.strptime(trip.sdate,"%m/%d/%Y").to_date %>
 			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y') %> </span>
 		</div> <!-- cd-timeline-content -->
@@ -33,7 +34,5 @@
 <%end%>
 </section>
 </div>
-<% User.all.each do |user| %>
-	<%= small_user_badge(user) %>
-<%end%>
+
 
