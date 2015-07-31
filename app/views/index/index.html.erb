@@ -1,8 +1,85 @@
 <div class="page-header">
-  <h1>Index#index</h1>
+  <h1>Чета тут надо написать.....</h1>
 </div>
-<p>Find me in app/views/index/index.html.erb</p>
+<p></p>
+<style type="text/css">
+	#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+
+.cssanimations .cd-timeline-img.is-hidden {
+  visibility: hidden;
+}
+.cssanimations .cd-timeline-img.bounce-in {
+  visibility: visible;
+  animation: cd-bounce-1 0.6s;
+}
+ 
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+ 
+  60% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+ 
+  100% {
+    transform: scale(1);
+  }
+}
+
+</style>
+
+
+
+
+<% Trip.order(:order => "sdate")all.each do |trip| %>
+<section id="cd-timeline">
+	<div class="cd-timeline-block">
+		<div class="cd-timeline-img">
+			<img src="img/cd-icon-picture.svg" alt="Picture">
+		</div> <!-- cd-timeline-img -->
+ 
+		<div class="cd-timeline-content">
+			<h2>Title of section 1</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+			<a href="#0" class="cd-read-more">Read more</a>
+			<span class="cd-date">Jan 14</span>
+		</div> <!-- cd-timeline-content -->
+	</div> <!-- cd-timeline-block -->
+ 
+	<div class="cd-timeline-block">
+		<!-- ... -->
+	</div>
+</section>
+<%end%>
 
 <% User.all.each do |user| %>
 	<%= small_user_badge(user) %>
 <%end%>
+
+<script type="text/javascript">
+	$(window).on('scroll', function(){
+	$timeline_block.each(function(){
+		if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.cd-timeline-img').hasClass('is-hidden') ) {
+			$(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
+		}
+	});
+});
+</script>
