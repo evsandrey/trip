@@ -94,71 +94,88 @@
   </div>
 
 <script type="text/javascript">
- var handler = Gmaps.build('Google');
-  handler.buildMap({ provider: { }, internal: {id: 'map'}}, function(){
+        <% h = Hash.new { |h,k| h[k] = [] } %>
+        <% @trip.trophy.each do |trophy| %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
+           <% if !h[trophy.lat.to_s+trophy.lng.to_s][3].nil? %>
+            <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %> 
+            <% else %>
+              <% h[trophy.lat.to_s+trophy.lng.to_s][3]= '' %>
+              <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %>
+            <% end %>
+        <% end %>
+        <% ord = h.sort_by { |k, v| v.length }.reverse %>
+
     var json_data = [
-      {
-        id:  1,
-        <% if !@trip.place.nil? %>
-          lat: <%= @trip.place.lat %>,
-          lng: <%= @trip.place.lng %>,
-        <% else %>
-          lat: 55.7500,
-          lng: 37.6167,
-        <% end %>
-        
-        infowindow: "<div style='color:red;'>Перетянуть на нужное место</div>" //this html is properly disaplayed
-      }
-    ];
-
-    //create draggable markers (pass google maps options aas a second arg)
-    var markers = handler.addMarkers(json_data);
-
-    //add markers to original json
-    _.each(json_data, function(json, index){
-      json.marker = markers[index];
-    });
-
-    //add dragend event to markers, triggered when you drop them
-    _.each(json_data, function(json){
-      google.maps.event.addListener(json.marker.getServiceObject(), "dragend", function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        console.log('Marker with id: ' + json.id + ' dropped hat lat: ' + lat + ' and lng: ' + lng)
-        document.getElementById("place_lat").value = lat;
-        document.getElementById("place_lng").value = lng;
-      });
-    });
-  });
-  handler.getMap().setZoom(8);
-  <% if !@trip.place.nil? %>
-          var centerpoint = new google.maps.LatLng(<%= @trip.place.lat %>,<%= @trip.place.lng %>);
-        <% else %>
-          var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
-        <% end %>
-  handler.getMap().setCenter(centerpoint);
-
-  
-  $(document).ready(function() {
+        <% ord.each do |key, val|%>
+                  {
+                          id:  <%= val[0] %>,
+                          <% if !val[1].nil? %>
+                            lat: <%= val[1] %>,
+                            lng: <%= val[2] %>,
+                          <% else %>
+                            lat: 55.7500,
+                            lng: 37.6167,
+                          <% end %>
+                          
+                          description: '<%= raw(val[3]) %>'
+                   },
+          <% end %>
+                   {
+                          id:  1,
+                          <% if !@trip.place.nil? %>
+                            lat: <%= @trip.place.lat %>,
+                            lng: <%= @trip.place.lng %>,
+                          <% else %>
+                            lat: 55.7500,
+                            lng: 37.6167,
+                          <% end %>
+                          
+                          infowindow: "" //this html is properly disaplayed
+                        }
     
-    $(".owl-demo").each(function( owl ) { 
-        overallWidth=0;
-        $( this ).owlCarousel({
-            margin:10,
-            loop:true,
-            autoWidth:true,
-            autoplay:true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            center: true,
+      
+      ];
 
-      })
-    });
-    
  
-  });
-  
-  
-  
+function initialize()
+{
+    var bounds = new google.maps.LatLngBounds();
+    var mapProp = {
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+    var infowindow =  new google.maps.InfoWindow({
+        content: ""
+    });
+    var icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAoCAYAAADpE0oSAAADB0lEQVRYR+2XMXIaQRBFv04gnChGJ0CO7ExwAuETACcATmB0AnCqBDiBoUqRE0GVS6nhBjghNU6U4nrDzgKjmdldVLISdRVVsDvTv393z+/hTG9kZ2+Eq3fg/5b591THUl2XdCOpKqnsLFxJmkmaSJrmqVeeVAM09ICF/BNEKwkkGEMW8EhSw+4ulUpqNBqqVqvie7lc1mq1Mp/ZbKbpdKrNZmOXs5cAvBYCLkn6nqTVALXbbdXrZPvYABqNRup0OgZ0MBjo9vbWLiL9XySl0dgXIWDDFFb9fl/NZjOYMoIC7OrqSj/v7/W0Xuvp4kKtVsuy9zL3AfckfcXRcDg0DkO2WCwMKIyxH3d3Wj8+qjkaiXe1Ws2CkwL8puYC062/JJVwCJtKpRIE7vV6JjBfCdhEQDBPUn15mHIXOG0m0vzw8BBlDDCgbla63a5pNnzAPGm4saS0Zi4wTXBOiGy8vr6OHknr/BB4uVyGgsX3B19zUUzSbJqJ+mYZIJMJmrEz2MOOEgXso6QF7w4Zm6biIc5ubhApv83nc5FmGBe0rqRBEJioz89Nxp/ZeDyOHq+MQNLu9jLebrevAYrPOLCPcaRpimQ7DuyrMWJwQk3doLw1DnY1zRTp1CKMvV2Ng/Qcc/CtaqE+VhYtClPEbsiJ/PtwtLoCQqu3cYTqIJuMQTfNgDKndgqd275J6tjVLjA+GeTmLPGjVN5dNpi5mL0VkLNnsy4cw9+EbbrFN52Iqo8Pig6rP4lDAuEZ0gNwAUubKsTYPk+HBUDokysnjJpdDjLtaDhkAfMeETa6CVP01BQ/MYKpZWKai9/za4uj1T43abPxkmpTYzwRDDUxiu+3o2Zyl2Rd9lgPFoTjM3LveZ6sj06QPMDWJeVmkH+W9MlhsExagd6IJGG/qwiw3UWmuYEeWqpI2WXfrTgFmH2H4+tIkV4bOO14SdEmCgVyKmNqbe9GXNj395+clE8F5jQhaEihnRc5IV9WY3bTvXzCfzMioZzKGJfoB6pZOM0v6Wr22nlRKMV28T/jeP0pMF5XogAAAABJRU5ErkJggg==";
+    for (var i = 0, length = json_data.length; i < length; i++) {
+        var data=json_data[i];
+        var latLng = new google.maps.LatLng(data.lat, data.lng); 
+        // Creating a marker and putting it on the map
+        var marker = new google.maps.Marker({
+            
+            position: latLng,
+            map: map,
+            icon: icon
+        });
+        bounds.extend(marker.getPosition());
+        bindInfoWindow(marker, map, infowindow, data.description);
+    } 
+    map.fitBounds(bounds);
+}
+
+function bindInfoWindow(marker, map, infowindow, description) {
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(description);
+        infowindow.open(map, marker);
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize); 
 </script>
  
