@@ -300,7 +300,9 @@ Main components
     animation: cd-bounce-2 0.6s;
   }
 }
-
+.cd-timeline-img  {
+  background: #75ce66;
+}
 @media only screen and (min-width: 1170px) {
   /* inverse bounce effect on even content blocks */
   .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
