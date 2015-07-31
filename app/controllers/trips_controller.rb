@@ -47,8 +47,10 @@ class TripsController < ApplicationController
   # PATCH/PUT /trips/1
   # PATCH/PUT /trips/1.json
   def update
-    params[:trip_sdate] = Date.strptime(params[:trip_sdate],"%m/%d/%Y").to_date
-    params[:trip_edate] = Date.strptime(params[:trip_edate],"%m/%d/%Y").to_date
+    sdate = Date.strptime(params[:trip_sdate],"%m/%d/%Y").to_date
+    edate = Date.strptime(params[:trip_edate],"%m/%d/%Y").to_date
+    params[:trip_sdate] = sdate
+    params[:trip_edate] = edate
     respond_to do |format|
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
