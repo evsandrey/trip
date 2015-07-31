@@ -14,14 +14,15 @@
 		</div> <!-- cd-timeline-img -->
  
 		<div class="cd-timeline-content ">
-			<h2><%= link_to trip.name.truncate(27), trip %></h2>
-					<% if !trip.place.nil? %>
-                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= link_to trip.place.name, trip.place %></p>
-                    <%else%>
-                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
-                    <% end %>
-                    <%= link_to "Подробнее", trip, class: "cd-read-more" %>
-			
+			<h2><%= trip.name.truncate(27) %></h2>
+					<div class="cd-timeline-multi-btn">
+						<% if !trip.place.nil? %>
+	                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= link_to trip.place.name, trip.place %></p>
+	                    <%else%>
+	                        <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
+	                    <% end %>
+	                    <%= link_to "Подробнее", trip, class: "cd-read-more" %>
+					</div>
 			<% startdate = Date.strptime(trip.sdate,"%m/%d/%Y").to_date %>
 			<span class="cd-date"><%= Russian::strftime(startdate,'%d %b %Y') %> </span>
 		</div> <!-- cd-timeline-content -->
