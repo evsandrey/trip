@@ -49,8 +49,8 @@ class TripsController < ApplicationController
   def update
     sdate = Date.strptime(params[:trip][:sdate],"%m/%d/%Y").to_date
     edate = Date.strptime(params[:trip][:edate],"%m/%d/%Y").to_date
-    params[:trip_sdate] = sdate
-    params[:trip_edate] = edate
+    params[:trip][:sdate] = sdate
+    params[:trip][:sdate] = edate
     respond_to do |format|
       if @trip.update(trip_params)
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
