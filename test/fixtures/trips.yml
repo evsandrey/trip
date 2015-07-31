@@ -15,7 +15,7 @@
 #  cover_file_size    :integer
 #  cover_updated_at   :datetime
 #  sdesc              :text
-#  sdate              :string
+#  sdate              :date
 #  edate              :string
 #
 

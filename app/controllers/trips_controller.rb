@@ -24,6 +24,8 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
+    params[:sdate] = Date.strptime(params[:sdate],"%m/%d/%Y").to_date
+    params[:edate] = Date.strptime(params[:edate],"%m/%d/%Y").to_date
     @trip = Trip.new(trip_params)
     if params[:images]
         #===== The magic is here ;)
