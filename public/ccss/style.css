@@ -309,7 +309,7 @@ Main components
     float: right;
   }
 
-  .cd-timeline-block:nth-child(even) .fblock {
+  .fblock {
     float: right;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
