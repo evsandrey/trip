@@ -1,6 +1,6 @@
 <div class="page-header">
   <%= link_to new_fish_path, class: 'btn btn-primary' do %>
-    <% if can? :create, @fish %>
+    <% if can? :create, Fish %>
     <span class="glyphicon glyphicon-plus"></span>
     Добавить рыбу
   <% end %>

@@ -1,5 +1,5 @@
 <div class="page-header">
-  <% if can? :create, @manufacturer %>
+  <% if can? :create, Manufacturer %>
   <%= link_to new_manufacturer_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     Добавить производителя
