@@ -13,6 +13,7 @@ class Ability
        end
 
        if user.role == "moderator"
+         can :read, :all
          can :manage, Trip,:captain => user.id
          can :manage, Trophy,:user_id => user.id
          can :create, Bait
