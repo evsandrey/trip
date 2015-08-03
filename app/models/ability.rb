@@ -8,12 +8,18 @@ class Ability
        
        if user.role == "admin"
           can :manage, :all
-        else
+       else
           can :read, :all
-        end
+       end
 
-       can :manage, Trip,:captain => user.id
-       can :manage, Trophy,:user_id => user.id
+       if user.role == "moderator"
+         can :manage, Trip,:captain => user.id
+         can :manage, Trophy,:user_id => user.id
+         can :create, Bait
+         can :create, Manufacturer
+         can :create, Place
+         can :create, Trophy
+        end
 
 
 
