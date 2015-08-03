@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Список
   <% end %>
+  <% if can? :update, @manufacturer %>
   <%= link_to edit_manufacturer_path(@manufacturer), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Редактировать
+  <% end %>
   <% end %>
 <div class="container">
 <div class="row">

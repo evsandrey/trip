@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_bait_path(@bait), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <% if can? :update, @bait %>
+    <%= link_to edit_bait_path(@bait), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
   <% end %>
  <div class="container">
 <div class="row">
