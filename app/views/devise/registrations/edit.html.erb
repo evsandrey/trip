@@ -5,7 +5,11 @@
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
-        
+        <% if !@user.avatar.nil? %>
+          <%= image_tag @user.avatar.url(:med), :class => 'img-rounded avatar-profile' %>
+        <% else %>
+            
+        <% end %>        
         
         <%= f.file_field :avatar %>
       </div>
