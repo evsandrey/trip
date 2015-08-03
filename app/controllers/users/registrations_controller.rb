@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   before_filter :configure_permitted_parameters
-  before_action :set_user, only: [:edit]
+  
   protected
 
   # my custom fields are :name, :heard_how
@@ -13,7 +13,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:name,:surname, :nickname,:slogan, :email, :password, :password_confirmation, :current_password,:avatar,:role)
     end
   end
-  def set_user
-      @user = User.find(params[:id])
-  end
+  
 end
