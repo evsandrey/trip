@@ -58,6 +58,7 @@ gem 'jquery-ui-rails'
 #User and auth gems
 
 gem 'devise', '~> 3.4.0'
+gem 'cancancan', '~> 1.10'
 
 #Images gem
 gem 'paperclip', '4.2'
