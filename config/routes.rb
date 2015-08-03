@@ -20,9 +20,7 @@ Rails.application.routes.draw do
   get 'index/index'
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }, :path_prefix => 'd'
-  as :user do
-    get 'users', :to => 'users#show', :as => :user_root # Rails 3
-  end
+
   
   resources :users do  
     get :autocomplete_user_nickname, on: :collection

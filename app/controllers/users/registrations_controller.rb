@@ -13,8 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:name,:surname, :nickname,:slogan, :email, :password, :password_confirmation, :current_password,:avatar,:role)
     end
   end
-  def after_update_path_for(resource)
-      user_path(resource)
+  def after_update_path_for(user)
+      user_path(user)
   end
   
 end
