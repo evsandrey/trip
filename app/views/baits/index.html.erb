@@ -1,7 +1,9 @@
 <div class="page-header">
+  <% if can? :create, @bait %>
   <%= link_to new_bait_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     Добавить приманку
+  <% end %>
   <% end %>
   <h1>Приманки</h1>
 </div>

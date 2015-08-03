@@ -1,7 +1,9 @@
 <div class="page-header">
+  <% if can? :create, @fish %>
   <%= link_to new_trip_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     Добавить
+  <% end %>
   <% end %>
   <h1>Наши рыбалки</h1>
 </div>

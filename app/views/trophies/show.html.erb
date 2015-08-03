@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
+  <% if can? :update, @trophy %>
   <%= link_to edit_trophy_path(@trophy), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
+  <% end %>
   <% end %>
   <div class="container">
 <div class="row">

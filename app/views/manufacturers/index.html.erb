@@ -1,9 +1,11 @@
 <div class="page-header">
+  <% if can? :create, @manufacturer %>
   <%= link_to new_manufacturer_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Manufacturer
+    Добавить производителя
   <% end %>
-  <h1>Listing manufacturers</h1>
+  <% end %>
+  <h1>Производители</h1>
 </div>
 
 <% @manufacturers.each_slice(4) do |manufacturers| %>

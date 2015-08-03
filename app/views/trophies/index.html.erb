@@ -1,8 +1,11 @@
 <div class="page-header">
+  <% if can? :create, @trophy %>
   <%= link_to new_trophy_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     Добавить
   <% end %>
+  <% end %>
+
   <h1>Наши трофеи</h1>
 </div>
 
