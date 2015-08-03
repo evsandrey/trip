@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   get 'index/index'
 
   devise_for :users, :controllers => { :registrations => "users/registrations" }
-
+  devise_for :users do
+     get ':user/edit-profile' => 'devise/registration#edit', :as => :edit_user_profile
+  end
+  
   resources :users do  
     get :autocomplete_user_nickname, on: :collection
   end

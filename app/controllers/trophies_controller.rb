@@ -1,6 +1,6 @@
 class TrophiesController < ApplicationController
   before_action :set_trophy, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /trophies
   # GET /trophies.json
   def index

@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   
   autocomplete :place, :name, :full => true, :extra_data => [:id]
-  
+  load_and_authorize_resource
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   # GET /places
   # GET /places.json

@@ -1,7 +1,7 @@
 class BaitsController < ApplicationController
   
   autocomplete :bait, :name, :full => true, :extra_data => [:id]
-
+  load_and_authorize_resource
   before_action :set_bait, only: [:show, :edit, :update, :destroy]
   # GET /baits
   # GET /baits.json
