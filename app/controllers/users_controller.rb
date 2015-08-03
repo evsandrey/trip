@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 #before_filter :authenticate_user!
-  load_and_authorize_resource
+  
   autocomplete :user, :nickname, :full => true, :extra_data => [:id]
 
   def show
