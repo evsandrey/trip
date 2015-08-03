@@ -7,6 +7,7 @@
     <span class="glyphicon glyphicon-info-sign"></span>
     Show
   <% end %>
+  <%= link_to 'Delete', @place, :method => 'delete', :confirm => 'Are you sure?', class: 'btn btn-danger'%>
   <h1>Editing place</h1>
 </div>
 
