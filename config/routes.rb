@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   resources :pictures
   get 'index/index'
 
-  devise_for :users, :controllers => { :registrations => "users/registrations" }
-  
+  devise_for :users, :controllers => { :registrations => "users/registrations" }, :path_prefix => 'd'
+
   
   resources :users do  
     get :autocomplete_user_nickname, on: :collection
