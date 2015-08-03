@@ -23,7 +23,7 @@ class Ability
          can :create, Place
          can :create, Trophy
          can :create, Trip
-         can :update, Trip, :trip_users_ids => user.id
+         can :update, Trip, :users_ids => user.id
         end
 
 
