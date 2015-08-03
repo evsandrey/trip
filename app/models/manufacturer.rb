@@ -15,7 +15,7 @@
 #
 
 class Manufacturer < ActiveRecord::Base
-	has_many :baits
+	has_many :baits, dependent: :destroy
 	has_attached_file :photo,
 	  	styles: { thumb: "50x50",med: "150x150"},
 	  	:path => "trip-site/mfc/:style/:id.:extension",

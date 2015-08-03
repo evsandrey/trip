@@ -23,8 +23,8 @@ class Trip < ActiveRecord::Base
 	has_and_belongs_to_many :users, :uniq => true, :join_table => :users_trips
 	has_one :route
 	belongs_to :place
-	has_many :pictures
-	has_many :trophy
+	has_many :pictures, dependent: :destroy
+	has_many :trophy, dependent: :destroy
 	
 	validates :captain, :presence => true
 	validates :description, :presence => true
