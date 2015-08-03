@@ -12,7 +12,7 @@ class Ability
           can :read, :all
         end
 
-       can :manage, Trip,:captain_id => user.id
+       can :manage, Trip,:captain => user.id
        can :manage, Trophy,:user_id => user.id
 
 
