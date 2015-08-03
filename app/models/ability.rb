@@ -8,8 +8,10 @@ class Ability
        
        if user.role == "admin"
           can :manage, :all
+          can :update, User, attributes: [:role]
        else
           can :read, :all
+          cannot :update, User, attributes: [:role]
        end
 
        if user.role == "moderator"
