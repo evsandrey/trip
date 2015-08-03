@@ -20,6 +20,7 @@ class Ability
          can :create, Manufacturer
          can :create, Place
          can :create, Trophy
+         can :create, Trip
         end
 
 
