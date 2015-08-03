@@ -8,7 +8,7 @@
         <% if !@user.avatar.nil? %>
           <%= image_tag @user.avatar.url(:med), :class => 'img-rounded avatar-profile' %>
         <% else %>
-            
+
         <% end %>        
         
         <%= f.file_field :avatar %>
@@ -53,6 +53,13 @@
           <div class="col-lg-8">
             <%= f.email_field :email, autocomplete: "off", :class => 'form-control',:readonly=> "true",:placeholder => @user.email %>
             
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-lg-3 control-label">Role:</label>
+          <div class="col-lg-8">
+            
+            <%= f.collection_select :role, Driller::ROLES, :to_s, :humanize, {}, { :class => 'form-control'} %>
           </div>
         </div>
         <div class="row">
