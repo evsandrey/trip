@@ -9,7 +9,6 @@
     Edit
   <% end %>
   <% end %>
-  
   <div class="container">
 <div class="row">
   <div class="col-md-8">
@@ -98,7 +97,7 @@
   handler.getMap().setZoom(8);
   <% if !@place.nil? %>
           var centerpoint = new google.maps.LatLng(<%= @place.lat %>,<%= @place.lng %>);
-  <% else %>
+   <% else %>
           var centerpoint = new google.maps.LatLng(55.7500, 37.6167);
   <% end %>
   handler.getMap().setCenter(centerpoint);

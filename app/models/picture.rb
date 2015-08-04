@@ -26,7 +26,7 @@ class Picture < ActiveRecord::Base
 	
     has_attached_file :photo,
 	  	styles: { med: "150x150", slide: "x300" },
-	  	:path => "trip-site/photo/:style/:filename.:extension",
+	  	:path => "trip-site/photo/:style/:photo_file_name.:extension",
 	    :storage => :dropbox,
     	:dropbox_visibility => 'public',
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
