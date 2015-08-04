@@ -94,7 +94,7 @@ body {
 
 @media (max-width: 1000px) { 
     .navbar-brand {
-        width: 50px;        
+        width: 150px;        
     }
 
     .navbar-brand img {
