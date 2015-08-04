@@ -190,7 +190,7 @@
         <div class="container top-buffer">
           <script language="javascript" type="text/javascript" src="//cdn.jsdelivr.net/jquery.fileupload/9.5.7/js/jquery.fileupload.js" data-turbolinks-track="true" ></script>
           <script language="javascript" type="text/javascript" src="//cdn.jsdelivr.net/jquery.fileupload/9.5.7/js/jquery.fileupload-process.js" data-turbolinks-track="true" ></script> 
-          <form id ="fileupload" multipart="true" >
+          <form id ="picture" multipart="true" >
           <span class="btn btn-success fileinput-button">
                   <%= token_tag %>
                   <i class="glyphicon glyphicon-plus"></i>
@@ -218,7 +218,7 @@
 <script>
   $(function() {
     var url = '/pictures';
-    $('#fileupload').fileupload({
+    $('#picture').fileupload({
         url: url,
         dataType: 'json',
         done: function (e, data) {
