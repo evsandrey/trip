@@ -96,24 +96,52 @@ body {
     padding: 0px 15px 0px;
 }
 
-@media(min-width:1180px) {
-    .navbar-fixed-top .navbar-brand  {
+@media screen and (min-width:1210px) {
+    .navbar-header{ 
         padding: 0px 0;
         width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        height:50px;
         
+    }
+    .navbar-brand  {
+        padding: 0px 0;
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        height:50px;
+    }
+    .logo {
+        padding: 0px 0;
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        height:50px;
     }
 }
 
-@media(min-width:1000px) {
+@media screen and (min-width:1000px) and (max-width:1210px)  {
     .navbar-header  {
         padding: 0px 0;
-        width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        width: 150px; /*Force IE10 and below to size SVG images correctly*/
+        height:30px;
+        
+    }
+    .navbar-brand  {
+        padding: 0px 0;
+        width: 150px; /*Force IE10 and below to size SVG images correctly*/
+        height:30px;
+    }
+    .logo {
+        padding: 0px 0;
+        width: 150px; /*Force IE10 and below to size SVG images correctly*/
+        height:30px;
         
     }
 }
 
 @media (min-width:335px) { 
-    .navbar-fixed-top .navbar-brand {
-        width: 100% ; /*Force IE10 and below to size SVG images correctly*/
+    .navbar-header,.navbar-brand {
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        height:50px;
+    }
+    .logo {
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
+        height:50px;
     }
 }
