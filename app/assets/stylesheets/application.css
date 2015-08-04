@@ -99,36 +99,21 @@ body {
 @media(min-width:1180px) {
     .navbar-fixed-top .navbar-brand  {
         padding: 0px 0;
-        width: 100%; /*Force IE10 and below to size SVG images correctly*/
-        
-    }
-    .navbar-fixed-top .navbar-brand img {
-        padding: 0px 0;
-        width: 90%; /*Force IE10 and below to size SVG images correctly*/
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
         
     }
 }
 
 @media(min-width:1000px) {
-    .navbar-fixed-top .navbar-brand  {
+    .navbar-header  {
         padding: 0px 0;
-        width: 60%; /*Force IE10 and below to size SVG images correctly*/
-        
-    }
-    .navbar-fixed-top .navbar-brand img {
-        padding: 0px 0;
-        width: 60% ; /*Force IE10 and below to size SVG images correctly*/
+        width: 265px; /*Force IE10 and below to size SVG images correctly*/
         
     }
 }
 
 @media (min-width:335px) { 
-.navbar-fixed-top .navbar-brand {
-    width: 30% ; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 30%;
-}
-.navbar-fixed-top .navbar-brand img{
-    width: 30% ; /*Force IE10 and below to size SVG images correctly*/
-    
-}
+    .navbar-fixed-top .navbar-brand {
+        width: 100% ; /*Force IE10 and below to size SVG images correctly*/
+    }
 }
