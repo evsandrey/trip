@@ -24,7 +24,10 @@ class Ability
          can :create, Trophy
          can :create, Trip
          can :update, Trip, :users => {:id => user.id}
-        end
+      end
+      if user.role == "user"
+         can :manage, :all
+      end
 
 
 
