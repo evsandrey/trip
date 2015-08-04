@@ -96,18 +96,16 @@ body {
 }
 
 @media(min-width:768px) {
-    body {
-        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
-    }
-
-    .navbar-fixed-top .navbar-brand {
-        padding: 15px 0;
+    .navbar-fixed-top .navbar-brand img {
+        padding: 0px 0;
+        width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
+        max-width: 60%;
     }
 }
 
 @media (max-width:335px) { 
-.logo img {
-    width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 60%;
+.navbar-fixed-top .navbar-brand img {
+    width: 30% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 30%;
 }
 }
