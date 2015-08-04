@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'tripmaps/trips'
+
+  get 'tripmaps/fish'
+
+  get 'tripmaps/pictures'
+
   resources :rewards
   resources :manufacturers do  
     get :autocomplete_manufacturer_name, on: :collection
