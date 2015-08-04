@@ -102,6 +102,11 @@ body {
         width: 90% \9; /*Force IE10 and below to size SVG images correctly*/
         max-width: 90%;
     }
+    .navbar-fixed-top .navbar-brand img {
+        padding: 0px 0;
+        width: 90% \9; /*Force IE10 and below to size SVG images correctly*/
+        max-width: 90%;
+    }
 }
 
 @media(min-width:1000px) {
@@ -110,10 +115,19 @@ body {
         width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
         max-width: 60%;
     }
+    .navbar-fixed-top .navbar-brand img {
+        padding: 0px 0;
+        width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
+        max-width: 60%;
+    }
 }
 
 @media (min-width:335px) { 
 .navbar-fixed-top .navbar-brand {
+    width: 30% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 30%;
+}
+.navbar-fixed-top .navbar-brand img{
     width: 30% \9; /*Force IE10 and below to size SVG images correctly*/
     max-width: 30%;
 }
