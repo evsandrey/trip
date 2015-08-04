@@ -87,37 +87,22 @@ body {
 }
 
 
-.logo img {
-width: 100% \9; /*Force IE10 and below to size SVG images correctly*/
-max-width: 100%;
+.navbar-fixed-top .nav {
+    padding: 15px 0;
 }
 
-@media (max-width:480px) { 
-.logo img {
-    width: 70% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 70% !important;
-}
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
 }
 
-@media (max-width:400px) { 
-.logo img {
-    width: 75% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 75%;
-}
-}
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
 
-@media (max-width:385px) { 
-.logo img {
-    width: 70% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 70%;
-}
-}
-
-@media (max-width:345px) { 
-.logo img {
-    width: 65% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 65%;
-}
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
 }
 
 @media (max-width:335px) { 
