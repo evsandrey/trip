@@ -41,11 +41,9 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar,
   	styles: { menu: "20x20#", thumb: "50x50#", med: "300x300"},
-  	:path => "trip-site/avatars/:id/:style.:extension",
-    :storage => :dropbox,
-    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
+  	:storage => :dropbox,
+    :dropbox_visibility => 'public',
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+    :path => "trip-site/avatar/:id/:style.:extension"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
-
-  
 end

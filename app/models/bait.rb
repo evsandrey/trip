@@ -28,6 +28,7 @@ class Bait < ActiveRecord::Base
 	  	styles: { thumb: "50x50", med: "150x150"},
 	  	:path => "trip-site/bait/:style/:id.:extension",
 	    :storage => :dropbox,
+    	:dropbox_visibility => 'public',
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 end

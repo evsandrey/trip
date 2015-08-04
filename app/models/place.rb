@@ -22,6 +22,7 @@ class Place < ActiveRecord::Base
 	  	styles: { thumb: "50x50", med: "100x100", grid: "300x300"},
 	  	:path => "trip-site/place/:style/:id.:extension",
 	    :storage => :dropbox,
+    	:dropbox_visibility => 'public',
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :pcover, :content_type => /\Aimage\/.*\Z/
 end
