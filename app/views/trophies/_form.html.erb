@@ -106,7 +106,7 @@
       });
     });
   });
-  handler.getMap().setZoom(5);
+  handler.getMap().setZoom(13);
   <% if !@trophy.lat.nil? %>
           var centerpoint = new google.maps.LatLng(<%= @trophy.lat %>,<%= @trophy.lng %>);
         <% else %>
