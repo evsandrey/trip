@@ -4,6 +4,7 @@ class TripmapsController < ApplicationController
   end
 
   def fish
+  	@trophyes=Trophy.all
   end
 
   def pictures
