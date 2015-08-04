@@ -68,6 +68,7 @@ function initialize()
         bounds.extend(marker.getPosition());
         bindInfoWindow(marker, map, infowindow, data.description);
     } 
+    var mc = new MarkerClusterer(map);
     map.fitBounds(bounds);
     
 }
