@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to new_picture_path, class: 'btn btn-primary' do %>
+  <%= link_to @trip, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Picture
+    Назад
   <% end %>
-  <h1>Listing pictures</h1>
+  <h1>Фото поездки <%= link_to @trip.name,@trip %></h1>
 </div>
     <div class="row">
     <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>

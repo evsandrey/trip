@@ -44,8 +44,8 @@ class TrophiesController < ApplicationController
   def update
     respond_to do |format|
       if @trophy.update(trophy_params)
-        format.html { redirect_to current_user, notice: 'Trophy was successfully updated.' }
-        format.json { render :show, status: :ok, location: current_user }
+        format.html { redirect_to @trophy, notice: 'Trophy was successfully updated.' }
+        format.json { render :show, status: :ok, location: @trophy }
       else
         format.html { render :edit }
         format.json { render json: @trophy.errors, status: :unprocessable_entity }
