@@ -86,14 +86,42 @@ body {
   height: 100%;
 }
 
-.navbar-brand {
-   padding: 0px;
+
+.logo img {
+width: 100% \9; /*Force IE10 and below to size SVG images correctly*/
+max-width: 100%;
 }
 
-.navbar-collapse {
-   float: left;
+@media (max-width:480px) { 
+.logo img {
+    width: 70% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 70% !important;
+}
 }
 
-.navbar-logo {
-   float: left;
+@media (max-width:400px) { 
+.logo img {
+    width: 75% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 75%;
+}
+}
+
+@media (max-width:385px) { 
+.logo img {
+    width: 70% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 70%;
+}
+}
+
+@media (max-width:345px) { 
+.logo img {
+    width: 65% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 65%;
+}
+}
+
+@media (max-width:335px) { 
+.logo img {
+    width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
+    max-width: 60%;
 }
