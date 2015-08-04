@@ -86,34 +86,12 @@ body {
   height: 100%;
 }
 
-
-.navbar-fixed-top .nav {
-    padding: 15px 0;
+.navbar .brand {
+    max-height: 50px;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
 }
-
-.navbar-fixed-top .navbar-brand {
-    padding: 0 0px;
-}
-
-@media(min-width:1100px) {
-    .navbar-fixed-top .navbar-brand  {
-        padding: 0px 0;
-        width: 90% \9; /*Force IE10 and below to size SVG images correctly*/
-        max-width: 90%;
-    }
-}
-
-@media(min-width:768px) {
-    .navbar-fixed-top .navbar-brand  {
-        padding: 0px 0;
-        width: 60% \9; /*Force IE10 and below to size SVG images correctly*/
-        max-width: 60%;
-    }
-}
-
-@media (min-width:335px) { 
-.navbar-fixed-top .navbar-brand {
-    width: 30% \9; /*Force IE10 and below to size SVG images correctly*/
-    max-width: 30%;
-}
+.navbar a.navbar-brand {
+    padding: 0px 15px 0px;
 }
