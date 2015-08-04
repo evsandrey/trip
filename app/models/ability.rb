@@ -10,8 +10,7 @@ class Ability
           can :manage, :all
           can :update, User, attributes: [:role]
        else
-          can :manage, :all
-          can :update, User, attributes: [:role]
+          can :read, :all
        end
 
        if user.role == "moderator"
@@ -26,7 +25,7 @@ class Ability
          can :update, Trip, :users => {:id => user.id}
       end
       if user.role == "user"
-         can :manage, :all
+         can :read, :all
       end
 
 
