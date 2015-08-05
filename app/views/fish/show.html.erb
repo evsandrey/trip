@@ -1,3 +1,25 @@
+<% max_w = 0 %>
+<% h = Hash.new { |h,k| h[k] = [] } %>
+        <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
+           <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
+           <% if !h[trophy.lat.to_s+trophy.lng.to_s][3].nil? %>
+            <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %> 
+            <% else %>
+              <% h[trophy.lat.to_s+trophy.lng.to_s][3]= '' %>
+              <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %>
+            <% end %>
+           <%if max_w < trophy.weight %>
+              <% max_w = trophy.weight %> 
+              <% @max = trophy %>
+           <% end %> 
+        <% end %>
+        
+        <% ord = h.sort_by { |k, v| v.length }.reverse %>
+
+
+
 <div class="page-header">
   <%= link_to fish_index_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -35,6 +57,7 @@
               
             </tbody>
            </table>
+           <%= small_trophy_badge(@max) %>
       </div>
     </div>
     <div class="row">
@@ -60,19 +83,7 @@
 </div>
 
 <script type="text/javascript">
-        <% h = Hash.new { |h,k| h[k] = [] } %>
-        <% Trophy.where(fish_id: @fish.id).each do |trophy| %>
-           <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
-           <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
-           <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
-           <% if !h[trophy.lat.to_s+trophy.lng.to_s][3].nil? %>
-            <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %> 
-            <% else %>
-              <% h[trophy.lat.to_s+trophy.lng.to_s][3]= '' %>
-              <% h[trophy.lat.to_s+trophy.lng.to_s][3] << small_trophy_badge(trophy).to_s %>
-            <% end %>
-        <% end %>
-        <% ord = h.sort_by { |k, v| v.length }.reverse %>
+        
 
     var json_data = [
         <% ord.each do |key, val|%>
