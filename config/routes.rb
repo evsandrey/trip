@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   post "add_user_path", to: "trips#add_user"
   post "select_place_path", to: "trips#select_place"
   post "create_trophy_path", to: "trips#create_trophy"
+
+  post "save_picture_path", to: "pictures#save_picture"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
