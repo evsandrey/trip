@@ -85,6 +85,9 @@ class PicturesController < ApplicationController
     def picture_params
       
     end
+    def to_boolean(str)
+      str == 'true'
+    end
   def to_fileupload(picture)
   {
     files: [
