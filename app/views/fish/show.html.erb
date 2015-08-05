@@ -57,7 +57,9 @@
               
             </tbody>
            </table>
-           <%= small_trophy_badge(@max) %>
+        <% if !@max.nil? %>           
+          <%= small_trophy_badge(@max) %>
+        <% end %>
       </div>
     </div>
     <div class="row">
