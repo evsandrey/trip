@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    @trips = Trip.order(:sdate => "DESC").all
   end
 
   # GET /trips/1
