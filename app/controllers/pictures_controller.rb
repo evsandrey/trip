@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     @trip = Trip.find(params[:trip_id])
-    if current_user.id == @trip.captain or @trip.user_ids.include?(current_user.id) or current_user.role == "admin"
+    if !current_user.nil? and (current_user.id == @trip.captain or @trip.user_ids.include?(current_user.id) or current_user.role == "admin")
       @pictures = @trip.pictures.paginate(:page => params[:page], :per_page => 30)
     else
       @pictures = @trip.pictures.where(pprivate: false).paginate(:page => params[:page], :per_page => 30)
