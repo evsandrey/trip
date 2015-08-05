@@ -20,7 +20,7 @@
                   <div class="caption">
                       <h3><%= link_to bait.name, bait %></h3>
                       <p><%= link_to bait.manufacturer.name, bait.manufacturer  %></p>
-                      <% if !@bait.weight.nil? %>
+                      <% if !bait.weight.nil? %>
                       <p><%= bait.weight %> г.</p>
                       <% end %>
                   </div>
