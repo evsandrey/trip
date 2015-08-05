@@ -52,6 +52,18 @@ class PicturesController < ApplicationController
     end
   end
 
+  def save_picture
+    @picture = Picture.find(params[:picture_id])
+    @picture.pprivate = params[:picture_pprivate]
+    respond_to do |format|
+      if @picture.save
+        format.js { render "error", :text => "ok" }
+      else
+        format.js { render "error", :text => "fail" }
+      end
+    end
+  end
+
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy
