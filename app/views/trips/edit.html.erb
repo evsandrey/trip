@@ -111,7 +111,7 @@
                     <% else %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" />
                     <% end %>
-                    Private
+                    Private <%= picture.pprivate %>
                   </div>
                   <div class="col-md-3">
                     <button onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
