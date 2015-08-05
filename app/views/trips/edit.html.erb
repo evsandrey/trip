@@ -111,11 +111,11 @@
                     <% else %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" />
                     <% end %>
-                    Private <%= picture.pprivate %>
+                    Private
                   </div>
                   <div class="col-md-3">
                     <button onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
-                    <button onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').val())" >Save</button>
+                    <button onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'))" >Save</button>
 
                   </div>
                 </div>  
