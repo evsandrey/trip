@@ -26,7 +26,7 @@
         <div class="col-md-4 text-center " >
           <%=link_to image_tag("/icon-album.jpeg", :border=>0), trip_pictures_path(@trip) %>
           <br>
-          <%=link_to "Фото", trip_pictures_path(@trip) %>
+          <%=link_to "Фото"+@trip.pictures.count.to_s, trip_pictures_path(@trip) %>
         </div>
         <div class="col-md-4 text-center ">
           <% if !@trip.place.nil? %>
