@@ -34,12 +34,54 @@
               </tr>
               <tr>
                 <td>
+                  Тип:
+                </td>
+                <td>
+                  <%= @bait.type %>
+                </td>
+              </tr>
+
+              <% if !@bait.weight.nil? %>
+              <tr>
+                <td>
                   Вес:
                 </td>
                 <td>
                   <%= @bait.weight %> г.
                 </td>
-              </tr>  
+              </tr>
+              <% end %> 
+              <% if !@bait.size.nil? %>
+              <tr>
+                <td>
+                  Размер:
+                </td>
+                <td>
+                  <%= @bait.size %> мм.
+                </td>
+              </tr>
+              <% end %>
+              <% if !@bait.depth.nil? %>
+              <tr>
+                <td>
+                  Заглубление:
+                </td>
+                <td>
+                  <%= @bait.depth %> м.
+                </td>
+              </tr>
+              <% end %>
+              <% if !@bait.number.nil? %>
+              <tr>
+                <td>
+                  Номер:
+                </td>
+                <td>
+                  <%= @bait.number %> 
+                </td>
+              </tr>
+              <% end %>
+
               <tr>
                 <td>
                   Производитель:

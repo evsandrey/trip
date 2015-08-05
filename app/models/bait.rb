@@ -26,8 +26,8 @@ class Bait < ActiveRecord::Base
 
 
 	validates :description, :presence => true
+	validates :type, :presence => true
 	validates :name, :presence => true
-	validates :weight, :presence => true
 	validates :manufacturer_id, :presence => true
 	validates_numericality_of :weight
 	
