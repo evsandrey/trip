@@ -25,7 +25,7 @@ class Picture < ActiveRecord::Base
 	belongs_to :trip
 	
     has_attached_file :photo,
-	  	styles: { med: "150x150", slide: "x300" },
+	  	styles: { thumb: "50x50", med: "150x150", slide: "x300" },
 	  	:path => "trip-site/photo/:style/:id/:filename",
 	    :storage => :dropbox,
     	:dropbox_visibility => 'public',
