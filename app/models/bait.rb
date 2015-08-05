@@ -37,7 +37,7 @@ class Bait < ActiveRecord::Base
 	has_many :trophy, dependent: :destroy
 	belongs_to :manufacturer
 	has_attached_file :photo,
-	  	styles: { thumb: "50x50", med: "150x150"},
+	  	styles: { thumb: "50x50", med: "300x300"},
 	  	:path => "trip-site/bait/:style/:id.:extension",
 	    :storage => :dropbox,
     	:dropbox_visibility => 'public',
