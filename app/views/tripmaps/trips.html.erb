@@ -11,10 +11,10 @@
            <% h[trip.place.lat.to_s+trip.place.lng.to_s][1]= trip.place.lat %>
            <% h[trip.place.lat.to_s+trip.place.lng.to_s][2]= trip.place.lng %>
            <% if !h[trip.place.lat.to_s+trip.place.lng.to_s][3].nil? %>
-            <% h[trip.place.lat.to_s+trip.place.lng.to_s][3] << link_to(trip.name,trip) %> 
+            <% h[trip.place.lat.to_s+trip.place.lng.to_s][3] << link_to(trip.name,trip)+"<br>" %> 
             <% else %>
               <% h[trip.place.lat.to_s+trip.place.lng.to_s][3]= '' %>
-              <% h[trip.place.lat.to_s+trip.place.lng.to_s][3] << link_to(trip.name,trip) %>
+              <% h[trip.place.lat.to_s+trip.place.lng.to_s][3] << link_to(trip.name,trip)+"<br>" %>
             <% end %>
         <% end %>
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
