@@ -6,7 +6,12 @@
 		            </a>
 		        </td>
 				<td>
-					<p>&nbsp;&nbsp; <%= link_to bait.name , bait %>&nbsp;-&nbsp;<%= bait.weight %>&nbsp;г. </p>
+					<p>&nbsp;&nbsp; <%= link_to bait.name , bait %>&nbsp;-&nbsp;
+					<% if !bait.weight.nil? %>
+					<%= bait.weight %>&nbsp;г. 
+					<% end %>
+
+					</p>
 				</td>
 			</tr>
 			<tr>
