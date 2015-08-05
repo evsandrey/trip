@@ -13,6 +13,10 @@
 #  photo_updated_at   :datetime
 #  weight             :integer
 #  manufacturer_id    :integer
+#  depth              :float
+#  size               :integer
+#  number             :integer
+#  type               :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

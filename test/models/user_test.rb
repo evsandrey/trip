@@ -23,6 +23,9 @@
 #  avatar_content_type    :string
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
+#  role                   :string           default("user")
+#  country                :string           default("RU")
+#  address                :string
 #
 
 require 'test_helper'

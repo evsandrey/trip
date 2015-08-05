@@ -16,7 +16,7 @@
 #  cover_updated_at   :datetime
 #  sdesc              :text
 #  sdate              :date
-#  edate              :string
+#  edate              :date
 #
 
 require 'test_helper'
