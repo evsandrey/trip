@@ -28,8 +28,8 @@
                   </div>
                   <div class="modal-footer" style="text-align: left">
                   <div class="row">
-                    <div class="col-md-4 text-center"><b><%= trip.users.count+1 %></b><br/><small>Участников</small></div>
-                    <div class="col-md-4 text-center"><b><%= trip.trophy.count %></b><br/><small>Трофеев</small></div>
+                    <div class="col-md-4 text-center"><b><%= trip.users.count+1 %></b><br/><small><i class="flaticon-user168"></i></small></div>
+                    <div class="col-md-4 text-center"><b><%= trip.trophy.count %></b><br/><small><i class="flaticon-fish52"></i></small></div>
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
                     <% endDate = trip.edate %>
