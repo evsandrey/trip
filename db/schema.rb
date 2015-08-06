@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806084212) do
+ActiveRecord::Schema.define(version: 20150806104952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 20150806084212) do
     t.integer  "bait_id"
     t.decimal  "lat",        precision: 10, scale: 6
     t.decimal  "lng",        precision: 10, scale: 6
+    t.integer  "proof_id"
   end
 
   create_table "users", force: :cascade do |t|

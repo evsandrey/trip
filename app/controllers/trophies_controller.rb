@@ -71,6 +71,6 @@ class TrophiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trophy_params
-      params.require(:trophy).permit(:fish_id, :trip_id, :weight, :lat, :lng, :user_id, :bait_id)
+      params.require(:trophy).permit(:fish_id, :trip_id, :weight, :lat, :lng, :user_id, :bait_id, :proof_id)
     end
 end

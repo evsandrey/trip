@@ -90,7 +90,7 @@
     var items = [
         <% @pictures.each do |picture| %>
         <% if !picture.name.nil? %>
-          <% descr = picture.name + "(" + picture.id.to_s + ")" %>
+          <% descr = picture.name + " ( id:" + picture.id.to_s + ")" %>
         <% else %>
           <% descr = picture.id.to_s %>
         <% end %>
@@ -98,7 +98,7 @@
             src: '<%= picture.photo.url %>',
             w: <%= picture.photo.width %>,
             h: <%= picture.photo.height %>,
-            title: '(<%= descr %>)',
+            title: '<%= descr %>',
             author: '<%= picture.user.nickname %>'
         },
         <% end %>
