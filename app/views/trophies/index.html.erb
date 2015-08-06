@@ -26,9 +26,9 @@
                   <div style="padding:4px;" class="squared">
                   <span style = "display: inline-block;height: 100%;vertical-align: middle;">
                   <% if !trophy.proof_id.nil?%>
-                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%;vertical-align: middle;"),trophy  %>
+                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy, style: "width: 100%;vertical-align: middle;"  %>
                   <% else %>
-                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%;vertical-align: middle;"),trophy %>
+                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy, , style: "width: 100%;vertical-align: middle;" %>
                   <% end %>
                   </span>
                   </div>
