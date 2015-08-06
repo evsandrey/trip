@@ -33,7 +33,7 @@
                   <div class="caption">
                       <h3><%= link_to trophy.fish.name, trophy %></h3>
                       <p><%= link_to trophy.trip.name, trophy.trip  %></p>
-                      <p><i class="icon-weight"></i><%= trophy.weight %> кг.</p>
+                      <p><i class="flaticon-food27"></i><%= trophy.weight %> кг.</p>
                       <% if !trophy.user.nil? %>
                         <td><%= link_to trophy.user.nickname, trophy.user, class: "icon-weight" %></td>
                       <% else %>
