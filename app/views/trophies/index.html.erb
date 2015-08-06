@@ -23,7 +23,7 @@
             <% trophies.each do |trophy| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding:4px;height:100%; ">
-                  <div style="padding:4px;" class="centered-container thumbnail">
+                  <div style="padding:4px;" class="centered-container">
                     <% if !trophy.proof_id.nil?%>
                     <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "centered-image"),trophy, class: "centered-image" %>
                   <% else %>
