@@ -106,9 +106,9 @@ body {
 .centered-container {
     max-height: 100%;
     max-width:100%;
-    min-width:80%;
-    min-height:80%;
-    margin:10px;
+    min-width:90%;
+    min-height:90%;
+    
 }
 
 .centered-image {
