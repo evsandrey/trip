@@ -149,3 +149,19 @@ body {
     content: "\e004";
 }
 
+[data-icon]:before {
+        font-family: 'mf';
+        content: attr(data-icon);
+        speak: none;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+.micon-weight:before {
+    content: '\e001';
+    font-family: 'mf';
+    speak: none;
+} 
+
