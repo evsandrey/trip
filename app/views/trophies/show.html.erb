@@ -19,7 +19,7 @@
       <div class="col-md-6">
         <div class="thumbframe">
           <% if !@trophy.proof_id.nil?%>
-            <%= image_tag Picture.find(@trophy.proof_id).photo.url(:med) %>
+            <%= image_tag Picture.find(@trophy.proof_id).photo.url(:slide) %>
           <% else %>
             <%= image_tag @trophy.fish.photo.url(:med) %>
           <% end %>
