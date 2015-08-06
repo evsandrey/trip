@@ -146,6 +146,6 @@ body {
     text-rendering: optimizeLegibility;
 }
 .micon-weight:before {
-    content: "\e000";
+    content: "\e004";
 }
 
