@@ -6,7 +6,7 @@ class FishController < ApplicationController
   # GET /fish
   # GET /fish.json
   def index
-    @fish = Fish.all
+    @fish = Fish.order(ord: :asc).all
   end
 
   # GET /fish/1
