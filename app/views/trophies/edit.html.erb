@@ -1,14 +1,14 @@
 <div class="page-header">
   <%= link_to trophies_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
-    Back
+    Список
   <% end %>
   <%= link_to @trophy, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-info-sign"></span>
-    Show
+    Просмотр
   <% end %>
-  <%= link_to 'Delete', @bait, :method => 'delete', :confirm => 'Are you sure?', class: 'btn btn-danger'%>
-  <h1>Editing trophy</h1>
+  <%= link_to 'Удалить', @bait, :method => 'delete', :confirm => 'Are you sure?', class: 'btn btn-danger'%>
+  <h1>Редактирование трофея</h1>
 </div>
 
 <%= render 'form' %>
