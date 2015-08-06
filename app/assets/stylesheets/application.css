@@ -135,19 +135,6 @@ body {
 .mf {
     font-family: mf
 }
-[class^="micon-"]:before,
-[class*=" micon-"]:before {
-    font-family: 'mf';
-    font-style: normal;
-    speak: none;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-            font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-.micon-weight:before {
-    content: "\e004";
-}
 
 [data-icon]:before {
         font-family: 'mf';
@@ -156,12 +143,10 @@ body {
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
-        line-height: 1;
         -webkit-font-smoothing: antialiased;
     }
 .micon-weight:before {
     content: '\e001';
     font-family: 'mf';
-    speak: none;
 } 
 
