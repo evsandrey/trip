@@ -34,6 +34,7 @@
                       <i class="flaticon-fish52"></i>&nbsp;&nbsp;<b><%= link_to trophy.fish.name, trophy %></b>
                       <p><i class="flaticon-map49"></i>&nbsp;&nbsp;<%= link_to trophy.trip.name, trophy.trip  %></p>
                       <p><i class="flaticon-food27"></i> &nbsp;&nbsp;<%= trophy.weight %> кг.</p>
+                      <p><i class="flaticon-fisher4"></i>&nbsp;&nbsp;<%= link_to trophy.bait.name, trophy.bait  %></p>
                       <% if !trophy.user.nil? %>
                         <i class="flaticon-user168"></i>&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>
                       <% else %>
