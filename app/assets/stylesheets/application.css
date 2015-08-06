@@ -67,6 +67,16 @@ body {
 
 }
 
+.npblock {
+    -webkit-box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    -moz-box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    box-shadow: 3px 3px 9px 0px rgba(156,123,156,0.48);
+    padding: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
 #owl-demo .item{
   margin: 5px;
   height: 300px;
