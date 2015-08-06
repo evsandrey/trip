@@ -30,10 +30,6 @@ class Bait < ActiveRecord::Base
 	validates :name, :presence => true
 	validates :manufacturer_id, :presence => true
 	
-	
-
-
-
 	has_many :trophy, dependent: :destroy
 	belongs_to :manufacturer
 	has_attached_file :photo,

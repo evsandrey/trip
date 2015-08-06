@@ -28,7 +28,7 @@
   <div class="form-group">
     <%= f.label "Рыба", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= autocomplete_field_tag 'fish', Fish.find(@trophy.fish_id).name, autocomplete_fish_name_fish_index_path,:id_element => '#trophy_fish_id' %>
+      <%= autocomplete_field_tag 'fish', Fish.find(@trophy.fish_id).name, autocomplete_fish_name_fish_index_path,:id_element => '#trophy_fish_id',  class: "form-control"  %>
       <%= f.number_field :fish_id, class: "hidden" %>
     </div>
   </div>
