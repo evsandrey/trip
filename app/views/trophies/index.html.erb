@@ -25,7 +25,7 @@
                 <div class="thumbnail" style="padding: 0">
                   <div style="padding:4px;" class="squared">
                   <% if !trophy.proof_id.nil?%>
-                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trophy  %>
+                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%;display: block;"),trophy  %>
                   <% else %>
                     <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trophy %>
                   <% end %>
