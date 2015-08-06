@@ -35,9 +35,9 @@
                       <p><i class="flaticon-map49"></i>&nbsp;&nbsp;<%= link_to trophy.trip.name, trophy.trip  %></p>
                       <p><i class="flaticon-food27"></i> &nbsp;&nbsp;<%= trophy.weight %> кг.</p>
                       <% if !trophy.user.nil? %>
-                        <td><i class="user168"></i>&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %></td>
+                        <i class="user168"></i>&nbsp;&nbsp;<%= link_to trophy.user.nickname, trophy.user %>
                       <% else %>
-                        <td>No user</td>
+                        No user
                       <% end %>
                   </div>
                 </div>  
