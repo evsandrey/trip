@@ -59,6 +59,8 @@ class PicturesController < ApplicationController
   def save_picture
     @picture = Picture.find(params[:picture_id])
     @picture.pprivate = to_boolean(params[:picture_pprivate])
+    @picture.name = params[:picture_name]
+    @picture.ord = params[:picture_ord]
     respond_to do |format|
       if @picture.save
         format.js { render "error", :text => "ok" }

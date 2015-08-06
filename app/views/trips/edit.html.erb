@@ -106,18 +106,28 @@
                     <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %>
                   </div>
                   <div class="col-md-6">
+                    
+                      <textarea id="pn_<%= picture.id %>" rows="4" cols="50">
+                        <% if !picture.name.nil? %>
+                        <%= picture.name %>
+                        <% end %>
+                      </textarea>
+                      <br>
                     <% if picture.pprivate == true %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" checked /> 
                     <% else %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" />
                     <% end %>
                     Private
+                    <br>
+                    <input type="text" id="por_<%= picture.id %>" value="<%= picture.ord %>"> Order
+
                   </div>
                   <div class="col-md-3">
                     <% if current_user.role == "admin" %>
                     <button class="btn btn-danger"> onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
                     <% end %>
-                    <button class="btn btn-success" onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'))" >Save</button>
+                    <button class="btn btn-success" onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'),$('#pn_<%= picture.id %>').val(),$('#por_<%= picture.id %>').val())" >Save</button>
 
                   </div>
                 </div>  
@@ -267,13 +277,13 @@
         });
        
     }
-    function save_picture(id,privacy) 
+    function save_picture(id,privacy,name,ord) 
     {
       $.ajax({
           type:'post',
           dataType: 'script',
           url: "/save_picture_path.js",
-          data: { picture_id: id, picture_pprivate: privacy }
+          data: { picture_id: id, picture_pprivate: privacy, picture_name: name, picture_ord: ord }
        })
       .always(function(r) {
               if (r.responseText != "fail") {
