@@ -108,7 +108,7 @@ body {
     max-width:100%;
     min-width:90%;
     min-height:90%;
-    
+
 }
 
 .centered-image {
@@ -126,3 +126,16 @@ body {
     margin:10px;
 
 }
+
+@font-face {
+    font-family: "mf";
+    src: url("https://www.dropbox.com/s/cofopkda3pxxs3x/flaticon.woff?dl=0") format('woff');
+}
+
+.mf {
+    font-family: mf
+}
+.icon-weight:before {
+    content: "\e000";
+}
+
