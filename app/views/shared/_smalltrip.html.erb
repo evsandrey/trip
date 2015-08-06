@@ -1,0 +1,18 @@
+<table class="userbadge thumbnail">
+			<tr style="height:50%;">
+				<td rowspan="2" style="width:50px;">
+					<a class="pull-left" href="<%= %>">
+		                <img class="media-object" src="<%= trip.cover.url(:thumb) %>" style="width: 50px;height:50px;">
+		            </a>
+		        </td>
+				<td>
+					<p>&nbsp;&nbsp; <%= link_to trip.name, trip %></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to trip.place.name, trip.place %>
+				</td>
+			</tr>
+			
+		</table>

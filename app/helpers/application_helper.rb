@@ -9,6 +9,10 @@ module ApplicationHelper
 		render partial: "shared/smallbait", locals: { bait: bait }
 	end
 
+	def small_trip_badge(trip)
+		render partial: "shared/smalltrip", locals: { trip: trip }
+	end
+
 	def gallery_parse(text)
 		galleries=text.scan(/image_block(\([^\)]*\))/)
 		rt = text

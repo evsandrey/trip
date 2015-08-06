@@ -48,11 +48,9 @@
     <div class="row"><h2></h2></div>
       <div class="row">
           <table class="table">
-            <tbody>
-              
-              
-              
-            </tbody>
+          <% @place.trips.each do |trip| %>
+            <%= small_trip_badge(trip) %>
+          <% end %>
           </table>
       </div>
   </div>
