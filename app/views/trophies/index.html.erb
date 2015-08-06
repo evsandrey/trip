@@ -23,15 +23,12 @@
             <% trophies.each do |trophy| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding: 0">
-                  <div style="padding:4px;" class="squared">
-                  <span>
-                  
+                  <div style="padding:4px;" class="centered-container">
                     <% if !trophy.proof_id.nil?%>
-                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", style: "width: 100%;"),trophy %>
+                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail centered-image"),trophy %>
                   <% else %>
-                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy %>
+                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail centered-image"),trophy %>
                   <% end %>
-                  </span>
                   </div>
                   <div class="caption">
                       <h3><%= link_to trophy.fish.name, trophy %></h3>
@@ -54,6 +51,7 @@
 $(document).ready(function() {
     
     $(".squared").each(function() { 
+        
         width=$( this ).width();
         height = $( this ).height();
         if (height<width) {
