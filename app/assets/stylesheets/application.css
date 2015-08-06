@@ -104,12 +104,9 @@ body {
 }
 
 .centered-container {
-    margin: 10px;
-    width: 115px;
-    height: 115px;
-    line-height: 115px;
+    
     text-align: center;
-    border: 1px solid red;
+    
 }
 
 .centered-image {
