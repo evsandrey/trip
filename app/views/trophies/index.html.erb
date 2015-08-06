@@ -56,7 +56,7 @@ $(document).ready(function() {
     $(".squared").each(function() { 
         width=$( this ).width();
         height = $( this ).height();
-        if (height>width) {
+        if (height<width) {
           $( this ).height(width);
         } else {
           $( this ).width(height);  
