@@ -135,7 +135,17 @@ body {
 .mf {
     font-family: mf
 }
-.icon-weight:before {
+[class^="micon-"]:before,
+[class*=" micon-"]:before {
+    font-family: 'mf';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+.micon-weight:before {
     content: "\e000";
 }
 
