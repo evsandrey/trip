@@ -23,7 +23,7 @@
             <% trophies.each do |trophy| %>
               <li class="col-md-3">
                 <div class="thumbnail npblock" >
-                  <div class="thumbnail centered-container">
+                  <div class="thumbnail">
                     <% if !trophy.proof_id.nil?%>
                     <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide)),trophy, class: "centered-image" %>
                   <% else %>
