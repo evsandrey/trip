@@ -19,7 +19,7 @@
 <%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
 <% @trophies.each_slice(4) do |trophies| %>
         <div class="row">
-        <ul class="thumbnails list-unstyled" style="padding:0;height:100%;">       
+        <ul class="thumbnails list-unstyled" style="padding:0;min-height:100%;">       
             <% trophies.each do |trophy| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding:0;height:100%; ">
