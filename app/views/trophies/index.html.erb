@@ -27,7 +27,7 @@
                     <% if !trophy.proof_id.nil?%>
                     <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide)),trophy, class: "centered-image" %>
                   <% else %>
-                    <%= link_to image_tag(trophy.fish.photo.url(:med)),trophy, class: "centered-image" %>
+                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "centered-image"),trophy %>
                   <% end %>
                   </div>
                   <div class="caption">
@@ -50,6 +50,16 @@
 <script type="text/javascript">
 $(document).ready(function() {
     
+    $(".centered-container").each(function() { 
+        
+        width=$( this ).width();
+        height = $( this ).height();
+        if (height<width) {
+          $( this ).height(width);
+        } else {
+          $( this ).width(height);  
+        }
+    });
     
  
   });
