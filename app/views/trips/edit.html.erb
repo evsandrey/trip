@@ -111,7 +111,7 @@
                         <% val="" %>
                   <% end %>
                   <div class="col-md-6">
-                    <textarea id="pn_<%= picture.id %>" rows="4" cols="50" value = "<%= val%>" ></textarea>
+                    <textarea id="pn_<%= picture.id %>" rows="4" cols="50"><%= val%></textarea>
                       <br>
                     <% if picture.pprivate == true %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" checked /> 
