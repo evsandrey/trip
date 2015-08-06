@@ -9,12 +9,12 @@
     Show
   <% end %>
   <%= link_to 'Delete', @trip, :method => 'delete', :confirm => 'Are you sure?', class: 'btn btn-danger'%>
-  <h1>Editing trip</h1>
+  <h1>Редактирование поездки</h1>
 </div>
 
 <div class="edit-tabs">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#main">Main</a></li>
+        <li class="active"><a data-toggle="tab" href="#main">Основные</a></li>
         <li><a data-toggle="tab" href="#pictures">Фото</a></li>
         <li><a data-toggle="tab" href="#picturesadd">Добавить фото</a></li>
         <li><a data-toggle="tab" href="#usersadd">Добавить участников</a></li>
@@ -41,40 +41,40 @@
 
                  
               <div class="form-group">
-                <%= f.label :name, class: "col-sm-2 control-label" %>
+                <%= f.label "Название", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                   <%= f.text_field :name, class: "form-control" %>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label "Start date", class: "col-sm-2 control-label" %>
+                <%= f.label "Дата старта", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                   <%= date_select("trip", "sdate") %>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label "End date", class: "col-sm-2 control-label" %>
+                <%= f.label "Дата завершения", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                    <%= date_select("trip", "edate") %>
                 </div>
               </div>
               
               <div class="form-group">
-                <%= f.label :captain, class: "col-sm-2 control-label" %>
+                <%= f.label "Капитан", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                 <%= autocomplete_field_tag 'captain', User.find(@trip.captain).nickname, autocomplete_user_nickname_users_path,:id_element => '#trip_captain' %>
                   <%= f.number_field :captain, class: "hidden" %>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label :cover, class: "col-sm-2 control-label" %>
+                <%= f.label "Обложка", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                 <%= image_tag @trip.cover.url(:med), :class => 'img-rounded avatar-profile' %>
                 <%= f.file_field :cover %>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label 'Short', class: "col-sm-2 control-label" %>
+                <%= f.label 'Короткое описание', class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                   
                   <%= f.text_field :sdesc  %>
@@ -82,7 +82,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label :description, class: "col-sm-2 control-label" %>
+                <%= f.label "Описание", class: "col-sm-2 control-label" %>
                 <div class="col-sm-10">
                   <%= f.text_area :description, :class => "tinymce", :rows => 30, :cols => 120 %>
                   <%= tinymce %>
@@ -98,7 +98,7 @@
         </div>
         <div id="pictures" class="tab-pane fade">
         <div class="container top-buffer">
-            <h3>Pictures</h3>
+            <h3></h3>
             <% @trip.pictures.order(ord: :asc).each do |picture| %>
               <div class="thumbnail" id="img<%= picture.id %>" >  
                 <div class="row">
@@ -111,7 +111,7 @@
                         <% val="" %>
                   <% end %>
                   <div class="col-md-6">
-                    <textarea id="pn_<%= picture.id %>" rows="4" cols="50" value = "<%= val%>"/>
+                    <textarea id="pn_<%= picture.id %>" rows="4" cols="50" value = "<%= val%>" ></textarea>
                       <br>
                     <% if picture.pprivate == true %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" checked /> 
