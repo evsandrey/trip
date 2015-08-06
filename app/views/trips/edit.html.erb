@@ -99,7 +99,7 @@
         <div id="pictures" class="tab-pane fade">
         <div class="container top-buffer">
             <h3>Pictures</h3>
-            <% @trip.pictures.each do |picture| %>
+            <% @trip.pictures.order(ord: :asc).each do |picture| %>
               <div class="thumbnail" id="img<%= picture.id %>" >  
                 <div class="row">
                   <div class="col-md-3">
