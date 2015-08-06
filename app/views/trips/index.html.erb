@@ -21,7 +21,7 @@
                   <div class="caption">
                       <h4><%= link_to trip.name.truncate(27), trip %></h4>
                       <% if !trip.place.nil? %>
-                        <p><i class="flaticon-map49"> <%= link_to trip.place.name, trip.place %></p>
+                        <p><i class="flaticon-map49"></i> <%= link_to trip.place.name, trip.place %></p>
                       <%else%>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                       <% end %>
