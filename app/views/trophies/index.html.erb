@@ -28,7 +28,7 @@
                   <% if !trophy.proof_id.nil?%>
                     <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy, style: "width: 100%;vertical-align: middle;"  %>
                   <% else %>
-                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy, , style: "width: 100%;vertical-align: middle;" %>
+                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", style: "width: 100%;vertical-align: middle;"),trophy, style: "width: 100%;vertical-align: middle;" %>
                   <% end %>
                   </span>
                   </div>
