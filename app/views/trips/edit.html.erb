@@ -114,8 +114,10 @@
                     Private
                   </div>
                   <div class="col-md-3">
-                    <button onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
-                    <button onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'))" >Save</button>
+                    <% if current_user.role == "admin" %>
+                    <button class="btn btn-danger"> onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
+                    <% end %>
+                    <button class="btn btn-success" onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'))" >Save</button>
 
                   </div>
                 </div>  
