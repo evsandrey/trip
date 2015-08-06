@@ -21,7 +21,7 @@
         <% end %>
 
     <div class="col-sm-10">
-                <%= autocomplete_field_tag 'user', user, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id' %>
+                <%= autocomplete_field_tag 'user', user, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id',  class: "form-control" %>
                 <%= f.number_field :user_id, class: "hidden" %>
     </div>
   </div>
@@ -43,7 +43,7 @@
   <div class="form-group">
     <%= f.label "Приманка", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= autocomplete_field_tag 'bait', @trophy.bait.name, autocomplete_bait_name_baits_path,:id_element => '#trophy_bait_id' %>
+      <%= autocomplete_field_tag 'bait', @trophy.bait.name, autocomplete_bait_name_baits_path,:id_element => '#trophy_bait_id',  class: "form-control" %>
       <%= f.number_field :bait_id, class: "hidden" %>
     </div>
   </div>
