@@ -23,11 +23,11 @@
             <% trophies.each do |trophy| %>
               <li class="col-md-3">
                 <div class="thumbnail" style="padding:0;height:100%; ">
-                  <div style="padding:4px;" class="centered-container">
+                  <div style="padding:4px;" class="centered-container thumbnail">
                     <% if !trophy.proof_id.nil?%>
-                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail centered-image"),trophy, class: "centered-image" %>
+                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "centered-image"),trophy, class: "centered-image" %>
                   <% else %>
-                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail centered-image"),trophy %>
+                    <%= link_to image_tag(trophy.fish.photo.url(:med),class: "centered-image"),trophy %>
                   <% end %>
                   </div>
                   <div class="caption">
