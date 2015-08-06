@@ -106,12 +106,8 @@
                     <%= image_tag picture.photo.url(:med), class: 'img-thumbnail' %>
                   </div>
                   <div class="col-md-6">
-                    
-                      <textarea id="pn_<%= picture.id %>" rows="4" cols="50">
-                        <% if !picture.name.nil? %>
-                        <%= picture.name %>
-                        <% end %>
-                      </textarea>
+                    <textarea id="pn_<%= picture.id %>" rows="4" cols="50"><% if !picture.name.nil? %>                        <%= picture.name %>
+                        <% end %></textarea>
                       <br>
                     <% if picture.pprivate == true %>
                       <input id="pcb_<%= picture.id %>" type="checkbox" checked /> 
