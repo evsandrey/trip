@@ -125,7 +125,7 @@
                   </div>
                   <div class="col-md-3">
                     <% if current_user.role == "admin" %>
-                    <button class="btn btn-danger"> onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
+                    <button class="btn btn-danger" onclick="delete_picture(<%= picture.id %>)" >Delete</button><br>
                     <% end %>
                     <button class="btn btn-success" onclick="save_picture(<%= picture.id %>,$('#pcb_<%= picture.id %>').is(':checked'),$('#pn_<%= picture.id %>').val(),$('#por_<%= picture.id %>').val())" >Save</button>
 
