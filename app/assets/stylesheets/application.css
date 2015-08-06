@@ -129,24 +129,27 @@ body {
 
 @font-face {
     font-family: "mf";
-    src: url("https://www.dropbox.com/s/cofopkda3pxxs3x/flaticon.woff?dl=0") format('woff');
+    src: url("https://www.dropbox.com/s/ho4we74w0lfzw1m/flaticon.ttf?dl=0") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: "mf";
+    display: inline-block;
+    margin-right: .2em;
+    text-align: center;
+    margin-left: .2em;
 }
 
-.mf {
-    font-family: mf
+.icon-weight:before {
+    content: '\e000';
 }
-
-[data-icon]:before {
-        font-family: 'mf';
-        content: attr(data-icon);
-        speak: none;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        -webkit-font-smoothing: antialiased;
-    }
-.micon-weight:before {
+.icon-size:before {
+    content: '\e001';
+}
+.icon-depth:before {
+    content: '\e002';
+}
+.icon-user:before {
     content: '\e003';
-    font-family: 'mf';
-} 
-
+}
