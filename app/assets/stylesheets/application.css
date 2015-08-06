@@ -142,14 +142,14 @@ body {
 }
 
 .icon-weight:before {
-    content: 'food27';
+    content: 'e000';
 }
 .icon-size:before {
-    content: 'resizing4';
+    content: 'e001';
 }
 .icon-depth:before {
-    content: 'meters1';
+    content: 'e002';
 }
 .icon-user:before {
-    content: '\e003';
+    content: 'e003';
 }
