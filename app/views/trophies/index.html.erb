@@ -24,12 +24,13 @@
               <li class="col-md-3">
                 <div class="thumbnail" style="padding: 0">
                   <div style="padding:4px;" class="squared">
-                  <span style = "display: inline-block;height: 100%;vertical-align: middle;"></span>
+                  <span style = "display: inline-block;height: 100%;vertical-align: middle;">
                   <% if !trophy.proof_id.nil?%>
                     <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%;vertical-align: middle;"),trophy  %>
                   <% else %>
                     <%= link_to image_tag(trophy.fish.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%;vertical-align: middle;"),trophy %>
                   <% end %>
+                  </span>
                   </div>
                   <div class="caption">
                       <h3><%= link_to trophy.fish.name, trophy %></h3>
