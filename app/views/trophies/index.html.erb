@@ -25,7 +25,7 @@
                 <div class="thumbnail" >
                   <div style="padding:4px;" class="centered-container">
                     <% if !trophy.proof_id.nil?%>
-                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide),class: "centered-image"),trophy, class: "centered-image" %>
+                    <%= link_to (image_tag Picture.find(trophy.proof_id).photo.url(:slide)),trophy, class: "centered-image" %>
                   <% else %>
                     <%= link_to image_tag(trophy.fish.photo.url(:med),class: "centered-image"),trophy %>
                   <% end %>
