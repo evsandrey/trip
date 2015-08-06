@@ -8,7 +8,7 @@
     Show
   <% end %>
   <%= link_to 'Delete', @fish, :method => 'delete', :confirm => 'Are you sure?', class: 'btn btn-danger'%>
-  <h1>Editing fish</h1>
+  <h1>Редактируем - <%= @fish.name %></h1>
 </div>
 
 <%= render 'form' %>
