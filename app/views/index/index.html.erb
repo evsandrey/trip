@@ -19,6 +19,16 @@
                     <%else%>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                     <% end %>
+                    <%= trip.users.count+1 %>:<i class="flaticon-user168"></i>
+                    <%= trip.trophy.count %><i class="flaticon-fish52"></i>
+                    <% if !trip.sdate.nil? & !trip.edate.nil? %>
+                    <% beginDate = trip.sdate %>
+                    <% endDate = trip.edate %>
+                    <%= (endDate-beginDate).to_i %>:<i class="flaticon-calentar">
+                    <% else %>
+                    ?:<i class="flaticon-calentar">
+                    <% end %>
+                    <%= trip.pictures.count %><i class="flaticon-picture64"></i>
                     <%= link_to "Подробнее", trip, class: "cd-read-more" %>
 			
 			<% startdate = trip.sdate %>
