@@ -148,7 +148,14 @@
         </div>
         
         <% @trip.users.each do |user| %>
-          <%= small_user_badge(user) %>
+          <div class="row" id="uct_<%= user.id %>">
+          <div class="col-sm-4">
+            <%= small_user_badge(user) %>
+          </div>
+          <div class="col-sm-1">
+            <button onclick="delete_user(<%= @trip.id%>,<%= user.id %>)" class="btn btn-danger">Delete</button>
+          </div>
+          </div>
         <%end%>
         
         </div>
@@ -311,8 +318,23 @@
         }
         
       });
-    
-       
+    };
+    function delete_user(tripid,userid) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/delete_user_path.js",
+          data: { trip_id: tripid, trip_user_id: userid }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#uct_"+userid).remove();  
+        } else {
+          alert("Чета пошло не так!!!!");
+        }
+        
+      });
     };
     function select_place(tripid,userid) 
     {

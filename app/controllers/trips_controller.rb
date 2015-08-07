@@ -84,6 +84,22 @@ class TripsController < ApplicationController
       end
   end
 
+  def delete_user
+     @trip = Trip.find(params[:trip_id])
+     @user = User.find(params[:trip_user_id])
+     if @trip.users.delete(@user)
+        if @trip.save
+            respond_to do |format|
+              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+            end
+          end
+      else
+        respond_to do |format|
+          format.js { render "error", :text => "exist" }
+        end
+      end
+  end
+
   def select_place
      @trip = Trip.find(params[:trip_id])
      @place = Place.find(params[:trip_place_id])
