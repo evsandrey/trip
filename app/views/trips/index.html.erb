@@ -33,9 +33,9 @@
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
                     <% endDate = trip.edate %>
-                    <div class="col-md-4 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><small>Дней</small></div>
+                    <div class="col-md-4 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><i class="flaticon-calentar"></div>
                     <% else %>
-                    <div class="col-md-4 text-center"><b>?</b><br/><small>Дней</small></div>
+                    <div class="col-md-4 text-center"><b>?</b><br/><small><i class="flaticon-calentar"></small></div>
                     <% end %>
                   
                 </div>  
