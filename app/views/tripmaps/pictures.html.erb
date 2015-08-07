@@ -11,10 +11,10 @@
            <% h[picture.lat.to_s+picture.lng.to_s][1]= picture.lat %>
            <% h[picture.lat.to_s+picture.lng.to_s][2]= picture.lng %>
            <% if !h[picture.lat.to_s+picture.lng.to_s][3].nil? %>
-            <% h[picture.lat.to_s+picture.lng.to_s][3] << picture.id.to_s+"<br>".html_safe %> 
+            <% h[picture.lat.to_s+picture.lng.to_s][3] << (image_tag(picture.photo.url(:thumb)).to_s+"<br>").html_safe %> 
             <% else %>
               <% h[picture.lat.to_s+picture.lng.to_s][3]= '' %>
-              <% h[picture.lat.to_s+picture.lng.to_s][3] << picture.id.to_s+"<br>".html_safe %>
+              <% h[picture.lat.to_s+picture.lng.to_s][3] << (image_tag(picture.photo.url(:thumb)).to_s+"<br>").html_safe %>
             <% end %>
         <% end %>
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
@@ -51,7 +51,7 @@ function initialize()
     var infowindow =  new google.maps.InfoWindow({
         content: ""
     });
-    var icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAoCAYAAADpE0oSAAADB0lEQVRYR+2XMXIaQRBFv04gnChGJ0CO7ExwAuETACcATmB0AnCqBDiBoUqRE0GVS6nhBjghNU6U4nrDzgKjmdldVLISdRVVsDvTv393z+/hTG9kZ2+Eq3fg/5b591THUl2XdCOpKqnsLFxJmkmaSJrmqVeeVAM09ICF/BNEKwkkGEMW8EhSw+4ulUpqNBqqVqvie7lc1mq1Mp/ZbKbpdKrNZmOXs5cAvBYCLkn6nqTVALXbbdXrZPvYABqNRup0OgZ0MBjo9vbWLiL9XySl0dgXIWDDFFb9fl/NZjOYMoIC7OrqSj/v7/W0Xuvp4kKtVsuy9zL3AfckfcXRcDg0DkO2WCwMKIyxH3d3Wj8+qjkaiXe1Ws2CkwL8puYC062/JJVwCJtKpRIE7vV6JjBfCdhEQDBPUn15mHIXOG0m0vzw8BBlDDCgbla63a5pNnzAPGm4saS0Zi4wTXBOiGy8vr6OHknr/BB4uVyGgsX3B19zUUzSbJqJ+mYZIJMJmrEz2MOOEgXso6QF7w4Zm6biIc5ubhApv83nc5FmGBe0rqRBEJioz89Nxp/ZeDyOHq+MQNLu9jLebrevAYrPOLCPcaRpimQ7DuyrMWJwQk3doLw1DnY1zRTp1CKMvV2Ng/Qcc/CtaqE+VhYtClPEbsiJ/PtwtLoCQqu3cYTqIJuMQTfNgDKndgqd275J6tjVLjA+GeTmLPGjVN5dNpi5mL0VkLNnsy4cw9+EbbrFN52Iqo8Pig6rP4lDAuEZ0gNwAUubKsTYPk+HBUDokysnjJpdDjLtaDhkAfMeETa6CVP01BQ/MYKpZWKai9/za4uj1T43abPxkmpTYzwRDDUxiu+3o2Zyl2Rd9lgPFoTjM3LveZ6sj06QPMDWJeVmkH+W9MlhsExagd6IJGG/qwiw3UWmuYEeWqpI2WXfrTgFmH2H4+tIkV4bOO14SdEmCgVyKmNqbe9GXNj395+clE8F5jQhaEihnRc5IV9WY3bTvXzCfzMioZzKGJfoB6pZOM0v6Wr22nlRKMV28T/jeP0pMF5XogAAAABJRU5ErkJggg==";
+    var icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAoCAYAAADpE0oSAAAC80lEQVRYR+2WPXLaUBSFP2bSB3cuMgNZAWIFyAvwGHfpRFZgkSYlSpcOqFMgVgBJl8piBTa9Z0yK1MbZAJnzJGFJloRkZ+LGd0YzID3pu+fe834avFA0XojLK/i/Vf611K+lzlbABs4AK3rQBjbAFlgC36PfBytX1VwCzujTpgPon5C6AuA6un5wzx1jYHoogSpgnzYOswhYpkW6PxrtSuU8qkbuG4fAPv0I2jxYvYcBPvDJqFdtlMSjKANP6HPBogYwOVQdPzfQk7yyF4FtmlxyC9RRms1xCEyYA4PsoyJwwJKe8a9CBlrVUD6KxqrnXdPp99l+54EtLK64SoA8mBxN6HRk6fy4ubnh+PiY09NT2CXGyN+ucbmbfDMP7OIyNpMiDg+Ck4Ber2fueJ7HfD5nu91i2zaj0Qjf9xkMBnS73TRYlbLNXJfqfeSBfSY4XOSDBV2v14zHY9rtNsvlkuFwyO2tDAGNRiMNNjfDR4fAAQE9QnFhJBRL4XQ6TZVdKheLhUkkF6w+X3OUdHee4oBremaFKgCrzK1Wa/9Y4NlshmVZZeCUwfLAS3zOcPLBruuaj6vUitVqheM4bDZq4/NK7eEyKjKXDCUTCdhsNtntdqbPUpsLXpst5Ve0speay8Lmisu0Yk2n+ONJk2R/ywOp6RQuH5Wmk761IaC1N5jWXl1VQwtOHKGxtGwm7xYeb23aXJqV9m1VWs64L2ZGaI/uZ5+WbRI+Lk6q13VyCHt7Hx0aQuclogys7SHAo0O89lYFa7U65w93plm1t0VhBPexODM9Ll6qw5SkzzM7kn4V7sXG/RVFaFv7hssbc9rSFSehiaJCyjpKbsNP4MO/OPrEuX0FPqcSVT209T3Eb+BdFTFVFcdll7Yyn+vEVWni1QELrg4WWe3R6lSmvC5YxS1SHc7ailEXXKRaLtYpO93xkiSeAs5TXUttnemUzT3Z69pqnwNOqq6t9jnguNc6OdbqbVy6p/Q4fleqtaJNKho5Newvf+XbKdrJXdMAAAAASUVORK5CYII=";
     for (var i = 0, length = json_data.length; i < length; i++) {
         var data=json_data[i];
         var latLng = new google.maps.LatLng(data.lat, data.lng); 
