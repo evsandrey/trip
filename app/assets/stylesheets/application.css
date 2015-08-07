@@ -142,7 +142,6 @@ body {
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
         font-family: Flaticon;
-        font-size: 20px;
         font-style: normal;
         margin-left: 0px;
         }
