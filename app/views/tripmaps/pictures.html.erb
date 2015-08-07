@@ -11,10 +11,10 @@
            <% h[picture.lat.to_s+picture.lng.to_s][1]= picture.lat %>
            <% h[picture.lat.to_s+picture.lng.to_s][2]= picture.lng %>
            <% if !h[picture.lat.to_s+picture.lng.to_s][3].nil? %>
-            <% h[picture.lat.to_s+picture.lng.to_s][3] << (image_tag(picture.photo.url(:slide)).to_s+"<br>").html_safe %> 
+            <% h[picture.lat.to_s+picture.lng.to_s][3] << image_tag(picture.photo.url(:slide)class: "fblock") %> 
             <% else %>
               <% h[picture.lat.to_s+picture.lng.to_s][3]= '' %>
-              <% h[picture.lat.to_s+picture.lng.to_s][3] << image_tag(picture.photo.url(:slide)).to_s+"<br>".html_safe %>
+              <% h[picture.lat.to_s+picture.lng.to_s][3] << image_tag(picture.photo.url(:slide),class: "fblock") %>
             <% end %>
         <% end %>
         <% ord = h.sort_by { |k, v| v.length }.reverse %>
