@@ -83,7 +83,7 @@ class CommandsController < ApplicationController
      if @command.users.delete(@user) 
          if @command.save
             respond_to do |format|
-              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+              format.js { render "success", :text => "deleted" }
             end
           end
       else
