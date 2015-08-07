@@ -24,5 +24,5 @@ class Reward < ActiveRecord::Base
 	    :storage => :dropbox,
     	:dropbox_visibility => 'public',
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
-	validates_attachment_content_type :pcover, :content_type => /\Aimage\/.*\Z/
+	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 end
