@@ -42,7 +42,9 @@
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
-  <div class="container top-buffer">
+  <div class="form-group">
+  	<%= f.label "Участники", class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
                 <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#command_user' %>
                 <%= number_field_tag "command_user", nil, class: "hidden" %>
                 <button onclick="add_user(<%= @command.id %>,$('#command_user').val())" class="btn btn-primary">Add</button>
@@ -56,6 +58,7 @@
         <%end%>
         
         </div>
+   </div>
 
 
   <div class="form-group">
@@ -71,7 +74,7 @@
       $.ajax({
           type:'post',
           dataType: 'script',
-          url: "/add_user_command_path.js",
+          url: "/add_command_user_path.js",
           data: { command_id: commandid, command_user_id: userid }
       })
       .always(function(r) {
