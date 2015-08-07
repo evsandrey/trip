@@ -12,26 +12,41 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :user_id, class: "col-sm-2 control-label" %>
+
+    <div class="form-group">
+    <%= f.label "Название", class: "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :name, class: "form-control" %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+    <%= f.label "Получатель", class: "col-sm-2 control-label" %>
+    <% if !@reward.user.nil? %>
+           <% user = User.find(@reward.user_id).nickname %>
+        <% else %>
+           <% user = "" %>
+        <% end %>
+    <div class="form-group">
+    <%= f.label 'Фото', class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :user_id, class: "form-control" %>
+    <%= f.file_field :photo %>
+    </div>
+  </div>
+
+    <div class="col-sm-10">
+                <%= autocomplete_field_tag 'user', user, autocomplete_user_nickname_users_path,:id_element => '#trophy_user_id',  class: "form-control" %>
+                <%= f.number_field :user_id, class: "hidden" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :trip_id, class: "col-sm-2 control-label" %>
+    <%= f.label "Поездка", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :trip_id, class: "form-control" %>
+      <%= @trophy.trip.name %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :name, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <%= f.label "Описание", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :description, class: "form-control" %>
     </div>
