@@ -3,31 +3,32 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Command
   <% end %>
-  <h1>Listing commands</h1>
+  <h1>Комманды</h1>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-            <th>Name</th>
-            <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <%= content_tag_for(:tr, @commands) do |command| %>
-            <td><%= command.name %></td>
-            <td><%= link_to 'Show', command %></td>
-        <td><%= link_to 'Edit', edit_command_path(command) %></td>
-        <td><%= link_to 'Destroy', command, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tbody>
-  </table>
-  <%= User.all.each do |user| %>
-    <%= small_user_badge(user) %>
-  <% end %>
-
-</div>
+<% @commands.each_slice(4) do |commands| %>
+        <div class="row">
+        <ul class="thumbnails list-unstyled">       
+            <% commands.each do |command| %>
+              <li class="col-md-3">
+                <div class="thumbnail" style="padding: 0">
+                  <div style="padding:4px">
+                      <%= link_to image_tag(command.cover.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),command %>
+                  </div>
+                  <div class="caption">
+                      <h4><%= link_to command.name.truncate(27), command %></h4>
+                      
+                  </div>
+                  <div class="modal-footer" style="text-align: left">
+                  <div class="row">
+                    <div class="col-md-3 text-center"><b><%= command.users.count %></b><br/><small><i class="flaticon-user168"></i></small>
+                    </div>
+                    </div>
+                </div>  
+              </li>
+            <% end %>
+        </ul>  
+        </div>
+                    
+    
+<% end %>

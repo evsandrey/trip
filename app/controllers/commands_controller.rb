@@ -61,6 +61,23 @@ class CommandsController < ApplicationController
     end
   end
 
+  def add_user
+     @command = Command.find(params[:command_id])
+     @user = User.find(params[:command_user_id])
+     if !@command.users.include?(@user) 
+      @command.users << @user 
+         if @command.save
+            respond_to do |format|
+              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+            end
+          end
+      else
+        respond_to do |format|
+          format.js { render "error", :text => "exist" }
+        end
+      end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_command
@@ -69,6 +86,6 @@ class CommandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def command_params
-      params.require(:command).permit(:name)
+      params.require(:command).permit(:name,:photo,:description)
     end
 end

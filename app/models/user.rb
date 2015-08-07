@@ -37,9 +37,9 @@ class User < ActiveRecord::Base
 
   has_many :pictures
   has_many :trophy
-
+  
   has_and_belongs_to_many :trips, :uniq => true, :join_table => :users_trips
-  has_and_belongs_to_many :commands
+  has_and_belongs_to_many :commands, :uniq => true, :join_table => :users_commands
 
 
   has_attached_file :avatar,
