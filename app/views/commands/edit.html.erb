@@ -10,4 +10,81 @@
   <h1>Editing command</h1>
 </div>
 
-<%= render 'form' %>
+<%= form_for(@command, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @command.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@command.errors.count, "error") %> prohibited this command from being saved:</h4>
+
+      <ul>
+      <% @command.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label "Название", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Фото', class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.file_field :photo %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "Название", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="container top-buffer">
+                <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#command_user' %>
+                <%= number_field_tag "command_user", nil, class: "hidden" %>
+                <button onclick="add_user(<%= @command.id %>,$('#command_user').val())" class="btn btn-primary">Add</button>
+            
+        <div id="new_users" class="container top-buffer" >
+          
+        </div>
+        
+        <% @command.users.each do |user| %>
+          <%= small_user_badge(user) %>
+        <%end%>
+        
+        </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function add_user(commandid,userid) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/add_user_command_path.js",
+          data: { command_id: commandid, command_user_id: userid }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#new_users").append(r.responseText);  
+        } else {
+          alert("Участник уже добавлен, либо он капитан");
+        }
+        
+      });
+    
+       
+    };
+
+</script>
+

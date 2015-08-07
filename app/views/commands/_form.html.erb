@@ -30,21 +30,7 @@
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
-  <div class="container top-buffer">
-                <%= autocomplete_field_tag 'user', "", autocomplete_user_nickname_users_path,:id_element => '#command_user' %>
-                <%= number_field_tag "command_user", nil, class: "hidden" %>
-                <button onclick="add_user(<%= @command.id %>,$('#command_user').val())" class="btn btn-primary">Add</button>
-            
-        <div id="new_users" class="container top-buffer" >
-          
-        </div>
-        
-        <% @command.users.each do |user| %>
-          <%= small_user_badge(user) %>
-        <%end%>
-        
-        </div>
-
+  
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -53,25 +39,3 @@
   </div>
 <% end %>
 
-<script type="text/javascript">
-  function add_user(commandid,userid) 
-    {
-      $.ajax({
-          type:'post',
-          dataType: 'script',
-          url: "/add_user_command_path.js",
-          data: { command_id: commandid, command_user_id: userid }
-      })
-      .always(function(r) {
-        if (r.responseText != "exist") {
-          $("#new_users").append(r.responseText);  
-        } else {
-          alert("Участник уже добавлен, либо он капитан");
-        }
-        
-      });
-    
-       
-    };
-
-</script>

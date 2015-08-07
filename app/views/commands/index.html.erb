@@ -13,7 +13,7 @@
               <li class="col-md-3">
                 <div class="thumbnail" style="padding: 0">
                   <div style="padding:4px">
-                      <%= link_to image_tag(command.cover.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),command %>
+                      <%= link_to image_tag(command.photo.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),command %>
                   </div>
                   <div class="caption">
                       <h4><%= link_to command.name.truncate(27), command %></h4>
