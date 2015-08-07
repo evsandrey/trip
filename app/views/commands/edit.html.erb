@@ -59,7 +59,7 @@
                 <%= number_field_tag "command_user", nil, class: "hidden" %>
                 <button onclick="add_user(<%= @command.id %>,$('#command_user').val())" class="btn btn-primary">Add</button>
             
-        <div id="new_users" class="container top-buffer" >
+        <div id="new_users" class="row fblock container top-buffer" >
           
         </div>
         
@@ -95,7 +95,7 @@
         }
       });
   };
- function add_user(commandid,userid) 
+ function delete_user(commandid,userid) 
     {
       $.ajax({
           type:'post',
