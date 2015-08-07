@@ -1,4 +1,79 @@
 <div class="page-header">
-  <h1>Tripmaps#pictures</h1>
+  <h1>Карта поездок</h1>
 </div>
-<p>Find me in app/views/tripmaps/pictures.html.erb</p>
+
+<div class="row fblock" id="map" style='height: 800px;'>
+
+<script type="text/javascript">
+        <% h = Hash.new { |h,k| h[k] = [] } %>
+        <% @pictures.each do |picture| %>
+           <% h[picture.lat.to_s+picture.lng.to_s][0]= picture.id %>
+           <% h[picture.lat.to_s+picture.lng.to_s][1]= picture.lat %>
+           <% h[picture.lat.to_s+picture.lng.to_s][2]= picture.lng %>
+           <% if !h[picture.lat.to_s+picture.lng.to_s][3].nil? %>
+            <% h[picture.lat.to_s+picture.lng.to_s][3] << picture.id.to_s+"<br>".html_safe %> 
+            <% else %>
+              <% h[picture.lat.to_s+picture.lng.to_s][3]= '' %>
+              <% h[picture.lat.to_s+picture.lng.to_s][3] << picture.id.to_s+"<br>".html_safe %>
+            <% end %>
+        <% end %>
+        <% ord = h.sort_by { |k, v| v.length }.reverse %>
+
+    var json_data = [
+        <% ord.each do |key, val|%>
+                  {
+                          id:  <%= val[0] %>,
+                          <% if !val[1].nil? %>
+                            lat: <%= val[1] %>,
+                            lng: <%= val[2] %>,
+                          <% else %>
+                            lat: 55.7500,
+                            lng: 37.6167,
+                          <% end %>
+                          
+                          description: '<%= raw(val[3]) %>'
+                   },
+          <% end %>
+        
+      
+    ];
+
+ 
+function initialize()
+{
+    var bounds = new google.maps.LatLngBounds();
+    var mapProp = {
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+    var infowindow =  new google.maps.InfoWindow({
+        content: ""
+    });
+    var icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAoCAYAAADpE0oSAAADB0lEQVRYR+2XMXIaQRBFv04gnChGJ0CO7ExwAuETACcATmB0AnCqBDiBoUqRE0GVS6nhBjghNU6U4nrDzgKjmdldVLISdRVVsDvTv393z+/hTG9kZ2+Eq3fg/5b591THUl2XdCOpKqnsLFxJmkmaSJrmqVeeVAM09ICF/BNEKwkkGEMW8EhSw+4ulUpqNBqqVqvie7lc1mq1Mp/ZbKbpdKrNZmOXs5cAvBYCLkn6nqTVALXbbdXrZPvYABqNRup0OgZ0MBjo9vbWLiL9XySl0dgXIWDDFFb9fl/NZjOYMoIC7OrqSj/v7/W0Xuvp4kKtVsuy9zL3AfckfcXRcDg0DkO2WCwMKIyxH3d3Wj8+qjkaiXe1Ws2CkwL8puYC062/JJVwCJtKpRIE7vV6JjBfCdhEQDBPUn15mHIXOG0m0vzw8BBlDDCgbla63a5pNnzAPGm4saS0Zi4wTXBOiGy8vr6OHknr/BB4uVyGgsX3B19zUUzSbJqJ+mYZIJMJmrEz2MOOEgXso6QF7w4Zm6biIc5ubhApv83nc5FmGBe0rqRBEJioz89Nxp/ZeDyOHq+MQNLu9jLebrevAYrPOLCPcaRpimQ7DuyrMWJwQk3doLw1DnY1zRTp1CKMvV2Ng/Qcc/CtaqE+VhYtClPEbsiJ/PtwtLoCQqu3cYTqIJuMQTfNgDKndgqd275J6tjVLjA+GeTmLPGjVN5dNpi5mL0VkLNnsy4cw9+EbbrFN52Iqo8Pig6rP4lDAuEZ0gNwAUubKsTYPk+HBUDokysnjJpdDjLtaDhkAfMeETa6CVP01BQ/MYKpZWKai9/za4uj1T43abPxkmpTYzwRDDUxiu+3o2Zyl2Rd9lgPFoTjM3LveZ6sj06QPMDWJeVmkH+W9MlhsExagd6IJGG/qwiw3UWmuYEeWqpI2WXfrTgFmH2H4+tIkV4bOO14SdEmCgVyKmNqbe9GXNj395+clE8F5jQhaEihnRc5IV9WY3bTvXzCfzMioZzKGJfoB6pZOM0v6Wr22nlRKMV28T/jeP0pMF5XogAAAABJRU5ErkJggg==";
+    for (var i = 0, length = json_data.length; i < length; i++) {
+        var data=json_data[i];
+        var latLng = new google.maps.LatLng(data.lat, data.lng); 
+        // Creating a marker and putting it on the map
+        var marker = new google.maps.Marker({
+            
+            position: latLng,
+            map: map,
+            icon: icon
+        });
+        bounds.extend(marker.getPosition());
+        bindInfoWindow(marker, map, infowindow, data.description);
+    } 
+    map.fitBounds(bounds);
+}
+
+function bindInfoWindow(marker, map, infowindow, description) {
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(description);
+        infowindow.open(map, marker);
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize); 
+</script>

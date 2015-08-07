@@ -8,5 +8,7 @@ class TripmapsController < ApplicationController
   end
 
   def pictures
+  	@pictures=Picture.where.not(lat: nil)
   end
+
 end
