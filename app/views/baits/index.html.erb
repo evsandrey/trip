@@ -23,7 +23,7 @@
                       <% if bait.btype=="Колебло" and !bait.weight.nil? %>
                       <p class="flaticon-lab4">&nbsp;&nbsp;<%= bait.weight %> г.</p>
                       <% elsif bait.btype=="Воблер" and !bait.depth.nil? %>
-                      <p style="vertical-align: middle;"><i class="flaticon-meters1" style="font-size:30px">&nbsp;&nbsp;</i><%= bait.depth %> м.</p>
+                      <p class="flaticon-meters1">&nbsp;&nbsp;<%= bait.depth %> м.</p>
                       <% elsif bait.btype=="Резина" and !bait.isize.nil? %>
                       <p class="flaticon-resizing4">&nbsp;&nbsp;<%= bait.isize %>" (<%= bait.size %> мм.)</p>
                       <% elsif bait.btype=="Вертушка" and !bait.number.nil? %>
