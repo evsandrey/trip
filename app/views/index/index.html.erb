@@ -25,9 +25,9 @@
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
                     <% endDate = trip.edate %>
-                    <i class="flaticon-calentar">-<b><%= (endDate-beginDate).to_i %></b>&nbsp;&nbsp;
+                    <i class="flaticon-calentar"></i>-<b><%= (endDate-beginDate).to_i %></b>&nbsp;&nbsp;
                     <% else %>
-                    <i class="flaticon-calentar"> - <b>?</b>&nbsp;&nbsp;
+                    <i class="flaticon-calentar"></i> - <b>?</b>&nbsp;&nbsp;
                     <% end %>
                     <i class="flaticon-picture64"></i>-<b><%= trip.pictures.count %></b>&nbsp;&nbsp;
 					</small>
