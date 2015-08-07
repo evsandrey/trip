@@ -19,18 +19,19 @@
                     <%else%>
                         <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></i> Место не выбрано </p>
                     <% end %>
-                    <br>
-                    <i class="flaticon-user168"></i>-<b><%= trip.users.count+1 %></b>
-                    <i class="flaticon-fish52"></i>-<b><%= trip.trophy.count %></b>
+                    <small>
+                    <i class="flaticon-user168"></i>-<b><%= trip.users.count+1 %></b> &nbsp;&nbsp;
+                    <i class="flaticon-fish52"></i>-<b><%= trip.trophy.count %></b>&nbsp;&nbsp;
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
                     <% endDate = trip.edate %>
-                    <i class="flaticon-calentar">-<b><%= (endDate-beginDate).to_i %></b>
+                    <i class="flaticon-calentar">-<b><%= (endDate-beginDate).to_i %></b>&nbsp;&nbsp;
                     <% else %>
-                    <i class="flaticon-calentar"> - <b>?</b>
+                    <i class="flaticon-calentar"> - <b>?</b>&nbsp;&nbsp;
                     <% end %>
-                    <i class="flaticon-picture64"></i>-<b><%= trip.pictures.count %></b>
-                    <br>
+                    <i class="flaticon-picture64"></i>-<b><%= trip.pictures.count %></b>&nbsp;&nbsp;
+					</small>
+                    <br><br>
                     <%= link_to "Подробнее", trip, class: "cd-read-more" %>
 			
 			<% startdate = trip.sdate %>
