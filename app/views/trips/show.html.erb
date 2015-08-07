@@ -79,11 +79,10 @@
       </div>
     </div>
     <div class="col-md-4">
-      <h4>&nbsp;Капитан:</h4>
-      <% user = User.find(@trip.captain) %>
-      <%= small_user_badge(user) %>
-      <br>
+      
       <h4>&nbsp;Участники:</h4>
+      <% user = User.find(@trip.captain) %>
+        <%= small_user_badge(user) %>
       <% @trip.users.each do |user| %>
           <%= small_user_badge(user) %>
       <% end %>

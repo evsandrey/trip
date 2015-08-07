@@ -1,12 +1,28 @@
 <table class="userbadge thumbnail">
 			<tr style="height:50%;">
-				<td rowspan="2" style="width:50px;">
+				<td rowspan="3" style="width:50px;">
 					<a class="pull-left" href="<%= %>">
 		                <img class="media-object" src="<%= trip.cover.url(:thumb) %>" style="width: 50px;height:50px;">
 		            </a>
 		        </td>
 				<td>
 					<p>&nbsp;&nbsp; <%= link_to trip.name, trip %></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<small>
+                    <i class="flaticon-user168"></i>&nbsp;:&nbsp;<b><%= trip.users.count+1 %></b> &nbsp;&nbsp;
+                    <i class="flaticon-fish52"></i>&nbsp;:&nbsp;<b><%= trip.trophy.count %></b>&nbsp;&nbsp;
+                    <% if !trip.sdate.nil? & !trip.edate.nil? %>
+                    <% beginDate = trip.sdate %>
+                    <% endDate = trip.edate %>
+                    <i class="flaticon-calentar"></i>&nbsp;:&nbsp;<b><%= (endDate-beginDate).to_i %></b>&nbsp;&nbsp;
+                    <% else %>
+                    <i class="flaticon-calentar"></i>&nbsp;:&nbsp;<b>?</b>&nbsp;&nbsp;
+                    <% end %>
+                    <i class="flaticon-picture64"></i>&nbsp;:&nbsp;<b><%= trip.pictures.count %></b>&nbsp;&nbsp;
+					</small>
 				</td>
 			</tr>
 			<tr>
