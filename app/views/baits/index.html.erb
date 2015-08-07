@@ -20,8 +20,8 @@
                   <div class="caption">
                       <h3><%= link_to bait.name, bait %></h3>
                       <p><%= link_to bait.manufacturer.name, bait.manufacturer  %></p>
-                      <% if !bait.weight.nil? %>
-                      <p><%= bait.weight %> г.</p>
+                      <% if bait.btype=="Колебло" and !bait.weight.nil? %>
+                      <p class="flaticon-pound-sign"><%= bait.weight %> г.</p>
                       <% end %>
                   </div>
                 </div>  
