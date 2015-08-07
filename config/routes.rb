@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     get :autocomplete_place_name, on: :collection
   end
   resources :routes
-  resources :trips
+  resources :trips do  
+    get :autocomplete_trip_name, on: :collection
+  end
   resources :commands
   resources :pictures
   get 'index/index'

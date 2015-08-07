@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  autocomplete :trip, :name, :full => true, :extra_data => [:id]
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   # GET /trips
