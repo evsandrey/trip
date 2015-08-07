@@ -42,7 +42,32 @@
             <%= @user.surname  %>
           </div>
         </div>
-        
+        <% trips = @user.trips %>
+        <% tropheys = @user.trips %>
+
+        <div class="row">
+          <label class="col-lg-3 control-label">Поездок:</label>
+          <div class="col-lg-8">
+            <%= trips.count.to_s  %>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-lg-3 control-label">Трофеев:</label>
+          <div class="col-lg-8">
+            <%= tropheys.count.to_s  %>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="col-lg-3 control-label">Кг рыбы поймано:</label>
+          <div class="col-lg-8">
+            <%= tropheys.sum(:weight).to_s  %>
+          </div>
+        </div>
+
+
+
       
         
       
@@ -51,13 +76,13 @@
   <div class="row">
          <div class="col-md-4">
          <h4> Поездки:</h4>
-            <% @user.trips.each do |trip| %>
+            <% trips.each do |trip| %>
               <%= small_trip_badge(trip) %>
             <% end %>
          </div>
          <div class="col-md-4">
          <h4>Трофеи:</h4>
-            <% @user.trophy.each do |trophy| %>
+            <% tropheys.each do |trophy| %>
               <%= small_trophy_badge(trophy) %>
             <% end %>
          </div>
