@@ -23,7 +23,7 @@ class Reward < ActiveRecord::Base
 	validates :trip_id, :presence => true
 	
 	has_attached_file :photo,
-	  	styles: { thumb: "50x50#", med: "100x100#", grid: "300x300#"},
+	  	styles: { badge: "20x20#", thumb: "50x50#", med: "100x100#", grid: "300x300#"},
 	  	:path => "trip-site/rewards/:style/:id.:extension",
 	    :storage => :dropbox,
     	:dropbox_visibility => 'public',
