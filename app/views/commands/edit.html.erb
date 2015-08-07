@@ -54,7 +54,14 @@
         </div>
         
         <% @command.users.each do |user| %>
-          <%= small_user_badge(user) %>
+          <div class="row" id="uct_<%= user.id %>">
+          <div class="col-sm-4">
+            <%= small_user_badge(user) %>
+          </div>
+          <div class="col-sm-1">
+            <button style="margin:20px;" onclick="delete_user(<%= @command.id%>,<%= user.id %>)" class="btn btn-danger" >Delete</button>
+          </div>
+          </div>
         <%end%>
         
         </div>
@@ -70,7 +77,7 @@
 
 <script type="text/javascript">
   function add_user(commandid,userid) 
-    {
+  {
       $.ajax({
           type:'post',
           dataType: 'script',
@@ -83,10 +90,23 @@
         } else {
           alert("Участник уже добавлен, либо он капитан");
         }
-        
       });
-    
-       
+  };
+ function add_user(commandid,userid) 
+    {
+      $.ajax({
+          type:'post',
+          dataType: 'script',
+          url: "/delete_command_user_path.js",
+          data: { command_id: commandid, command_user_id: userid }
+      })
+      .always(function(r) {
+        if (r.responseText != "exist") {
+          $("#uct_"+userid).remove();  
+        } else {
+          alert("Чета пошло не так!!!!");
+        }
+      });
     };
 
 </script>

@@ -77,6 +77,21 @@ class CommandsController < ApplicationController
         end
       end
   end
+  def delete_user
+     @command = Command.find(params[:command_id])
+     @user = User.find(params[:command_user_id])
+     if @command.users.delete(@user) 
+         if @command.save
+            respond_to do |format|
+              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+            end
+          end
+      else
+        respond_to do |format|
+          format.js { render "error", :text => "exist" }
+        end
+      end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

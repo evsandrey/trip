@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post "add_user_path", to: "trips#add_user"
   post "delete_user_path", to: "trips#delete_user"
   post "add_command_user_path", to: "commands#add_user"
+  post "delete_command_user_path", to: "commands#delete_user"
   post "select_place_path", to: "trips#select_place"
   post "create_trophy_path", to: "trips#create_trophy"
 
