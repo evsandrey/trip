@@ -28,16 +28,16 @@
                   </div>
                   <div class="modal-footer" style="text-align: left">
                   <div class="row">
-                    <div class="col-md-4 text-center"><b><%= trip.users.count+1 %></b><br/><small><i class="flaticon-user168"></i></small></div>
-                    <div class="col-md-4 text-center"><b><%= trip.trophy.count %></b><br/><small><i class="flaticon-fish52"></i></small></div>
+                    <div class="col-md-3 text-center"><b><%= trip.users.count+1 %></b><br/><small><i class="flaticon-user168"></i></small></div>
+                    <div class="col-md-3 text-center"><b><%= trip.trophy.count %></b><br/><small><i class="flaticon-fish52"></i></small></div>
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
                     <% endDate = trip.edate %>
                     <div class="col-md-4 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><i class="flaticon-calentar"></div>
                     <% else %>
-                    <div class="col-md-4 text-center"><b>?</b><br/><small><i class="flaticon-calentar"></small></div>
+                    <div class="col-md-3 text-center"><b>?</b><br/><small><i class="flaticon-calentar"></i></small></div>
                     <% end %>
-                  
+                    <div class="col-md-3 text-center"><b><%= trip.pictures.count %></b><br/><small><i class="flaticon-picture64"></i></small></div>
                 </div>  
               </li>
             <% end %>
