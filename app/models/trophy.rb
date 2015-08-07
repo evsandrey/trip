@@ -12,6 +12,7 @@
 #  bait_id    :integer
 #  lat        :decimal(10, 6)
 #  lng        :decimal(10, 6)
+#  proof_id   :integer
 #
 
 class Trophy < ActiveRecord::Base

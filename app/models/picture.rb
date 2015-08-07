@@ -15,6 +15,8 @@
 #  photo_meta         :text
 #  lat                :decimal(10, 6)
 #  lng                :decimal(10, 6)
+#  pprivate           :boolean          default(FALSE)
+#  ord                :integer          default(1000)
 #
 
 class Picture < ActiveRecord::Base

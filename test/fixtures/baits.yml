@@ -16,7 +16,8 @@
 #  depth              :float
 #  size               :integer
 #  number             :integer
-#  type               :string
+#  btype              :string
+#  isize              :float
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

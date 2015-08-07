@@ -16,7 +16,8 @@
 #  depth              :float
 #  size               :integer
 #  number             :integer
-#  type               :string
+#  btype              :string
+#  isize              :float
 #
 
 require 'test_helper'
