@@ -22,9 +22,9 @@
                       <p><%= link_to bait.manufacturer.name, bait.manufacturer  %></p>
                       <% if bait.btype=="Колебло" and !bait.weight.nil? %>
                       <p class="flaticon-lab4">&nbsp;&nbsp;<%= bait.weight %> г.</p>
-                      <% else if bait.btype=="Воблер" and !bait.depth.nil? %>
+                      <% elsif bait.btype=="Воблер" and !bait.depth.nil? %>
                       <p class="flaticon-lab4">&nbsp;&nbsp;<%= bait.depth %> м.</p>
-                      <% else if bait.btype=="Резина" and !bait.depth.nil? %>
+                      <% elsif bait.btype=="Резина" and !bait.depth.nil? %>
                       <p class="flaticon-resizing4">&nbsp;&nbsp;<%= bait.isize %>"</p>
                       <% end %>
                   </div>
