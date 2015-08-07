@@ -41,6 +41,7 @@
  
 function initialize()
 {
+    var markers = [];
     var bounds = new google.maps.LatLngBounds();
     var mapProp = {
         zoom:5,
@@ -57,15 +58,14 @@ function initialize()
         var latLng = new google.maps.LatLng(data.lat, data.lng); 
         // Creating a marker and putting it on the map
         var marker = new google.maps.Marker({
-            
             position: latLng,
-            map: map,
             icon: icon
         });
+        markers.push(marker);
         bounds.extend(marker.getPosition());
         bindInfoWindow(marker, map, infowindow, data.description);
     } 
-    var mc = new MarkerClusterer(map);
+    var mc = new MarkerClusterer(map,markers);
     map.fitBounds(bounds);
     
 }
