@@ -90,7 +90,7 @@ class TripsController < ApplicationController
      if @trip.users.delete(@user)
         if @trip.save
             respond_to do |format|
-              format.js { render partial: "shared/smallbadge", locals: { user: @user } }
+              format.js { render "success", :text => "deleted" }
             end
           end
       else
