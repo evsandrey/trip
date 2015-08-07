@@ -2,7 +2,7 @@
 			<tr style="height:50%;">
 				<td rowspan="3" style="width:50px;">
 					<a class="pull-left" href="<%= %>">
-		                <img class="media-object" src="<%= trip.cover.url(:thumb) %>" style="width: 50px;height:50px;">
+		                <img class="media-object img-thumbnail" src="<%= trip.cover.url(:thumb) %>" style="width: 50px;height:50px;">
 		            </a>
 		        </td>
 				<td>
@@ -12,7 +12,7 @@
 			<tr>
 				<td>
 					<small style="font-size:50%;">
-                    &nbsp;:&nbsp;&nbsp;:&nbsp;<i class="flaticon-user168"></i>&nbsp;:&nbsp;<b><%= trip.users.count+1 %></b> &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;<i class="flaticon-user168"></i>&nbsp;:&nbsp;<b><%= trip.users.count+1 %></b> &nbsp;&nbsp;
                     <i class="flaticon-fish52"></i>&nbsp;:&nbsp;<b><%= trip.trophy.count %></b>&nbsp;&nbsp;
                     <% if !trip.sdate.nil? & !trip.edate.nil? %>
                     <% beginDate = trip.sdate %>
