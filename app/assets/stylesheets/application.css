@@ -146,33 +146,64 @@ body {
         margin-left: 0px;
         }
 
-.flaticon-fish52:before {
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+    font-family: Flaticon;
+    font-style: normal;
+}
+
+.flaticon-calentar:before {
     content: "\e000";
 }
-.flaticon-fisher4:before {
+.flaticon-fish2:before {
     content: "\e001";
 }
-.flaticon-food27:before {
+.flaticon-fish52:before {
     content: "\e002";
 }
-.flaticon-lab4:before {
+.flaticon-fish58:before {
     content: "\e003";
 }
-.flaticon-map49:before {
+.flaticon-fish65:before {
     content: "\e004";
 }
-.flaticon-meters1:before {
+.flaticon-fish70:before {
     content: "\e005";
 }
-.flaticon-pound-sign:before {
+.flaticon-fisher4:before {
     content: "\e006";
 }
-.flaticon-resizing4:before {
+.flaticon-food27:before {
     content: "\e007";
 }
-.flaticon-user168:before {
+.flaticon-islam59:before {
     content: "\e008";
 }
-.flaticon-weight11:before {
+.flaticon-judaism34:before {
     content: "\e009";
+}
+.flaticon-map49:before {
+    content: "\e00a";
+}
+.flaticon-meters1:before {
+    content: "\e00b";
+}
+.flaticon-picture64:before {
+    content: "\e00c";
+}
+.flaticon-pound-sign:before {
+    content: "\e00d";
+}
+.flaticon-reindeer4:before {
+    content: "\e00e";
+}
+.flaticon-resizing4:before {
+    content: "\e00f";
+}
+.flaticon-user168:before {
+    content: "\e010";
+}
+.flaticon-weight11:before {
+    content: "\e011";
 }
