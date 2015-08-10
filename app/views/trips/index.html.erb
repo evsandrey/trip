@@ -27,18 +27,28 @@
                       <% end %>
                   </div>
                   <div class="modal-footer" style="text-align: left">
-                  <div class="row">
-                    <div class="col-sm-3 text-center"><b><%= trip.users.count+1 %></b><br/><small><i class="flaticon-user168"></i></small></div>
-                    <div class="col-sm-3 text-center"><b><%= trip.trophy.count %></b><br/><small><i class="flaticon-fish52"></i></small></div>
-                    <% if !trip.sdate.nil? & !trip.edate.nil? %>
-                    <% beginDate = trip.sdate %>
-                    <% endDate = trip.edate %>
-                    <div class="col-sm-3 text-center"><b><%= (endDate-beginDate).to_i %></b><br/><i class="flaticon-calentar"></i></div>
-                    <% else %>
-                    <div class="col-sm-3 text-center"><b>?</b><br/><small><i class="flaticon-calentar"></i></small></div>
-                    <% end %>
-                    <div class="col-sm-3 text-center"><b><%= trip.pictures.count %></b><br/><small><i class="flaticon-picture64"></i></small></div>
-                </div>  
+                  <table>
+                    <tr>
+                      <td><b><%= trip.users.count+1 %></b></td>
+                      <td><b><%= trip.trophy.count %></b></td>
+                      <td>
+                        <% if !trip.sdate.nil? & !trip.edate.nil? %>
+                          <% beginDate = trip.sdate %>
+                          <% endDate = trip.edate %>
+                          <b><%= (endDate-beginDate).to_i %></b></div>
+                        <% else %>
+                          <b>?</b>
+                        <% end %>
+                      </td>
+                      <td><%= trip.pictures.count %></td>
+                    </tr>
+                    <tr>
+                      <td><small><i class="flaticon-user168"></i></small></td>
+                      <td><small><i class="flaticon-fish52"></i></small></td>
+                      <td><i class="flaticon-calentar"></i></td>
+                      <td><small><i class="flaticon-picture64"></i></small></td>
+                    </tr>
+                </table>  
               </li>
             <% end %>
         </ul>  
