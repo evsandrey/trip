@@ -19,7 +19,7 @@
       </span>
     </td>
     <td>
-      <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock" style="min-width:100%;">
+      <div id="comment_<%= comment.id.to_s %>_div" class="comment " style="min-width:100%;">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
       <img  class="img-circle" src="<%= avatar %>" />
@@ -40,7 +40,7 @@
   <div id="comment_<%= comment.id.to_s %>_middle_div" class="comment_div">
     
     
-    <div id="comment_<%= comment.id.to_s %>_body_div" class="comment_body">
+    <div id="comment_<%= comment.id.to_s %>_body_div" class="comment_body fblock">
       <%= render :partial => 'commontator/comments/body',
                  :locals => { :comment => comment } %>
     </div>
