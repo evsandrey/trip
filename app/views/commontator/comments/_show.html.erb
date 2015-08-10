@@ -19,12 +19,12 @@
       </span>
     </td>
     <td>
-      <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock">
+      <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock" style="min-width:100%;">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
       <img  class="img-circle" src="<%= avatar %>" />
       &nbsp;&nbsp;<%= link.blank? ? name : link_to(name, link) %>
-      <small> 
+      <small style="color:white;"> 
         <%= comment.created_timestamp %> 
         <% if comment.is_modified? %>
         <%= comment.updated_timestamp %>
