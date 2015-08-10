@@ -11,6 +11,7 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+    commontator_thread_show(@trip)
   end
 
   # GET /trips/new

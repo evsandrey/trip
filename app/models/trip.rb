@@ -20,6 +20,8 @@
 #
 
 class Trip < ActiveRecord::Base
+	acts_as_commontable
+
 	has_and_belongs_to_many :users, :uniq => true, :join_table => :users_trips
 	has_one :route
 	belongs_to :place
