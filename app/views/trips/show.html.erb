@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-4 text-center ">
           <% if !@trip.place.nil? %>
-          <%= link_to image_tag(@trip.place.pcover.url(:med), size: "100x100", alt: @trip.place.name ), @trip.place %>
+          <%= link_to image_tag(@trip.place.pcover.url(:med), size: "100x100", alt: @trip.place.name, :class => "img-rounded" ), @trip.place %>
           <br>
           <%= link_to @trip.place.name, @trip.place %>
           <% else %>
