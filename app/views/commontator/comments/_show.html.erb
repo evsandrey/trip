@@ -9,6 +9,11 @@
    avatar = Commontator.commontator_avatar(creator, self) || ''
 %>
 
+<span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
+      <%= render :partial => 'commontator/comments/votes',
+                 :locals => { :comment => comment,
+                              :user => user } %>
+</span>
 <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
@@ -29,11 +34,7 @@
   </div>
   <div id="comment_<%= comment.id.to_s %>_middle_div" class="comment_div">
     
-    <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
-      <%= render :partial => 'commontator/comments/votes',
-                 :locals => { :comment => comment,
-                              :user => user } %>
-    </span>
+    
     <div id="comment_<%= comment.id.to_s %>_body_div" class="comment_body">
       <%= render :partial => 'commontator/comments/body',
                  :locals => { :comment => comment } %>
