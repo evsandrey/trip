@@ -21,19 +21,21 @@
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
       <h3>Персональные данные:</h3>
-      
+      <br>
         <div class="row">
           <label class="col-lg-3 control-label">Ник:</label>
           <div class="col-lg-8">
             <%= f.text_field :nickname, :class => 'form-control', :placeholder => @user.nickname  %>
           </div>
         </div>
+        <br>
         <div class="row">
           <label class="col-lg-3 control-label">Имя:</label>
           <div class="col-lg-8">
             <%= f.text_field :name, :class => 'form-control', :placeholder => @user.name  %>
           </div>
         </div>
+        <br>
         <div class="row">
           <label class="col-lg-3 control-label">Фамилия:</label>
           <div class="col-lg-8">
@@ -41,17 +43,19 @@
           </div>
         </div>
         <div class="row">
+        <br>
           <label class="col-lg-3 control-label">Адрес:</label>
           <div class="col-lg-8">
             
           </div>
         </div>
+        <br>
         <div class="row">
           <label class="col-lg-3 control-label">Страна:</label>
           <div class="col-lg-8">
                  </div>
         </div>
-        
+        <br>
         <div class="row">
           <label class="col-lg-3 control-label"><%= f.label :email %></label>
           <div class="col-lg-8">
@@ -59,14 +63,14 @@
             
           </div>
         </div>
-        
+        <br>
         <div class="row">
           <label class="col-lg-3 control-label">Пароль:</label>
           <div class="col-lg-8">
             <%= f.password_field :current_password, autocomplete: "off" , :class => 'form-control'%>
           </div>
         </div>
-        
+        <br>
         <div class="row">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
