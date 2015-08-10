@@ -18,7 +18,7 @@
                   <div style="padding:4px">
                       <%= link_to image_tag(trip.cover.url(:med),class: "img-thumbnail", height: "150", width: "150", style: "width: 100%"),trip %>
                   </div>
-                  <div class="caption">
+                  <div class="caption ">
                       <h4><%= link_to trip.name.truncate(27), trip %></h4>
                       <% if !trip.place.nil? %>
                         <p><i class="flaticon-map49"></i>&nbsp;&nbsp; <%= link_to trip.place.name, trip.place %></p>
@@ -27,7 +27,7 @@
                       <% end %>
                   </div>
                   <div class="modal-footer" style="text-align: left">
-                  <table style="min-width:100%;">
+                  <table class="text-center" style="min-width:100%;">
                     <tr>
                       <td><b><%= trip.users.count+1 %></b></td>
                       <td><b><%= trip.trophy.count %></b></td>
