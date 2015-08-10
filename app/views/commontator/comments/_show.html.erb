@@ -9,12 +9,17 @@
    avatar = Commontator.commontator_avatar(creator, self) || ''
 %>
 
-<span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
+<table>
+  <tr>
+    <td width="50">
+      <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
       <%= render :partial => 'commontator/comments/votes',
                  :locals => { :comment => comment,
                               :user => user } %>
-</span>
-<div id="comment_<%= comment.id.to_s %>_div" class="comment fblock">
+      </span>
+    </td>
+    <td>
+      <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
       <img  class="img-circle" src="<%= avatar %>" />
@@ -45,3 +50,9 @@
   
   </div>
 </div>
+    </td>
+  </tr>
+</table>
+
+
+
