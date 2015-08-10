@@ -5,7 +5,7 @@
 #       "return" in a lambda is OK
 Commontator.configure do |config|
   # Engine Configuration
-
+  include ActionView::Helpers
   # current_user_proc
   # Type: Proc
   # Arguments: the current controller (ActionController::Base)
