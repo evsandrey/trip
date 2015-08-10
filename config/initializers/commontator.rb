@@ -5,7 +5,7 @@
 #       "return" in a lambda is OK
 Commontator.configure do |config|
   # Engine Configuration
-  include ActionView::Helpers
+
   # current_user_proc
   # Type: Proc
   # Arguments: the current controller (ActionController::Base)
@@ -64,7 +64,7 @@ Commontator.configure do |config|
   # Default: lambda { |user, view|
   #            view.commontator_gravatar_image_tag(
   #              user, 1, :s => 60, :d => 'mm') }
-  config.user_avatar_proc = lambda { |user, view| image_tag(user.avatar.url(:thumb)) }
+  config.user_avatar_proc = lambda { |user, view| user.avatar.url(:thumb) }
 
   # user_email_proc
   # Type: Proc
