@@ -50,16 +50,14 @@
     </div>
   </div>
   <div class="col-md-4">
-    <div class="row"><h2></h2></div>
-      <div class="row">
-          <table class="table">
-            <tbody>
-              
-              
-              
-            </tbody>
-          </table>
-      </div>
+    <div class="row"><h2>Приманки</h2></div>
+    <div class="row">
+      <% @manufacturer.baits.each do |bait|%>
+        <%= small_bait_badge(bait) %>
+      <% end %>
+    </div>
+
+      
   </div>
 </div>
 </div>
