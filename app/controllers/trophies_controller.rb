@@ -12,6 +12,7 @@ class TrophiesController < ApplicationController
   # GET /trophies/1
   # GET /trophies/1.json
   def show
+    commontator_thread_show(@trophy)
   end
 
   # GET /trophies/new
