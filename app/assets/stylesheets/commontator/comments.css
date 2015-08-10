@@ -3,9 +3,6 @@
   font-weight: normal;
   font-style: normal;
 
-  border-top: 1px solid;
-  border-left: 1px solid;
-  
   margin-top: 15px;
   margin-bottom: 15px;
 
@@ -15,7 +12,7 @@
   padding-right: 10px;
 
   color: #000;
-  border-color: #DDD;
+  
   background-color: #FFF;
   
   clear: both;

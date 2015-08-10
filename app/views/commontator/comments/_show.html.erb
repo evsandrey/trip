@@ -9,7 +9,7 @@
    avatar = Commontator.commontator_avatar(creator, self) || ''
 %>
 
-<table>
+<table style="min-width:100%;">
   <tr>
     <td width="50" style="vertical-align:top;">
       <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
@@ -19,7 +19,7 @@
       </span>
     </td>
     <td>
-      <div id="comment_<%= comment.id.to_s %>_div" class="comment " style="min-width:100%;">
+  <div id="comment_<%= comment.id.to_s %>_div" class="comment " >
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
       <img  class="img-circle" src="<%= avatar %>" />
