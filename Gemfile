@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Sorting gem
 gem 'ransack'
 
+#Comments gem
+gem 'commontator', '~> 4.10.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

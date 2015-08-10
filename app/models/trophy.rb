@@ -16,6 +16,8 @@
 #
 
 class Trophy < ActiveRecord::Base
+	acts_as_commontable
+	
 	belongs_to :user
 	belongs_to :trip
 	belongs_to :fish

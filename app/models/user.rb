@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   ROLES = %i[admin moderator user banned]
+  acts_as_commontator
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
