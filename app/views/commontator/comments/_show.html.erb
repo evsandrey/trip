@@ -12,7 +12,7 @@
 <div id="comment_<%= comment.id.to_s %>_div" class="comment fblock">
   <div id="comment_<%= comment.id.to_s %>_top_div" class="comment_div">
     <span id="comment_<%= comment.id.to_s %>_commontator_span" class="comment_commontator">
-      <%= link.blank? ? name : link_to(name, link) %>
+      <img src="<%= avatar %>" /><%= link.blank? ? name : link_to(name, link) %>
     </span>
     <span id="comment_<%= comment.id.to_s %>_actions_span" class="comment_actions">
       <%= render :partial => 'commontator/comments/actions',
@@ -21,9 +21,7 @@
     </span>
   </div>
   <div id="comment_<%= comment.id.to_s %>_middle_div" class="comment_div">
-    <span id="comment_<%= comment.id.to_s %>_avatar_span" class="comment_avatar">
-      <img src="<%= avatar %>" />
-    </span>
+    
     <span id="comment_<%= comment.id.to_s %>_votes_span" class="comment_votes">
       <%= render :partial => 'commontator/comments/votes',
                  :locals => { :comment => comment,
