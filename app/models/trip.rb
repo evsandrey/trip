@@ -27,7 +27,7 @@ class Trip < ActiveRecord::Base
 	belongs_to :place
 	has_many :pictures, dependent: :destroy
 	has_many :trophy, dependent: :destroy
-	
+	has_many :rewards
 	validates :captain, :presence => true
 	validates :description, :presence => true
 	validates :name, :presence => true
