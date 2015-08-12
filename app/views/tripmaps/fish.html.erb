@@ -12,7 +12,7 @@
             <h4>Рыба</h4>
             <%= f.collection_select :fish_id_eq, Fish.all, :id, :name, { prompt: "Выберите рыбу.."}, {class: "form-control"} %>
             <h4>Тип приманки</h4>
-            <%= f.collection_select :bait_btype_in, Bait::TYPES, :to_s, :to_s, {},{ :multiple => true } %>
+            <%= f.collection_select :bait_btype_in, Bait::TYPES,{class: "form-control selectpicker"},{ :multiple => true } %>
             <h4>Вес</h4>
             <div class="row">
               <div class="col-xs-6 ">
