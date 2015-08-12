@@ -94,6 +94,11 @@
        <% @trip.trophy.each do |trophy| %>
           <%= small_trophy_badge(trophy) %>
         <% end %>
+      <br>
+      <h4>&nbsp;Награды:</h4>
+       <% @trip.rewards.each do |reward| %>
+          <%= small_reward_badge(reward) %>
+        <% end %>
     </div>
   </div>
 

@@ -13,6 +13,10 @@ module ApplicationHelper
 		render partial: "shared/smalltrip", locals: { trip: trip }
 	end
 
+	def small_reward_badge(reward)
+		render partial: "shared/smallreward", locals: { reward: reward }
+	end
+
 	def gallery_parse(text)
 		galleries=text.scan(/image_block(\([^\)]*\))/)
 		rt = text

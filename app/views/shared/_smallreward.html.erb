@@ -1,0 +1,13 @@
+		<table>
+			<tr>
+				<td >
+					<a class="pull-left" href="<%= reward_path(reward.id) %>">
+		                <img class="media-object dp img-circle" src="<%= reward.photo.url(:thumb) %>" style="width: 50px;height:50px;">
+		            </a>
+		        </td>
+				<td>
+					<h4>&nbsp;&nbsp; <%= link_to reward.place.name, reward.place %></h4>
+				</td>
+			</tr>
+			
+		</table> 
