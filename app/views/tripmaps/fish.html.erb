@@ -10,7 +10,7 @@
       <div class="panel-body">  
         <%= search_form_for(@q,url: tripmaps_fish_path) do |f| %>
             <h4>Рыба</h4>
-            <%= f.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true,{ class: "form-control"} %>
+            <%= f.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true, class: "form-control" %>
             <h4>Тип приманки</h4>
             <%= f.collection_select :bait_btype_in, Bait::TYPES, :to_s, :to_s, {},{ :multiple => true } %>
             <h4>Вес</h4>
