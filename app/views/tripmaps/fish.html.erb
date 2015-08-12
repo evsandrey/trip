@@ -10,7 +10,7 @@
       <div class="panel-body">  
         <%= search_form_for @q do |f| %>
             <h4>Рыба</h4>
-            <%= form.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true %>
+            <%= f.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true %>
             
             <h4>Bait type</h4>
             <%= f.collection_select :bait_btype_in, Profile::SUBJECT_VALUES, :to_s, :to_s, {}, { :multiple => true } %>
