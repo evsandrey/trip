@@ -1,8 +1,56 @@
 <div class="page-header">
   <h1>Карта трофеев</h1>
 </div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row fblock" id="map" style='height: 600px;'>
+  </div>
+  <div class="col-md-4">
+    <div class="content-panel">
+      <div class="panel-body">  
+        <%= search_form_for @search do |f| %>
+            <h4>Рыба</h4>
+            <%= form.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true %>
+            
+            <h4>Bait type</h4>
+            <%= f.collection_select :bait_btype_in, Profile::SUBJECT_VALUES, :to_s, :to_s, {}, { :multiple => true } %>
+            <h4>Pull</h4>
+            <div class="row">
+              <div class="col-xs-6 ">
+                <div class="row">
+                  <div class="col-xs-4 center-y">
+                    From
+                  </div>
+                  <div class="col-xs-8">
+                    <%= f.text_field :weight_gteq, :class => "form-control input-sm" %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6">
+               <div class="row">
+                 <div class="col-xs-4 center-y">
+                    to
+                </div>
+                <div class="col-xs-8">
+                    <%= f.text_field :weight_lteq, :class => "form-control input-sm" %>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+          
+      </div>
+      <div class="btn-boxc">
+            <%= f.submit "Search", :class => "btn btn-primary btn-search" %>
+      </div>
+        <% end %>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
 
-<div class="row fblock" id="map" style='height: 800px;'>
 
 <script type="text/javascript">
         <% h = Hash.new { |h,k| h[k] = [] } %>
