@@ -54,7 +54,7 @@
 
 <script type="text/javascript">
         <% h = Hash.new { |h,k| h[k] = [] } %>
-        <% @trophyes.each do |trophy| %>
+        <% @trophies.each do |trophy| %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][0]= trophy.id %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][1]= trophy.lat %>
            <% h[trophy.lat.to_s+trophy.lng.to_s][2]= trophy.lng %>
