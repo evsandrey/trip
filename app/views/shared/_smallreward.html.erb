@@ -1,13 +1,20 @@
-		<table>
-			<tr>
-				<td >
+		<table class="userbadge thumbnail">
+			<tr style="height:50%;">
+				<td rowspan="2" style="width:50px;">
 					<a class="pull-left" href="<%= reward_path(reward.id) %>">
-		                <img class="media-object dp img-circle" src="<%= reward.photo.url(:thumb) %>" style="width: 50px;height:50px;">
+		                <img class="media-object" src="<%= reward.photo.url(:thumb) %>" style="width: 50px;height:50px;">
 		            </a>
 		        </td>
 				<td>
-					<h4>&nbsp;&nbsp; <%= link_to reward.name, reward %></h4>
+					<p>&nbsp;&nbsp; <%= link_to reward.name , reward %>&nbsp;-&nbsp;
+					
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				      <small>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to reward.user.name, reward.user %></small>
 				</td>
 			</tr>
 			
-		</table> 
+		</table>
