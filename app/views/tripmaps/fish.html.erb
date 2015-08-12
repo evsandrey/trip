@@ -8,7 +8,7 @@
   <div class="col-md-4">
     <div class="content-panel">
       <div class="panel-body">  
-        <%= search_form_for @q do |f| %>
+        <%= search_form_for(@q,url: tripmaps_fish_path) do |f| %>
             <h4>Рыба</h4>
             <%= f.collection_select :fish_id_eq, Fish.all, :id, :name, include_blank: true,:class => "form-control input-sm" %>
             
