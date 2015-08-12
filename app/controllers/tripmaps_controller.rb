@@ -5,7 +5,7 @@ class TripmapsController < ApplicationController
 
   def fish
   	@q = Trophy.ransack(params[:q])
-    @trophies = @q.result(distinct: true).includes(:fish, :bait, :trip).paginate(:page => params[:page], :per_page => 20)
+    @trophies = @q.result(distinct: true).includes(:fish, :bait, :trip)
   end
 
   def pictures
