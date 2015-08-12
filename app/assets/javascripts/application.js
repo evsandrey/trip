@@ -22,4 +22,5 @@
 //= require pickers
 //= require underscore
 //= require gmaps/google
+//= require bootstrap-select
 //= require_tree .
