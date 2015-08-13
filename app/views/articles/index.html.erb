@@ -1,15 +1,17 @@
 <div class="page-header">
   <%= link_to new_article_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Article
+    Новая статья
   <% end %>
-  <h1>Listing articles</h1>
+  <h1></h1>
 </div>
 
+<% @articles.each do |article| %>
 <div class="row">
   <H2><%= article.name %></H2>>
   <p><td><%= article.text %><%= link_to 'Show', article %></td></p>
   <p><%= article.user.name %></p>
 </div>
+<% end %>
 
 
