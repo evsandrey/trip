@@ -7,17 +7,22 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1><%= @article.name %></h1>
+  <h1></h1>
 </div>
 <div class="container">
   <div class="row">
-    <%= raw(@article.text)%>
+    <div class="row">
+      <%= @article.name %>
+    </div>
+    <div class="row fblock">
+      <%= raw(@article.text)%>
+    </div>
   </div>
   <div class="row">
     <%= small_user_badge(@article.user) %>
   </div>
   <div class="row">
-  TBD:comments
+  <%= commontator_thread(@article) %>
   </div>
   
 </div>

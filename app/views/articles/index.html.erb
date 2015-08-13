@@ -8,11 +8,11 @@
 
 <% @articles.each do |article| %>
 <div class="row">
-  <H2><%= article.name %></H2>
+  <H2><%= link_to article.name,article  %></H2>
   <p>
   <%= raw(article.text.slice(0..(article.text.index('<!-- pagebreak -->')))) %> <%= link_to 'Show', article %>
   </p>
-  <p><%= article.user.name %></p>
+  <p><%= small_user_badge(article.user) %></p>
 </div>
 <% end %>
 

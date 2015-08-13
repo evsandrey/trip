@@ -11,5 +11,7 @@
 #
 
 class Article < ActiveRecord::Base
+	acts_as_commontable
+
 	belongs_to :user
 end
