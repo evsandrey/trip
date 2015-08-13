@@ -4,7 +4,7 @@ class RewardsController < ApplicationController
   # GET /rewards
   # GET /rewards.json
   def index
-    @rewards = Reward.all
+    @rewards = Reward.all.order(importance: :desc)
   end
 
   # GET /rewards/1
