@@ -11,7 +11,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="container">
   <div class="form-group">
       <%= f.number_field :user_id, class: "hidden", value: current_user.id %>
     </div>
@@ -35,7 +35,7 @@
     </div>
   </div>
 <% end %>
-
+</div>
 <script type="text/javascript">
   function SubmitForm() {
         tinyMCE.triggerSave();
