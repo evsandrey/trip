@@ -12,14 +12,16 @@
 <div class="container">
   <div class="row">
     <div class="row">
-      <h2><%= @article.name %></h2>
+    <div class="col-sm-8"><h2><%= @article.name %></h2></div>
+    <div class="col-sm-4"><%= small_user_badge(@article.user) %></div>
+      
     </div>
     <div class="row fblock">
       <%= raw(@article.text)%>
     </div>
   </div>
   <div class="row">
-    <%= small_user_badge(@article.user) %>
+    
   </div>
   <div class="row">
   <%= commontator_thread(@article) %>
