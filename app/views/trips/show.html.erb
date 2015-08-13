@@ -96,7 +96,7 @@
         <% end %>
       <br>
       <h4>&nbsp;Награды:</h4>
-       <% @trip.rewards.order(importance: :asc).each do |reward| %>
+       <% @trip.rewards.order(importance: :desc).each do |reward| %>
           <%= small_reward_badge(reward) %>
         <% end %>
     </div>
