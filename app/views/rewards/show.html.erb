@@ -3,24 +3,63 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
+ <% if can? :update, @reward %>
   <%= link_to edit_reward_path(@reward), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
+  <% end %>
   <h1>Show reward</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>User:</dt>
-  <dd><%= @reward.user_id %></dd>
 
-  <dt>Trip:</dt>
-  <dd><%= @reward.trip_id %></dd>
 
-  <dt>Name:</dt>
-  <dd><%= @reward.name %></dd>
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <h2><%= @reward.name %></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbframe">
+            <%= image_tag @reward.photo.url(:slide), style: "width:100%;" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+        <table class="table">
+              <tbody>
+              <tr>
+                <td>
+                  Поездка:
+                </td>
+                <td>
+                  <%= link_to @reward.trip.name, @reward.trip  %>
+                </td>
+              </tr>
+            </tbody>
+           </table>
+           <%= small_user_badge(@trophy.user) %>
+      </div>
+    </div>
+    </div>
+    <div class="row fblock" style='height: 200px;'>
+        <%= @reward.description %>
+    </div>
+    </div>
+    
+    
 
-  <dt>Description:</dt>
-  <dd><%= @reward.description %></dd>
-
-</dl>
+      <div class="col-md-4">
+        <div class="row">
+            <table class="table">
+              <tbody>
+                
+                
+                
+              </tbody>
+            </table>
+        </div>
+      </div>
+</div>
