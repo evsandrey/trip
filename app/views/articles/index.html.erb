@@ -9,7 +9,7 @@
 <% @articles.each do |article| %>
 <div class="row">
   <H2><%= article.name %></H2>>
-  <p><td><%= article.text.safe_html.truncate(800) %><%= link_to 'Show', article %></td></p>
+  <p><td><%= article.text.html_safe.truncate(800) %><%= link_to 'Show', article %></td></p>
   <p><%= article.user.name %></p>
 </div>
 <% end %>
