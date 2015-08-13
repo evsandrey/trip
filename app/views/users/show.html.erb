@@ -44,6 +44,8 @@
         </div>
         <% trips = @user.trips %>
         <% tropheys = @user.trophy %>
+        <% rewards = @user.rewards %>
+
 
         <div class="row">
           <label class="col-lg-3 control-label">Поездок:</label>
@@ -87,6 +89,10 @@
             <% end %>
          </div>
          <div class="col-md-4">
+          <h4>Награды:</h4>
+            <% rewards.each do |reward| %>
+              <%= small_reward_badge(reward) %>
+            <% end %>
          </div>
         </div>
 </div>
