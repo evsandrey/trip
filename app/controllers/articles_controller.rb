@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    commontator_thread_show(@article)
   end
 
   # GET /articles/new
