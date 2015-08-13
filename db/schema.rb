@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810134746) do
+ActiveRecord::Schema.define(version: 20150813112533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20150810134746) do
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "text"
   end
 
   create_table "baits", force: :cascade do |t|
@@ -153,12 +153,13 @@ ActiveRecord::Schema.define(version: 20150810134746) do
     t.integer  "trip_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "importance",         default: 0
   end
 
   create_table "routes", force: :cascade do |t|
