@@ -8,11 +8,17 @@
 
 <% @articles.each do |article| %>
 <div class="row">
-  <H2><%= link_to article.name,article  %></H2>
-  <p>
-  <%= raw(article.text.slice(0..(article.text.index('<!-- pagebreak -->')))) %> <%= link_to 'Show', article, :class =>"btn btn-primary" %>
-  </p>
-  <p><%= small_user_badge(article.user) %></p>
+  <div class="row">
+    <div class="col-sm-6"><H2><%= link_to article.name,article  %></H2></div>
+    <div class="col-sm-6"><%= small_user_badge(article.user) %></div>
+  </div>
+  <div class="row fblock">
+    <%= raw(article.text.slice(0..(article.text.index('<!-- pagebreak -->')-1))) %>
+  </div>
+  <div class="row">
+    <%= link_to 'Читать', article, :class =>"btn btn-primary" %>
+  </div>
+  
 </div>
 <% end %>
 
