@@ -24,9 +24,8 @@ class FishController < ApplicationController
   end
   def json
     @fish = Fish.order(name: :asc).all
-    respond_to do |format|
-      render :json => @fish.to_json(:only => [:id,:name], :methods => [:photo_url])
-    end
+    render :json => @fish.to_json(:only => [:id,:name], :methods => [:photo_url])
+    
   end  
   def photo_url
         photo.url(:medium)
