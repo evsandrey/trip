@@ -22,13 +22,18 @@ class FishController < ApplicationController
   # GET /fish/1/edit
   def edit
   end
+  
   def json
+    render :json => @fish.as_json(:only => [:first_name, :state])
+  end  
+
+  def as_json 
     super(:only => [:id,:name],
         :include => {
           :photo => {:only => [:url]}
         }
-  )
-  end  
+    )
+  end
   
   def photo_url
     photo.url(:medium)
