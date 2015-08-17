@@ -28,6 +28,7 @@ class FishController < ApplicationController
       { :id => fish.id, :name => fish.name, :url => fish.photo.url(:med) }
     end
     json = @fishlist.to_json
+    json
   end  
   
   def photo_url
