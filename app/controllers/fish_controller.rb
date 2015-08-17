@@ -23,7 +23,7 @@ class FishController < ApplicationController
   def edit
   end
   def json
-    @fishes = Fish.order(name: :asc).all( :include => :photo )
+    @fishes = Fish.order(name: :asc).all
     @fishlist = @fishes.each do |fish|
       { :id => fish.id, :name => fish.name, :url => fish.photo.url(:med) }
     end
