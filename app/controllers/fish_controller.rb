@@ -22,7 +22,12 @@ class FishController < ApplicationController
   # GET /fish/1/edit
   def edit
   end
-
+  def json
+    @fish = Fish.order(name: :asc).all
+    respond_to do |format|
+      render :json => @fish.to_json(:only => [:id,:name], :methods => [:photo_url])
+    end
+  end  
   def photo_url
         photo.url(:medium)
   end

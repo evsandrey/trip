@@ -41,8 +41,9 @@ Rails.application.routes.draw do
   post "delete_command_user_path", to: "commands#delete_user"
   post "select_place_path", to: "trips#select_place"
   post "create_trophy_path", to: "trips#create_trophy"
-
   post "save_picture_path", to: "pictures#save_picture"
+
+  post "get_fish", to: "fish#json"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
