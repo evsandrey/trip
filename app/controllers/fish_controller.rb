@@ -24,11 +24,11 @@ class FishController < ApplicationController
   end
   
   def json
-    render :json => @fish.as_json(only: [:id, :name],methods: :photo_url)
+    render :json => @fish.as_json(only: [:id, :name], methods: :photo_url)
   end  
 
   def photo_url
-    photo.url(:medium)
+    photo.url(:med)
   end
   
   # POST /fish
