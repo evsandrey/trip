@@ -23,12 +23,11 @@ class FishController < ApplicationController
   def edit
   end
   def json
-    @fishes = Fish.order(name: :asc).all
-    json = {"1" => "1"}
-    @fishes.each do |fish|
-      json = json.merge(fish.to_json(:only => [:id,:name], :methods => [:photo_url]))
+    @fishes = Fish.order(name: :asc).all( :include => :photo )
+    @fishlist = @fishes.each do |fish|
+      { :id => fish.id, :name => fish.name, :url => fish.photo.url(:med) }
     end
-    json
+    json = @fishlist.to_json
   end  
   
   def photo_url
