@@ -12,6 +12,9 @@ class FishController < ApplicationController
   # GET /fish/1
   # GET /fish/1.json
   def show
+    respond_to do |format|
+       render :json => @fish.to_json(:only => [:id,:name], :methods => [:photo_url])
+    end
   end
 
   # GET /fish/new
@@ -23,6 +26,9 @@ class FishController < ApplicationController
   def edit
   end
 
+  def photo_url
+        photo.url(:medium)
+  end
   # POST /fish
   # POST /fish.json
   def create
