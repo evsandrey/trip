@@ -7,6 +7,9 @@ class FishController < ApplicationController
   # GET /fish.json
   def index
     @fish = Fish.order(name: :asc).all
+    respond_to do |format|
+       render :json => @fish.to_json(:only => [:id,:name], :methods => [:photo_url])
+    end
   end
 
   # GET /fish/1
