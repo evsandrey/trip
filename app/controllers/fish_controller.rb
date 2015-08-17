@@ -27,7 +27,7 @@ class FishController < ApplicationController
     render :json => @fish.as_json(:only => [:first_name, :state])
   end  
 
-  def as_json 
+  def as_json(options={})
     super(:only => [:id,:name],
         :include => {
           :photo => {:only => [:url]}
