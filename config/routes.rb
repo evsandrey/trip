@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   post "create_trophy_path", to: "trips#create_trophy"
   post "save_picture_path", to: "pictures#save_picture"
 
-  post "get_fish", to: "fish#json"
+  get "get_fish", to: "fish#json"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
