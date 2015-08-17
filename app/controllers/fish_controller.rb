@@ -23,9 +23,10 @@ class FishController < ApplicationController
   def edit
   end
   def json
-    @fish = Fish.order(name: :asc).all
-    render :json => @fish.to_json(:only => [:id,:name], :nested => true)
-    
+    @fishes = Fish.order(name: :asc).all
+    @fishes.each do |fish|
+      render :json => fish.to_json(:only => [:id,:name], :methods => [:photo_url])
+    end
   end  
   
   def photo_url
