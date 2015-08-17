@@ -24,7 +24,7 @@ class FishController < ApplicationController
   end
   
   def json
-    render :json => @fish.as_json(methods: :photo_url)
+    render :json => @fish.as_json(only: [:id, :name],methods: :photo_url)
   end  
 
   def photo_url
