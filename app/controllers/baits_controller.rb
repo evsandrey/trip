@@ -2,6 +2,7 @@ class BaitsController < ApplicationController
   
   autocomplete :bait, :name, :full => true, :extra_data => [:id]
   load_and_authorize_resource
+  skip_authorize_resource :only => :json
   before_action :set_bait, only: [:show, :edit, :update, :destroy]
   # GET /baits
   # GET /baits.json
@@ -63,7 +64,7 @@ class BaitsController < ApplicationController
     end
   end
   def json
-    render :json => @bait.as_json(only: [:id, :name], methods: :photo_url), :status => 200
+    render :json => @bait.as_json(only: [:id, :name], methods: :photo_url),
   end  
 
   def photo_url
