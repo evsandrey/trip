@@ -12,6 +12,7 @@ class Ability
        else
           can :read, :all
           can :json, Fish
+          can :json, Bait
        end
 
        if user.role == "moderator"

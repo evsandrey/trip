@@ -40,4 +40,8 @@ class Bait < ActiveRecord::Base
     	:dropbox_visibility => 'public',
 	    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+	def photo_url
+    	photo.url(:med)
+  	end
 end
