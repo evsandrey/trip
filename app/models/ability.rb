@@ -11,6 +11,7 @@ class Ability
           can :update, User, attributes: [:role]
        else
           can :read, :all
+          can :json, Fish
        end
 
        if user.role == "moderator"
