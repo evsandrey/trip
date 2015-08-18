@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   post "save_picture_path", to: "pictures#save_picture"
 
   get "get_fish", to: "fish#json"
-  get "get_bait", to: "bait#json"
+  get "get_bait", to: "baits#json"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   
