@@ -1,6 +1,7 @@
 class FishController < ApplicationController
   autocomplete :fish, :name, :full => true, :extra_data => [:id]
   load_and_authorize_resource
+  skip_authorize_resource :only => :json
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
 
   # GET /fish
