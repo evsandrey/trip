@@ -64,7 +64,8 @@ class BaitsController < ApplicationController
     end
   end
   def json
-    render :json => @bait.as_json(only: [:id, :name], methods: :photo_url),
+    @baits = Bait.all
+    render :json => @baits.as_json(only: [:id, :name], methods: :photo_url)
   end  
 
   def photo_url
