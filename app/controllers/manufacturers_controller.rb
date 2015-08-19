@@ -64,7 +64,8 @@ class ManufacturersController < ApplicationController
   end
   
   def json
-    render :json => @manufacturer.as_json(only: [:id, :name], methods: :photo_url), :status => 200
+    @manufacturers = Manufacturer.all
+    render :json => @manufacturers.as_json(only: [:id, :name], methods: :photo_url), :status => 200
   end 
 
   def photo_url
