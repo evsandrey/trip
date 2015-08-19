@@ -1,6 +1,7 @@
 class ManufacturersController < ApplicationController
   autocomplete :manufacturer, :name, :full => true, :extra_data => [:id]
   load_and_authorize_resource
+  skip_authorize_resource :only => :json
   before_action :set_manufacturer, only: [:show, :edit, :update, :destroy]
   # GET /manufacturers
   # GET /manufacturers.json
